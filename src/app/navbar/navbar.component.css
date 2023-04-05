@@ -1,0 +1,28 @@
+/* Modify the background color */
+.navbar-custom {
+    background-color: #1d3e7a;
+}
+
+/* Modify brand and text color */
+.navbar-custom .navbar-brand,
+.navbar-custom .navbar-text {
+    color: #0096ff;
+}
+
+.icon-custom {
+    font-size: xx-large;
+    color: #0096ff;
+    transition: 0.2s ease-in-out;
+}
+.icon-custom:hover {
+    /* 0.2s is the amount of time it take to change colors */
+    transition: 0.2s ease-in-out;
+    color: #ffffff;
+}
+.brand-custom {
+    font-size: x-large;
+    font-weight: bold;
+}
+a:hover {
+    color: #0096ff;
+}

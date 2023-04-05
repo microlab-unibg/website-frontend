@@ -1,0 +1,51 @@
+<nav NgbDropdown class="navbar navbar-expand-lg navbar-dark navbar-custom px-5">
+  <a class="navbar-brand" href="#">
+    <img src="/assets/logos/ulab_logo_small.png" class="me-2" height="40"  
+      alt="INFN Logo" loading="lazy" />
+    <span class="brand-custom">LAB</span>
+  </a>
+  <button NgbDropdownToggle class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" [attr.aria-expanded]="!collapsed" (click)="collapsed = !collapsed">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="navbar-collapse" id="navbarSupportedContent" [class.collapse]="collapsed">
+    <ul class="navbar-nav">
+      <li NgbDropdownItem class="nav-item active">
+        <a class="nav-link" href="#">Research interest</a>
+      </li>
+      <li class="nav-item" ngbDropdown>
+        <a class="nav-link" tabindex="0" ngbDropdownToggle id="navbarDropdown1" role="button"> Projects </a>
+        <div ngbDropdownMenu aria-labelledby="navbarDropdown1" class="dropdown-menu">
+          <a ngbDropdownItem href="#" (click)="$event.preventDefault()">CMS</a>
+          <a ngbDropdownItem href="#" (click)="$event.preventDefault()">GAPS</a>
+          <a ngbDropdownItem href="#" (click)="$event.preventDefault()">Skinmon</a>
+        </div>
+      </li>
+      <li NgbDropdownItem class="nav-item">
+        <a class="nav-link" href="#">People</a>
+      </li>
+      <li NgbDropdownItem class="nav-item">
+        <a class="nav-link" href="#">Papers</a>
+      </li>
+      <li NgbDropdownItem class="nav-item">
+        <a class="nav-link" href="#">Thesis proposals</a>
+      </li>
+    </ul>
+    <ul class="navbar-nav ms-auto">
+      <li class="nav-item">
+        <a aria-label="Write an e-mail to uLab" target="_blank" rel="noopener" href="https://github.com" title="E-mail" class="icon-custom">
+          <i class="bi bi-envelope-at mx-2"></i>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a aria-label="uLab on Github" target="_blank" rel="noopener" href="https://github.com/microlab-unibg" title="Github" class="icon-custom">
+          <i class="bi bi-github bi-icon-custom mx-2"></i>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a aria-label="uLab on Linkedin" target="_blank" rel="noopener" href="https://linkedin.com" title="Linkedin" class="icon-custom">
+          <i class="bi bi-linkedin bi-icon-custom mx-2"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+</nav>
