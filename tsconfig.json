@@ -22,7 +22,20 @@
     "lib": [
       "ES2022",
       "dom"
-    ]
+    ],
+      "paths": { "*": ["types/*"],
+    "@components/*": ["app/components/*"],
+    "@models/*": ["app/models/*"],
+    "@guards/*": ["app/guards/*"],
+    "@components-gf/*": ["app/components/custom/green-factory/*"],
+    "@services/*": ["app/services/*"],
+    "@shared/*": ["app/shared/*"],
+    "@assets/*": ["assets/*"],
+    "@environments/*": ["environments/*"],
+    "@custom/*": ["app/custom/*"],
+    "@directives/*": ["app/directives/*"],
+    "@pipes/*": ["app/pipes/*"]
+    }
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,
