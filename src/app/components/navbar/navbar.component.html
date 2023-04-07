@@ -1,6 +1,6 @@
 <nav NgbDropdown class="navbar navbar-expand-lg navbar-dark navbar-custom px-5">
-  <a class="navbar-brand" href="#">
-    <img src="assets/logos/ulab_logo_small.png" class="me-2" height="40"  
+  <a class="navbar-brand" routerLink="/home">
+    <img src="../../../assets/logos/ulab_logo_small.png" class="me-2" height="40"
       alt="INFN Logo" loading="lazy" />
     <span class="brand-custom">LAB</span>
   </a>
@@ -10,7 +10,7 @@
   <div class="navbar-collapse" id="navbarSupportedContent" [class.collapse]="collapsed">
     <ul class="navbar-nav">
       <li NgbDropdownItem class="nav-item active">
-        <a class="nav-link" href="#">Research interest</a>
+        <a class="nav-link" routerLink="/research-interest" >Research interest</a>
       </li>
       <li class="nav-item" ngbDropdown>
         <a class="nav-link" tabindex="0" ngbDropdownToggle id="navbarDropdown1" role="button"> Projects </a>
