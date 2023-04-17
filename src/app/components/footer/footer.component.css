@@ -1,3 +1,16 @@
 .footer-custom {
     background-color: #133066;
+    color: #ffffff;
+}
+.icon-custom {
+    transition: 0.2s ease-in-out;
+    font-size: xx-large;
+    color: #ffffff;
+    fill: #ffffff;
+}
+.icon-custom:hover {
+    /* 0.2s is the amount of time it take to change colors */
+    transition: 0.2s ease-in-out;
+    color: #0096ff;
+    fill: #0096ff;
 }

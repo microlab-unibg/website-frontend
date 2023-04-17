@@ -6,9 +6,8 @@ import { ResearchInterestComponent } from '@components/research-interest/researc
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'research-interest', component: ResearchInterestComponent },
-  { path: '', redirectTo: 'home', pathMatch: 'full' },
-  { path: '**', redirectTo: 'home'},
-
+  { path: '', redirectTo: '/home', pathMatch: 'full'},
+  { path: '**', redirectTo: '/home', pathMatch: 'full'},
 ];
 
 @NgModule({

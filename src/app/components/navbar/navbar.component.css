@@ -6,43 +6,31 @@
 /* Modify brand and text color */
 .navbar-custom .navbar-brand,
 .navbar-custom .navbar-text {
-    color: #0096ff;
-}
-
-.icon-custom {
-    transition: 0.2s ease-in-out;
-    font-size: xx-large;
-    color: #0096ff;
-    fill: #0096ff;
-}
-.icon-custom:hover {
-    /* 0.2s is the amount of time it take to change colors */
-    transition: 0.2s ease-in-out;
     color: #ffffff;
-    fill: #ffffff;
 }
 .brand-custom {
     font-size: x-large;
     font-weight: bold;
+    color: #0096ff;
 }
 a:hover {
-    color: #0096ff;
+    color: #ffffff;
 }
 .navbar-nav > .nav-item > a {
-    color: #0096ff;
+    color: #ffffff;
 }
 .navbar-nav > .nav-item > a:hover {
-    color: #ffffff;
+    color: #0096ff;
 }
 .navbar-nav > li > .dropdown-menu {
     background-color: #133066;
 }
 .navbar-nav > li > .dropdown-menu > .dropdown-item {
-    color: #0096ff;
+    color: #ffffff;
     transition: 0.2s ease-in-out;
 }
 .navbar-nav > li > .dropdown-menu > .dropdown-item:hover {
     background-color: #133066;
-    color: #ffffff;
+    color: #0096ff;
     transition: 0.2s ease-in-out;
 }

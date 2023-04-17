@@ -15,3 +15,6 @@ object {
     color: #ffffff;
     background-color: #133066;
 }
+.border-custom {
+    border-color: #133066;
+}
