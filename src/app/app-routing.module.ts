@@ -11,7 +11,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, {useHash: true})],  //useHash is mandatory for GitHub pages publishing, otherwise on refresh the user is redirected to 404 page
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
