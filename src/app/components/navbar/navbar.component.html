@@ -10,24 +10,24 @@
   <div class="navbar-collapse justify-content-md-center" id="navbarSupportedContent" [class.collapse]="collapsed">
     <ul class="navbar-nav">
       <li NgbDropdownItem class="nav-item active">
-        <a class="nav-link mx-2" routerLink="/research-interest" >Research interest</a>
+        <a class="nav-link mx-2" routerLink="/work-in-progress" >Research interest</a>
       </li>
       <li class="nav-item mx-2" ngbDropdown>
         <a class="nav-link" tabindex="0" ngbDropdownToggle id="navbarDropdown1" role="button"> Projects </a>
         <div ngbDropdownMenu aria-labelledby="navbarDropdown1" class="dropdown-menu">
-          <a ngbDropdownItem href="#" (click)="$event.preventDefault()">CMS</a>
-          <a ngbDropdownItem href="#" (click)="$event.preventDefault()">GAPS</a>
-          <a ngbDropdownItem href="#" (click)="$event.preventDefault()">Skinmon</a>
+          <a ngbDropdownItem routerLink="/work-in-progress" (click)="$event.preventDefault()">CMS</a>
+          <a ngbDropdownItem routerLink="/work-in-progress" (click)="$event.preventDefault()">GAPS</a>
+          <a ngbDropdownItem routerLink="/work-in-progress" (click)="$event.preventDefault()">Skinmon</a>
         </div>
       </li>
       <li NgbDropdownItem class="nav-item">
-        <a class="nav-link mx-2" href="#">People</a>
+        <a class="nav-link mx-2" routerLink="/work-in-progress">People</a>
       </li>
       <li NgbDropdownItem class="nav-item">
-        <a class="nav-link mx-2" href="#">Papers</a>
+        <a class="nav-link mx-2" routerLink="/work-in-progress">Papers</a>
       </li>
       <li NgbDropdownItem class="nav-item">
-        <a class="nav-link mx-2" href="#">Thesis proposals</a>
+        <a class="nav-link mx-2" routerLink="/work-in-progress">Thesis proposals</a>
       </li>
     </ul>
   </div>

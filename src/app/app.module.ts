@@ -10,6 +10,7 @@ import { FooterComponent } from '@components/footer/footer.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { HomeComponent } from '@components/home/home.component';
 import { ResearchInterestComponent } from '@components/research-interest/research-interest.component';
+import { WorkInProgressComponent } from './components/work-in-progress/work-in-progress.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { ResearchInterestComponent } from '@components/research-interest/researc
     NavbarComponent,
     FooterComponent,
     HomeComponent,
-    ResearchInterestComponent
+    ResearchInterestComponent,
+    WorkInProgressComponent
   ],
   imports: [
     BrowserModule,
