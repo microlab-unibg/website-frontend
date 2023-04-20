@@ -1,16 +1,15 @@
-<nav NgbDropdown class="navbar navbar-expand-lg navbar-dark fixed-top navbar-custom px-5">
+<nav NgbDropdown class="navbar navbar-expand-lg navbar-dark fixed-top navbar-custom px-3">
   <a class="navbar-brand" routerLink="/home">
-    <img src="assets/logos/ulab_logo_small.png" class="me-2" height="40"
+    <img src="assets/logos/ulab_logo_rubik_small.png" class="me-2" height="40"
       alt="INFN Logo" loading="lazy" />
-    <span class="brand-custom">LAB</span>
   </a>
   <button NgbDropdownToggle class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" [attr.aria-expanded]="!collapsed" (click)="collapsed = !collapsed">
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="navbar-collapse justify-content-md-center" id="navbarSupportedContent" [class.collapse]="collapsed">
     <ul class="navbar-nav">
-      <li NgbDropdownItem class="nav-item active">
-        <a class="nav-link mx-2" routerLink="/work-in-progress" >Research interest</a>
+      <li NgbDropdownItem class="nav-item mx-2 active">
+        <a class="nav-link" routerLink="/work-in-progress" >Research interest</a>
       </li>
       <li class="nav-item mx-2" ngbDropdown>
         <a class="nav-link" tabindex="0" ngbDropdownToggle id="navbarDropdown1" role="button"> Projects </a>
@@ -31,4 +30,8 @@
       </li>
     </ul>
   </div>
+  <a class="navbar-brand text-md-end" routerLink="/home">
+    <img style="opacity: 0;" src="assets/logos/ulab_logo_rubik_small.png" class="me-2" height="40"
+      alt="INFN Logo" loading="lazy" />
+  </a>
 </nav>

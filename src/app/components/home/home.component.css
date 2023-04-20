@@ -1,0 +1,12 @@
+.carousel-top {
+    margin-top: -5px;
+}
+
+.carousel-item-white {
+    padding: 10px;
+    position: absolute;
+    height: 100%;   /* -> image_height - padding */
+    width: 100%;    /* -> image_width - padding */
+    z-index: 1;      /* -> put overlay over image */
+    background-color: rgba(255, 255, 255, 0.4);
+}
