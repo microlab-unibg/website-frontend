@@ -36,3 +36,5 @@ jobs:
           BASE_BRANCH: main
           BRANCH: gh-pages # Il branch che contiene il progetto pubblicato sulle GitHub Pages
           FOLDER: dist # Folder dove è stata eseguita la build del nostro progetto Angular
+        run: 
+          echo "microlab-unibg.it" > CNAME.txt 
