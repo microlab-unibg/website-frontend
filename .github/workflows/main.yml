@@ -30,7 +30,7 @@ jobs:
           npm install
           npm run build:prod
           cd dist
-          echo "www.microlab-unibg.it" > CNAME # Create CNAME file
+          echo "microlab-unibg.it" > CNAME # Create CNAME file
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@releases/v2 # Deploy su GitHub Pages utilizzando la action https://github.com/JamesIves/github-pages-deploy-action
         env:
