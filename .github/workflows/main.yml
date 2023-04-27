@@ -1,5 +1,8 @@
 name: website-frontend-build # Il nome della Action
 
+permissions:
+  contents: write
+
 on:
   push:
     branches:
