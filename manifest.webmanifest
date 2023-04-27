@@ -1,7 +1,7 @@
 {
-  "name": "ulab-webpage-bootstrap",
-  "short_name": "ulab-webpage-bootstrap",
-  "theme_color": "#1976d2",
+  "name": "Microlab Unibg",
+  "short_name": "Microlab",
+  "theme_color": "#93A4BE",
   "background_color": "#fafafa",
   "display": "standalone",
   "scope": "./",
