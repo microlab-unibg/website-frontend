@@ -1,17 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Cabin+Sketch');
 
-html {
-	height: 100%;
-}
-
-body {
-	min-height: 100%;
-}
-
-body {
-	display: flex;
-}
-
 h1 {
 	font-family: 'Cabin Sketch', cursive;
 	font-size: 3em;
@@ -24,32 +12,13 @@ h1 small {
 	display: block;
 }
 
-.site {
-	display: -webkit-box;
-	display: -webkit-flex;
-	display: -ms-flexbox;
-	display: flex;
-	-webkit-box-align: center;
-	-webkit-align-items: center;
-	-ms-flex-align: center;
-  align-items: center;
-	flex-direction: column;
-	margin: 0 auto;
-	-webkit-box-pack: center;
-	-webkit-justify-content: center;
-	-ms-flex-pack: center;
-	justify-content: center;
-}
-
-
-.sketch {
+.overlap {
 	position: relative;
-	min-width: 400px;
-  min-height: 400px; ;
+	min-width: 100%;
+  	min-height: 400px;
 	margin: 0;
 	overflow: visible;
 	order: 2;
-
 }
 
 .bee-sketch {
@@ -64,33 +33,22 @@ h1 small {
 	background: url(../../../assets/wip-animation/red-1.png) no-repeat center center;
 	opacity: 0.4;
 	animation: red 3s linear infinite, opacityRed 5s linear alternate infinite;
-  background-size: 60%;
+  background-size: 68%;
 }
 
 .blue {
 	background: url(../../../assets/wip-animation/blue-1.png) no-repeat center center;
 	opacity: 1;
 	animation: blue 3s linear infinite, opacityBlue 5s linear alternate infinite;
-  background-size: 60%;
+  background-size: 68%;
 }
 
 
 @media only screen and (min-width: 780px) {
-  .site {
-		flex-direction: row;
-		padding: 1em 3em 1em 0em;
-	}
-
 	h1 {
 		text-align: right;
 		order: 2;
-		padding-bottom: 2em;
-		padding-left: 2em;
-
-	}
-
-	.sketch {
-		order: 1;
+		padding-top: 4em;
 	}
 }
 

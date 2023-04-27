@@ -1,55 +1,40 @@
-name: website-frontend-build # Il nome della Action
+name: website-frontend-build
 
 on:
   push:
     branches:
-      - main # La action verrà eseguita in caso di push sul branch main del nostro repository
-
-
-# env:
-#   DOCKER_USER: ${{secrets.DOCKER_USER}}
-#   DOCKER_PASSWORD: ${{secrets.DOCKER_PASSWORD}}
-#   REPO_NAME: ${{secrets.REPO_NAME}}
+      - main
+  pull_request:
 
 jobs:
-  build:
-    runs-on: ubuntu-latest # La action verrà eseguita su l'ultima versione di Ubuntu
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v3 # Operazione di checkout standard utile per la CI
-        with:
-          persist-credentials: false
-      - name: Use Node.js 16.x
-        uses: actions/setup-node@v1 # Setup di Node utilizzando la action https://github.com/actions/setup-node
-        with:
-          node-version: "16.x" # Nel nostro caso, utilizziamo la versione 16.x di Node
-      - name: Build
-        run:
-          | # Esecuzione dei comandi di setup e build del progetto Angular, non dimenticando il parametro --base-href nel comando di build!
-          npm install -g @angular/cli
-          npm install
-          npm run build:prod
-          cd dist
-          echo "microlab-unibg.it" > CNAME # Create CNAME file
   deploy:
-          # Add a dependency to the build job
-    needs: build
-          # Grant GITHUB_TOKEN the permissions required to make a Pages deployment
+    runs-on: ubuntu-22.04
     permissions:
-      pages: write      # to deploy to Pages
-      id-token: write   # to verify the deployment originates from an appropriate source
-          
-          # Deploy to the github-pages environment
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-           # Specify runner + deployment step
-    runs-on: ubuntu-latest
+      contents: write
+    concurrency:
+      group: ${{ github.workflow }}-${{ github.ref }}
     steps:
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v2 # Deploy su GitHub Pages utilizzando la action https://github.com/JamesIves/github-pages-deploy-action
-      - name: Override page_url
-        id: change-page-url
-        run: echo "new_page_url=${{ steps.deployment.outputs.page_url }}/" >> $GITHUB_OUTPUT
-          
+      - uses: actions/checkout@v3
+
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: '14'
+
+      - name: Cache dependencies
+        uses: actions/cache@v3
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+
+      - run: npm ci
+      - run: npm run build
+
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        if: ${{ github.ref == 'refs/heads/main' }}
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./public
