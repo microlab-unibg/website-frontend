@@ -45,7 +45,8 @@
     },
     {
       "src": "assets/pwa_icons/windows11/Square150x150Logo.scale-400.png",
-      "sizes": "600x600"
+      "sizes": "600x600",
+      "purpose": "maskable"
     },
     {
       "src": "assets/pwa_icons/windows11/Wide310x150Logo.scale-100.png",
