@@ -32,7 +32,7 @@ jobs:
           cd dist
           echo "microlab-unibg.it" > CNAME # Create CNAME file
       - name: Deploy
-        uses: JamesIves/github-pages-deploy-action@releases/v2 # Deploy su GitHub Pages utilizzando la action https://github.com/JamesIves/github-pages-deploy-action
+        uses: actions/deploy-pages@v2 # Deploy su GitHub Pages utilizzando la action https://github.com/JamesIves/github-pages-deploy-action
         env:
           ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }} # Indichiamo l'accesso token creato per essere autenticati correttamente, prelevandolo dalle Secrets
           BASE_BRANCH: main
