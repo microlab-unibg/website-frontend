@@ -1,6 +1,7 @@
 {
   "name": "Microlab Unibg",
   "short_name": "Microlab",
+  "description": "This is the UniBg Microlab web app",
   "theme_color": "#93A4BE",
   "background_color": "#fafafa",
   "display": "standalone",
