@@ -3,10 +3,12 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from '@components/home/home.component';
 import { ResearchInterestComponent } from '@components/research-interest/research-interest.component';
 import { WorkInProgressComponent } from '@components/work-in-progress/work-in-progress.component';
+import { ThesisProposalsComponent } from '@components/thesis-proposals/thesis-proposals.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
-  { path: 'research-interest', component: ResearchInterestComponent },
+  { path: 'research-interest', component: ResearchInterestComponent},
+  { path: 'thesis-proposals', component: WorkInProgressComponent},
   { path: 'work-in-progress', component: WorkInProgressComponent},
   { path: '', redirectTo: '/home', pathMatch: 'full'},
   { path: '**', redirectTo: '/home', pathMatch: 'full'},
