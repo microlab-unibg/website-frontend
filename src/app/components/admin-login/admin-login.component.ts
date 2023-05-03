@@ -14,14 +14,22 @@ export class AdminLoginComponent {
   constructor(private authService: SocialAuthService, private userService: UserSessionService) { }
 
   ngOnInit() {
-    this.authService.authState.subscribe((user) => {
-
-      //TODO: manage unauthorized users show proper message
-      this.user = user;
-      this.isLogged = user != null;
-      this.userService.saveUserData(user);
+    this.isLogged = this.userService.getCurrentUser().name ? true : false;
+    if (this.isLogged) {
+      this.user = this.userService.getCurrentUser()
       console.log(this.userService.getCurrentUser())
-    });
+    }
+    else {
+      this.authService.authState.subscribe((user) => {
+
+        //TODO: manage unauthorized users show proper message
+        this.user = user;
+        this.isLogged = user != null
+        this.userService.saveUserData(user);
+      });
+    }
+
+
   }
 
 

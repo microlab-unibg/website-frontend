@@ -1,18 +1,23 @@
 import { SocialUser } from '@abacritt/angularx-social-login';
-import { Injectable } from '@angular/core';
+import { Injectable, OnDestroy } from '@angular/core';
+import { Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
-export class UserSessionService {
-  constructor() {}
+export class UserSessionService implements OnDestroy {
+  destroyed$ = new Subject<boolean>();
 
-  getCurrentUser(): SocialUser {
-    return  Object.assign(new SocialUser, sessionStorage.getItem('user'));
+  constructor() { }
+
+
+  getCurrentUser() {
+    console.log(localStorage.getItem('user'))
+    return Object.assign(new SocialUser, localStorage.getItem('user'));
   }
 
   saveUserData(user: SocialUser) {
-    sessionStorage.setItem('user', JSON.stringify(user));
+    localStorage.setItem('user', JSON.stringify(user));
   }
 
 
@@ -20,5 +25,11 @@ export class UserSessionService {
     // TODO: manage sensitive data. Find a way to use secrets on github actions/pages
     console.log(user)
     return true
+  }
+
+  ngOnDestroy() {
+    localStorage.removeItem('user');
+    this.destroyed$.next(true);
+    this.destroyed$.unsubscribe();
   }
 }

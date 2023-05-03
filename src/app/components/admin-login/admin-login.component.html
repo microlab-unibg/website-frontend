@@ -2,7 +2,7 @@
   <div class="row row justify-content-center">
     <div
       class="col col-12 col-sm-12 col-md-5 text-container px-lg-5 align-self-center">
-      <div class="row">
+      <div class="row justify-content-center">
         <h4>
           In order to access to admin privileges, please login using your Google
           or UniBG account
@@ -15,16 +15,14 @@
       ></ng-container>
 
       <ng-template #logoutBlock>
-        <button>Logged in as {{ user.name }}</button></ng-template
-      >
-      <ng-container *ngIf="!isLogged">
+        <button>Logged in as {{ user.name }}</button>
         <div class="row">
           <h4>
             You can now edit thesis section:
             <a routerLink="/thesis-proposals">Thesis proposals</a>
           </h4>
-        </div>
-      </ng-container>
+        </div></ng-template
+      >
     </div>
   </div>
 </div>
