@@ -13,6 +13,8 @@ import { ResearchInterestComponent } from '@components/research-interest/researc
 import { WorkInProgressComponent } from '@components/work-in-progress/work-in-progress.component';
 import { ThesisProposalsComponent } from '@components/thesis-proposals/thesis-proposals.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
+import { GoogleLoginProvider, GoogleSigninButtonModule, SocialAuthServiceConfig, SocialLoginModule } from '@abacritt/angularx-social-login';
+import { AdminLoginComponent } from './components/admin-login/admin-login.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,8 @@ import { ServiceWorkerModule } from '@angular/service-worker';
     HomeComponent,
     ResearchInterestComponent,
     WorkInProgressComponent,
-    ThesisProposalsComponent
+    ThesisProposalsComponent,
+    AdminLoginComponent
   ],
   imports: [
     BrowserModule,
@@ -35,9 +38,27 @@ import { ServiceWorkerModule } from '@angular/service-worker';
       // Register the ServiceWorker as soon as the application is stable
       // or after 30 seconds (whichever comes first).
       registrationStrategy: 'registerWhenStable:30000'
-    })
+    }),
+    SocialLoginModule,
+    GoogleSigninButtonModule
   ],
-  providers: [],
+  providers: [{
+    provide: 'SocialAuthServiceConfig',
+    useValue: {
+      autoLogin: false,
+      providers: [
+        {
+          id: GoogleLoginProvider.PROVIDER_ID,
+          provider: new GoogleLoginProvider(
+            '546686348320-vl8bag4qv2q39cv9ebv9qpudiaupsodd.apps.googleusercontent.com'
+          )
+        }
+      ],
+      onError: (err: any) => {
+        console.error(err);
+      }
+    } as SocialAuthServiceConfig,
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

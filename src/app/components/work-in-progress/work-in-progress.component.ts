@@ -5,6 +5,6 @@ import { Component } from '@angular/core';
   templateUrl: './work-in-progress.component.html',
   styleUrls: ['./work-in-progress.component.css']
 })
-export class WorkInProgressComponent {
+export class WorkInProgressComponent  {
 
 }
