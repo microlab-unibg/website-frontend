@@ -1,6 +1,7 @@
-import { SocialUser } from '@abacritt/angularx-social-login';
+import { SocialAuthService, SocialUser } from '@abacritt/angularx-social-login';
 import { Injectable, OnDestroy } from '@angular/core';
-import { Subject } from 'rxjs';
+import { Router } from '@angular/router';
+import { BehaviorSubject, Observable, Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -8,16 +9,39 @@ import { Subject } from 'rxjs';
 export class UserSessionService implements OnDestroy {
   destroyed$ = new Subject<boolean>();
 
-  constructor() { }
+  public currentUserSubject: Subject<SocialUser>;
+  public currentUser$: Observable<SocialUser>;
+
+  public loggedSubject: BehaviorSubject<boolean>;
+  public logged$: Observable<boolean>;
+
+
+  constructor(public router: Router) {
+
+
+    let isLogged = false;
+    if (this.getCurrentUser().email) {
+      isLogged = true
+    } else { isLogged = false }
+
+    this.currentUserSubject = new BehaviorSubject<SocialUser>(Object.assign(new SocialUser, JSON.parse(localStorage.getItem('microlab-user')!)));
+    this.currentUser$ = this.currentUserSubject.asObservable();
+
+    this.loggedSubject = new BehaviorSubject<boolean>(false)
+    this.logged$ = this.loggedSubject.asObservable()
+    this.loggedSubject.next(isLogged)
+
+  }
 
 
   getCurrentUser() {
-    console.log(localStorage.getItem('user'))
-    return Object.assign(new SocialUser, localStorage.getItem('user'));
+    return Object.assign(new SocialUser, JSON.parse(localStorage.getItem('microlab-user') || '{}'));
   }
 
   saveUserData(user: SocialUser) {
-    localStorage.setItem('user', JSON.stringify(user));
+    localStorage.setItem('microlab-user', JSON.stringify(user));
+    this.currentUserSubject.next(user)
+    this.loggedSubject.next(true)
   }
 
 
@@ -27,8 +51,13 @@ export class UserSessionService implements OnDestroy {
     return true
   }
 
+  signOut(): void {
+    this.loggedSubject.next(false)
+    this.currentUserSubject.next(Object.assign(new SocialUser, JSON.parse('{}')))
+    localStorage.removeItem('microlab-user');
+  }
+
   ngOnDestroy() {
-    localStorage.removeItem('user');
     this.destroyed$.next(true);
     this.destroyed$.unsubscribe();
   }

@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/",
+            "outputPath": "dist",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": [
@@ -40,7 +40,7 @@
               "/node_modules/bootstrap/dist/js/bootstrap.min.js"
             ],
             "baseHref": "",
-            "serviceWorker": true,
+            "serviceWorker": false,
             "ngswConfigPath": "ngsw-config.json"
           },
           "configurations": {
@@ -73,31 +73,29 @@
             },
             "development": {
               "buildOptimizer": true,
-              "optimization": true,
+              "optimization": false,
               "vendorChunk": true,
               "extractLicenses": false,
               "sourceMap": true,
               "namedChunks": true
             }
           },
-          "defaultConfiguration": "production"
+          "defaultConfiguration": ""
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "ulab-webpage-bootstrap:build:development"
+          },
           "configurations": {
             "production": {
-              "browserTarget": "ulab-webpage-bootstrap:build:production"
-            },
-            "development": {
               "browserTarget": "ulab-webpage-bootstrap:build:development"
             }
-          },
-          "defaultConfiguration": "development"
-        },
+          }        },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "ulab-webpage-bootstrap:build"
+            "browserTarget": "ulab-webpage-bootstrap:build:development"
           }
         },
         "test": {

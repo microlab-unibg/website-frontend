@@ -9,7 +9,7 @@ import { AdminLoginComponent } from '@components/admin-login/admin-login.compone
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'research-interest', component: ResearchInterestComponent },
-  { path: 'thesis-proposals', component: WorkInProgressComponent },
+  { path: 'thesis-proposals', component: ThesisProposalsComponent },
   { path: 'work-in-progress', component: WorkInProgressComponent },
   { path: 'admin', component: AdminLoginComponent },
   { path: '', redirectTo: '/home', pathMatch: 'full' },

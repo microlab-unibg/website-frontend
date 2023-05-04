@@ -12,7 +12,7 @@ import { HomeComponent } from '@components/home/home.component';
 import { ResearchInterestComponent } from '@components/research-interest/research-interest.component';
 import { WorkInProgressComponent } from '@components/work-in-progress/work-in-progress.component';
 import { ThesisProposalsComponent } from '@components/thesis-proposals/thesis-proposals.component';
-import { ServiceWorkerModule } from '@angular/service-worker';
+//import { ServiceWorkerModule } from '@angular/service-worker';
 import { GoogleLoginProvider, GoogleSigninButtonModule, SocialAuthServiceConfig, SocialLoginModule } from '@abacritt/angularx-social-login';
 import { AdminLoginComponent } from './components/admin-login/admin-login.component';
 
@@ -33,12 +33,13 @@ import { AdminLoginComponent } from './components/admin-login/admin-login.compon
     NgbModule,
     BrowserAnimationsModule,
     FontAwesomeModule,
-    ServiceWorkerModule.register('ngsw-worker.js', {
-      enabled: !isDevMode(),
+    //ServiceWorkerModule.register('ngsw-worker.js', {
+      //enabled: !isDevMode(),
+      //enabled: false,
       // Register the ServiceWorker as soon as the application is stable
       // or after 30 seconds (whichever comes first).
-      registrationStrategy: 'registerWhenStable:30000'
-    }),
+      //registrationStrategy: 'registerWhenStable:30000'
+    //}),
     SocialLoginModule,
     GoogleSigninButtonModule
   ],

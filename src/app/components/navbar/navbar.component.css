@@ -34,3 +34,20 @@ a:hover {
     color: #0096ff;
     transition: 0.2s ease-in-out;
 }
+
+.avatar {
+  vertical-align: middle;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 3px solid #0096ff;
+}
+
+#btn-logout {
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-right: 0;
+  border-radius: 35px;
+}
+
+

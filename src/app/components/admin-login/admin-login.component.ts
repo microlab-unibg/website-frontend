@@ -1,6 +1,7 @@
 import { SocialAuthService, SocialUser } from '@abacritt/angularx-social-login';
 import { Component } from '@angular/core';
 import { UserSessionService } from '@services/user-session.service';
+import { Subject } from 'rxjs';
 
 @Component({
   selector: 'app-admin-login',
@@ -11,29 +12,35 @@ export class AdminLoginComponent {
   user: SocialUser = new SocialUser;
   isLogged?= false;
 
+  destroyed$ = new Subject<boolean>();
+
+
   constructor(private authService: SocialAuthService, private userService: UserSessionService) { }
 
+
+
   ngOnInit() {
-    this.isLogged = this.userService.getCurrentUser().name ? true : false;
-    if (this.isLogged) {
-      this.user = this.userService.getCurrentUser()
-      console.log(this.userService.getCurrentUser())
-    }
-    else {
-      this.authService.authState.subscribe((user) => {
 
-        //TODO: manage unauthorized users show proper message
-        this.user = user;
-        this.isLogged = user != null
-        this.userService.saveUserData(user);
-      });
-    }
+    /* This code is subscribing to the `logged$` observable of the `UserSessionService` and using the
+    `takeUntil` operator to unsubscribe when the `destroyed$` subject emits a value. */
+    this.userService.loggedSubject.subscribe(
+      isLogged => {
+        this.isLogged = isLogged
 
+        if (this.isLogged) {
+          this.user = this.userService.getCurrentUser()
+        }
+      }
+    )
 
+    this.authService.authState.subscribe((user) => {
+      //TODO: manage unauthorized users show proper message
+      this.userService.saveUserData(user);
+    });
   }
 
-
-  signOut(): void {
-    this.authService.signOut();
+  ngOnDestroy() {
+    this.destroyed$.next(true);
+    this.destroyed$.unsubscribe();
   }
 }
