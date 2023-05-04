@@ -23,7 +23,7 @@ jobs:
         with:
           persist-credentials: false
       - name: Use Node.js 16.x
-        uses: actions/setup-node@v1 # Setup di Node utilizzando la action https://github.com/actions/setup-node
+        uses: actions/setup-node@v3 # Setup di Node utilizzando la action https://github.com/actions/setup-node
         with:
           node-version: "16.x" # Nel nostro caso, utilizziamo la versione 16.x di Node
       - name: Build
@@ -34,7 +34,7 @@ jobs:
           npm run build:prod
           cd dist
           echo "microlab-unibg.it" > CNAME # Create CNAME file
-      - name: Deploy
+  deploy:
         uses: JamesIves/github-pages-deploy-action@v4 # Deploy su GitHub Pages utilizzando la action https://github.com/JamesIves/github-pages-deploy-action
         with:
           folder: dist # Folder dove è stata eseguita la build del nostro progetto Angular
