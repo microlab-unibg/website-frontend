@@ -3,7 +3,6 @@ import { Injectable, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
 import { BehaviorSubject, Observable, Subject } from 'rxjs';
 
-import { environment } from '@environments/environment';
 
 
 @Injectable({
@@ -19,7 +18,7 @@ export class UserSessionService implements OnDestroy {
   public logged$: Observable<boolean>;
 
   private forbiddenPaths = ['/thesis-proposals', '/research-interest']
-  private authorized = environment.authorized_people
+  private authorized = ['luigi gaioni', 'gianluca traversi', 'massimo manghisoni', 'valerio re', 'elisa riceputi', 'andrea galliani', 'paolo lazzaroni', 'luca ghislotti']
 
 
 
