@@ -28,7 +28,16 @@
     [class.collapse]="collapsed">
     <ul class="navbar-nav">
       <li NgbDropdownItem class="nav-item mx-2 active">
-        <a class="nav-link" routerLink="/work-in-progress">Research interest</a>
+        <ng-container *ngIf="isLogged; else WIP"
+          ><a class="nav-link mx-2" routerLink="/research-interest"
+            >Research interest</a
+          ></ng-container
+        >
+        <ng-template #WIP
+          ><a class="nav-link mx-2" routerLink="/work-in-progress"
+            >Research interest</a
+          ></ng-template
+        >
       </li>
       <li class="nav-item mx-2" ngbDropdown>
         <a

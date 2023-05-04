@@ -9,7 +9,7 @@ import { AuthGuard } from './guard/auth.guard';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
-  { path: 'research-interest', component: ResearchInterestComponent },
+  { path: 'research-interest', component: ResearchInterestComponent, canActivate: [AuthGuard] },
   { path: 'thesis-proposals', component: ThesisProposalsComponent, canActivate: [AuthGuard] },
   { path: 'work-in-progress', component: WorkInProgressComponent },
   { path: 'admin', component: AdminLoginComponent },

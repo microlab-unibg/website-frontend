@@ -15,8 +15,11 @@ export class UserSessionService implements OnDestroy {
   public loggedSubject: BehaviorSubject<boolean>;
   public logged$: Observable<boolean>;
 
+  private forbiddenPaths = ['/thesis-proposals', '/research-interest']
+
 
   constructor(public router: Router) {
+
 
 
     let isLogged = false;
@@ -56,7 +59,7 @@ export class UserSessionService implements OnDestroy {
     this.currentUserSubject.next(Object.assign(new SocialUser, JSON.parse('{}')))
     localStorage.removeItem('microlab-user');
 
-    if (this.router.url === '/thesis-proposals') {
+    if (this.forbiddenPaths.includes(this.router.url)) {
       this.router.navigate(['/work-in-progress'])
 
     }
