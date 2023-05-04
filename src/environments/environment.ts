@@ -12,7 +12,7 @@ export const environment = {
   version: packageInfo.version,
   ...firebase,
   ...oauth2,
-  production: false
+  production: false,
 };
 
 /*

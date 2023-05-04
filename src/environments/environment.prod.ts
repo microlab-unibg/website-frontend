@@ -11,6 +11,7 @@ export const environment = {
     measurementId: 'G-5SC1C33J1T',
   },
   google_client_id: 'undefined', //managed in the secrets
+  authorized_people: [], //managed in the secrets
 
   production: true,
   name: 'microlab-unibg',

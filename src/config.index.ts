@@ -18,6 +18,7 @@ const envConfigFile = `export const environment = {
         measurementId: 'G-5SC1C33J1T'
     },
     google_client_id: '${process.env['GOOGLE_AUTH_CLIENT_ID']}'
+    authorized_people: '${process.env['AUTHORIZED_PEOPLE']}'
 
     name: '${name}',
     version: '${version}'

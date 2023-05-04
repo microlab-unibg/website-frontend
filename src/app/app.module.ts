@@ -88,7 +88,7 @@ import { PeopleCarouselComponent } from './components/people-carousel/people-car
         {
           id: GoogleLoginProvider.PROVIDER_ID,
           provider: new GoogleLoginProvider(
-            '100730812687-lh1opcloap262quiioatcae8hs799skl.apps.googleusercontent.com'
+            environment.google_client_id
           )
         }
       ],
