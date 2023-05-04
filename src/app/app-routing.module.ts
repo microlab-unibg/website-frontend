@@ -6,6 +6,7 @@ import { WorkInProgressComponent } from '@components/work-in-progress/work-in-pr
 import { ThesisProposalsComponent } from '@components/thesis-proposals/thesis-proposals.component';
 import { AdminLoginComponent } from '@components/admin-login/admin-login.component';
 import { AuthGuard } from './guard/auth.guard';
+import { UnauthorizedComponent } from '@components/unauthorized/unauthorized.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -13,6 +14,7 @@ const routes: Routes = [
   { path: 'thesis-proposals', component: ThesisProposalsComponent, canActivate: [AuthGuard] },
   { path: 'work-in-progress', component: WorkInProgressComponent },
   { path: 'admin', component: AdminLoginComponent },
+  { path: 'unauthorized', component: UnauthorizedComponent },
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: '**', redirectTo: '/home', pathMatch: 'full' },
 ];

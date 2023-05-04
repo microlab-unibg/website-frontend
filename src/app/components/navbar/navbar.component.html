@@ -28,12 +28,12 @@
     [class.collapse]="collapsed">
     <ul class="navbar-nav">
       <li NgbDropdownItem class="nav-item mx-2 active">
-        <ng-container *ngIf="isLogged; else WIP"
+        <ng-container *ngIf="isLogged; else WIP1"
           ><a class="nav-link mx-2" routerLink="/research-interest"
             >Research interest</a
           ></ng-container
         >
-        <ng-template #WIP
+        <ng-template #WIP1
           ><a class="nav-link mx-2" routerLink="/work-in-progress"
             >Research interest</a
           ></ng-template
@@ -90,45 +90,30 @@
           ></ng-template
         >
       </li>
-      <ng-container *ngIf="collapsed && isLogged && currentUser">
-        <ng-container *ngIf="!showUserMenu; else showMenu"
-          ><img
-            [src]="currentUser.photoUrl"
-            alt="Avatar"
-            class="avatar"
-            (click)="showUserMenu = !showUserMenu"
-        /></ng-container>
-        <ng-template #showMenu>
-          <button id="btn-logout" type="button" class="btn btn-outline-primary">
-            <span (click)="logout()" class="mx-2">Logout</span>
-            <img
-              [src]="currentUser.photoUrl"
-              alt="Avatar"
-              class="avatar"
-              (click)="showUserMenu = !showUserMenu" />
-          </button>
-        </ng-template>
-      </ng-container>
     </ul>
   </div>
-  <ng-container *ngIf="!collapsed && isLogged && currentUser; else noAvatar">
-    <ng-container *ngIf="!showUserMenu; else showMenu"
-      ><img
-        [src]="currentUser.photoUrl"
-        alt="Avatar"
-        class="avatar"
-        (click)="showUserMenu = !showUserMenu"
-    /></ng-container>
-    <ng-template #showMenu>
-      <button id="btn-logout" type="button" class="btn btn-outline-primary">
-        <span (click)="logout()" class="mx-2">Logout</span>
-        <img
+  <ng-container *ngIf="isLogged && currentUser; else noAvatar">
+    <div
+      NgbDropdownItem
+      class="navbar-right d-none d-sm-none d-md-none d-lg-block me-2">
+      <ng-container *ngIf="!showUserMenu; else showMenu"
+        ><img
           [src]="currentUser.photoUrl"
           alt="Avatar"
           class="avatar"
-          (click)="showUserMenu = !showUserMenu" />
-      </button>
-    </ng-template>
+          (click)="showUserMenu = !showUserMenu"
+      /></ng-container>
+      <ng-template #showMenu>
+        <button id="btn-logout" type="button" class="btn btn-outline-primary">
+          <span (click)="logout()" class="mx-2">Logout</span>
+          <img
+            [src]="currentUser.photoUrl"
+            alt="Avatar"
+            class="avatar"
+            (click)="showUserMenu = !showUserMenu" />
+        </button>
+      </ng-template>
+    </div>
   </ng-container>
   <ng-template #noAvatar>
     <img

@@ -9,13 +9,15 @@ import { BehaviorSubject, Observable, Subject } from 'rxjs';
 export class UserSessionService implements OnDestroy {
   destroyed$ = new Subject<boolean>();
 
-  public currentUserSubject: Subject<SocialUser>;
+  public currentUserSubject: BehaviorSubject<SocialUser>;
   public currentUser$: Observable<SocialUser>;
 
   public loggedSubject: BehaviorSubject<boolean>;
   public logged$: Observable<boolean>;
 
   private forbiddenPaths = ['/thesis-proposals', '/research-interest']
+  private authorized = ['gaioni', 'traversi', 'manghisoni', 're', 'riceputi', 'galliani', 'lazzaroni', 'ghislotti']
+
 
 
   constructor(public router: Router) {
@@ -42,17 +44,19 @@ export class UserSessionService implements OnDestroy {
   }
 
   saveUserData(user: SocialUser) {
-    localStorage.setItem('microlab-user', JSON.stringify(user));
-    this.currentUserSubject.next(user)
-    this.loggedSubject.next(true)
+    if (this.authorized.includes(user.lastName.toLowerCase())) {
+      console.log(user.lastName + ' authorized')
+      localStorage.setItem('microlab-user', JSON.stringify(user));
+      this.currentUserSubject.next(user)
+      this.loggedSubject.next(true)
+    }
+    else {
+      this.router.navigate(['/unauthorized'])
+
+    }
+
   }
 
-
-  isAuthorized(user: SocialUser) {
-    // TODO: manage sensitive data. Find a way to use secrets on github actions/pages
-    console.log(user)
-    return true
-  }
 
   signOut(): void {
     this.loggedSubject.next(false)

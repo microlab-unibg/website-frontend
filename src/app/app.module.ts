@@ -15,6 +15,7 @@ import { ThesisProposalsComponent } from '@components/thesis-proposals/thesis-pr
 //import { ServiceWorkerModule } from '@angular/service-worker';
 import { GoogleLoginProvider, GoogleSigninButtonModule, SocialAuthServiceConfig, SocialLoginModule } from '@abacritt/angularx-social-login';
 import { AdminLoginComponent } from './components/admin-login/admin-login.component';
+import { UnauthorizedComponent } from './components/unauthorized/unauthorized.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { AdminLoginComponent } from './components/admin-login/admin-login.compon
     ResearchInterestComponent,
     WorkInProgressComponent,
     ThesisProposalsComponent,
-    AdminLoginComponent
+    AdminLoginComponent,
+    UnauthorizedComponent
   ],
   imports: [
     BrowserModule,
