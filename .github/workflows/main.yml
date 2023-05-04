@@ -34,7 +34,7 @@ jobs:
           npm run build:prod
           cd dist
           echo "microlab-unibg.it" > CNAME # Create CNAME file
-  deploy:
+      - name: Deploy
         uses: JamesIves/github-pages-deploy-action@v4 # Deploy su GitHub Pages utilizzando la action https://github.com/JamesIves/github-pages-deploy-action
         with:
           folder: dist # Folder dove è stata eseguita la build del nostro progetto Angular
