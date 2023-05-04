@@ -34,6 +34,7 @@ import { provideFunctions,getFunctions } from '@angular/fire/functions';
 import { provideMessaging,getMessaging } from '@angular/fire/messaging';
 import { providePerformance,getPerformance } from '@angular/fire/performance';
 import { provideRemoteConfig,getRemoteConfig } from '@angular/fire/remote-config';
+import { PeopleCarouselComponent } from './components/people-carousel/people-carousel.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +46,8 @@ import { provideRemoteConfig,getRemoteConfig } from '@angular/fire/remote-config
     WorkInProgressComponent,
     ThesisProposalsComponent,
     AdminLoginComponent,
-    UnauthorizedComponent
+    UnauthorizedComponent,
+    PeopleCarouselComponent
   ],
   imports: [
     BrowserModule,

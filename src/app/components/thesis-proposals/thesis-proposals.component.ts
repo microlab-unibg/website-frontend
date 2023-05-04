@@ -1,4 +1,3 @@
-import { SocialUser } from '@abacritt/angularx-social-login';
 import { Component, OnDestroy, OnInit, inject } from '@angular/core';
 import { UserSessionService } from '@services/user-session.service';
 import { Subject, takeUntil } from 'rxjs';
