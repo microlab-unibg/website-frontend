@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "default": "website-frontend-firebase"
+  },
+  "targets": {
+    "website-frontend-firebase": {
+      "hosting": {
+        "ulab-webpage-bootstrap": [
+          "website-frontend-firebase"
+        ]
+      }
+    }
+  }
+}
