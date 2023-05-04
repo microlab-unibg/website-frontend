@@ -42,3 +42,5 @@ jobs:
           ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }} # Indichiamo l'accesso token creato per essere autenticati correttamente, prelevandolo dalle Secrets
           BASE_BRANCH: main
           BRANCH: gh-pages # Il branch che contiene il progetto pubblicato sulle GitHub Pages
+          FIREBASE_API_KEY: ${{ secrets.FIREBASE_API_KEY }}
+          GOOGLE_AUTH_CLIENT_ID: ${{ secrets.GOOGLE_AUTH_CLIENT_ID }}

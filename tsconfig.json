@@ -2,6 +2,9 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
+    "allowSyntheticDefaultImports": true,
+
+    "resolveJsonModule": true,
     "baseUrl": "src",
     "outDir": "./dist/out-tsc",
     "forceConsistentCasingInFileNames": true,
@@ -19,22 +22,20 @@
     "target": "ES2022",
     "module": "ES2022",
     "useDefineForClassFields": false,
-    "lib": [
-      "ES2022",
-      "dom"
-    ],
-      "paths": { "*": ["types/*"],
-    "@components/*": ["app/components/*"],
-    "@models/*": ["app/models/*"],
-    "@guards/*": ["app/guards/*"],
-    "@components-gf/*": ["app/components/custom/green-factory/*"],
-    "@services/*": ["app/services/*"],
-    "@shared/*": ["app/shared/*"],
-    "@assets/*": ["assets/*"],
-    "@environments/*": ["environments/*"],
-    "@custom/*": ["app/custom/*"],
-    "@directives/*": ["app/directives/*"],
-    "@pipes/*": ["app/pipes/*"]
+    "lib": ["ES2022", "dom"],
+    "paths": {
+      "*": ["types/*"],
+      "@components/*": ["app/components/*"],
+      "@models/*": ["app/models/*"],
+      "@guards/*": ["app/guards/*"],
+      "@components-gf/*": ["app/components/custom/green-factory/*"],
+      "@services/*": ["app/services/*"],
+      "@shared/*": ["app/shared/*"],
+      "@assets/*": ["assets/*"],
+      "@environments/*": ["environments/*"],
+      "@custom/*": ["app/custom/*"],
+      "@directives/*": ["app/directives/*"],
+      "@pipes/*": ["app/pipes/*"]
     }
   },
   "angularCompilerOptions": {

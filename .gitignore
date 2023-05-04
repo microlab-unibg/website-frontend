@@ -45,3 +45,8 @@ Thumbs.db
 .firebase
 *-debug.log
 .runtimeconfig.json
+
+# Environment secrets
+firebase.environment.ts
+oauth2.environment.ts
+

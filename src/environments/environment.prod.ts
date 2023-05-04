@@ -5,10 +5,14 @@ export const environment = {
     databaseURL: 'https://website-frontend-firebase-default-rtdb.europe-west1.firebasedatabase.app',
     storageBucket: 'website-frontend-firebase.appspot.com',
     locationId: 'europe-west',
-    apiKey: 'AIzaSyCrn5ifRu3Q0qDKy6oE_lOeigl0Tcx4bYg',
+    apiKey: 'undefined', //managed in the secrets
     authDomain: 'website-frontend-firebase.firebaseapp.com',
     messagingSenderId: '100730812687',
     measurementId: 'G-5SC1C33J1T',
   },
-  production: true
+  google_client_id: 'undefined', //managed in the secrets
+
+  production: true,
+  name: 'microlab-unibg',
+  version: '1.0.0'
 };

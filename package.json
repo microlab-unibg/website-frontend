@@ -7,7 +7,8 @@
     "build": "ng build",
     "build:prod": "ng build --configuration production --build-optimizer",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "config": "ts-node -O '{\"module\": \"commonjs\"}' ./config.index.ts"
   },
   "private": true,
   "dependencies": {
