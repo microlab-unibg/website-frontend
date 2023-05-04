@@ -16,7 +16,7 @@ export class UserSessionService implements OnDestroy {
   public logged$: Observable<boolean>;
 
   private forbiddenPaths = ['/thesis-proposals', '/research-interest']
-  private authorized = ['gaioni', 'traversi', 'manghisoni', 're', 'riceputi', 'galliani', 'lazzaroni', 'ghislotti']
+  private authorized = ['luigi gaioni', 'gianluca traversi', 'massimo manghisoni', 'valerio re', 'elisa riceputi', 'andrea galliani', 'paolo lazzaroni', 'luca ghislotti']
 
 
 
@@ -44,14 +44,16 @@ export class UserSessionService implements OnDestroy {
   }
 
   saveUserData(user: SocialUser) {
-    if (this.authorized.includes(user.lastName.toLowerCase())) {
-      console.log(user.lastName + ' authorized')
+    if (this.authorized.includes(user.name.toLowerCase())) {
+      console.log(user.name + ' authorized')
       localStorage.setItem('microlab-user', JSON.stringify(user));
       this.currentUserSubject.next(user)
       this.loggedSubject.next(true)
     }
     else {
+      this.loggedSubject.next(false)
       this.router.navigate(['/unauthorized'])
+
 
     }
 
