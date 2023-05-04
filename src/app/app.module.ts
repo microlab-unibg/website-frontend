@@ -16,6 +16,7 @@ import { ThesisProposalsComponent } from '@components/thesis-proposals/thesis-pr
 import { GoogleLoginProvider, GoogleSigninButtonModule, SocialAuthServiceConfig, SocialLoginModule } from '@abacritt/angularx-social-login';
 import { AdminLoginComponent } from './components/admin-login/admin-login.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
+import { UnauthorizedComponent } from './components/unauthorized/unauthorized.component';
 
 import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
 import { environment } from '@environments/environment';
@@ -43,7 +44,8 @@ import { provideRemoteConfig,getRemoteConfig } from '@angular/fire/remote-config
     ResearchInterestComponent,
     WorkInProgressComponent,
     ThesisProposalsComponent,
-    AdminLoginComponent
+    AdminLoginComponent,
+    UnauthorizedComponent
   ],
   imports: [
     BrowserModule,
