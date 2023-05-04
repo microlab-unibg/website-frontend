@@ -5,11 +5,12 @@ import { ResearchInterestComponent } from '@components/research-interest/researc
 import { WorkInProgressComponent } from '@components/work-in-progress/work-in-progress.component';
 import { ThesisProposalsComponent } from '@components/thesis-proposals/thesis-proposals.component';
 import { AdminLoginComponent } from '@components/admin-login/admin-login.component';
+import { AuthGuard } from './guard/auth.guard';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'research-interest', component: ResearchInterestComponent },
-  { path: 'thesis-proposals', component: ThesisProposalsComponent },
+  { path: 'thesis-proposals', component: ThesisProposalsComponent, canActivate: [AuthGuard] },
   { path: 'work-in-progress', component: WorkInProgressComponent },
   { path: 'admin', component: AdminLoginComponent },
   { path: '', redirectTo: '/home', pathMatch: 'full' },

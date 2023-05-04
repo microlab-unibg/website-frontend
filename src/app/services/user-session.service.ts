@@ -55,6 +55,11 @@ export class UserSessionService implements OnDestroy {
     this.loggedSubject.next(false)
     this.currentUserSubject.next(Object.assign(new SocialUser, JSON.parse('{}')))
     localStorage.removeItem('microlab-user');
+
+    if (this.router.url === '/thesis-proposals') {
+      this.router.navigate(['/work-in-progress'])
+
+    }
   }
 
   ngOnDestroy() {

@@ -70,8 +70,15 @@
         <a class="nav-link mx-2" routerLink="/work-in-progress">Papers</a>
       </li>
       <li NgbDropdownItem class="nav-item">
-        <a class="nav-link mx-2" routerLink="/thesis-proposals"
-          >Thesis proposals</a
+        <ng-container *ngIf="isLogged; else WIP"
+          ><a class="nav-link mx-2" routerLink="/thesis-proposals"
+            >Thesis proposals</a
+          ></ng-container
+        >
+        <ng-template #WIP
+          ><a class="nav-link mx-2" routerLink="/work-in-progress"
+            >Thesis proposals</a
+          ></ng-template
         >
       </li>
       <ng-container *ngIf="collapsed && isLogged && currentUser">
@@ -123,5 +130,3 @@
       loading="lazy" />
   </ng-template>
 </nav>
-
-

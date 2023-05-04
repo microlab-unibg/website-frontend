@@ -38,6 +38,7 @@ export class NavbarComponent implements OnInit, OnDestroy {
 
   logout() {
     this.showUserMenu = false;
+
     this.userService.signOut()
   }
 
