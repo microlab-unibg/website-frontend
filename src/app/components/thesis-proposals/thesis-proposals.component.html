@@ -1,38 +1,29 @@
+<div class="carousel slide carousel-top mb-5" data-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img class="d-block w-100 carousel-item-crop" src="assets/carousel/silicon_banner.webp" alt="First slide">
+    </div>
+  </div>
+</div>
+
 <div class="container mt-5">
-  <h1 class="fs-2">Thesis proposals</h1>
-  <div class="row justify-content-between">
-    <!-- col 1 -->
-    <div class="col col-12 col-sm-12 col-md-4 text-container px-lg-2 mb-5">
-      <div class="card">
-        <img src="assets/logos/Loghi_Proposte/ulab_logo_Pr_3.1.png" class="card-img-top px-2 pt-2" alt="uLab logo">
+  <div class="row justify-content-start">
+    <h1 class="fs-3 pb-3">Thesis proposal</h1>
+  </div>
+  <div class="row justify-content-left">
+    <!-- col n -->
+    <div class="col col-12 col-sm-12 col-md-4 text-container px-lg-2 mb-5" *ngFor="let thesis of thesis$ | async">
+      <div class="card border-primary border-custom">
+        <img src="assets/logos/Loghi_Proposte/ulab_logo_Pr_3.1_3colors.png" class="card-img-top px-2 pt-2" alt="uLab logo">
         <div class="card-body">
-          <h5 class="card-title">Thesis #1</h5>
-          <p class="card-text">Characterisation of 14mm CMOS technology.<br />Brand new.</p>
-          <a href="#" class="btn btn-outline-primary btn-custom">PDF download</a>
+          <h5 class="card-title">{{ thesis.title }}</h5>
+          <p class="card-text">{{ thesis.description }}</p>
+          <div class="text-end mx-2">
+            <fa-icon [icon]="faFilePdf" size="3x" class="icon-custom ms-2"></fa-icon>
+          </div>
         </div>
       </div>
     </div>
-    <!-- col 2 -->
-    <div class="col col-12 col-sm-12 col-md-4 text-container px-lg-2 mb-5">
-      <div class="card">
-        <img src="assets/logos/Loghi_Proposte/ulab_logo_Pr_3.1.png" class="card-img-top px-2 pt-2" alt="uLab logo">
-        <div class="card-body">
-          <h5 class="card-title">Thesis #2</h5>
-          <p class="card-text">Convince INFN to label FALCON as an actual project, please I have a family.</p>
-          <a href="#" class="btn btn-outline-primary btn-custom">PDF download</a>
-        </div>
-      </div>
-    </div>
-    <!-- col 3 -->
-    <div class="col col-12 col-sm-12 col-md-4 text-container px-lg-2 mb-5">
-      <div class="card">
-        <img src="assets/logos/Loghi_Proposte/ulab_logo_Pr_3.1.png" class="card-img-top px-2 pt-2" alt="uLab logo">
-        <div class="card-body">
-          <h5 class="card-title">Thesis #3</h5>
-          <p class="card-text">Ok we have devices, you have money. Let's say you lend us money and we make you devices. It's like magic.</p>
-          <a href="#" class="btn btn-outline-primary btn-custom">PDF download</a>
-        </div>
-      </div>
-    </div>
+    <!-- end col n -->
   </div>
 </div>

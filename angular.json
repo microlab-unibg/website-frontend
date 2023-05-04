@@ -122,6 +122,16 @@
               "/node_modules/bootstrap/dist/js/bootstrap.min.js"
             ]
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {
+            "prerender": false,
+            "ssr": false,
+            "browserTarget": "ulab-webpage-bootstrap:build:production",
+            "firebaseProject": "website-frontend-firebase",
+            "firebaseHostingSite": "website-frontend-firebase"
+          }
         }
       }
     }

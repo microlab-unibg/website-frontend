@@ -1,4 +1,4 @@
-import { NgModule, isDevMode } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -12,9 +12,27 @@ import { HomeComponent } from '@components/home/home.component';
 import { ResearchInterestComponent } from '@components/research-interest/research-interest.component';
 import { WorkInProgressComponent } from '@components/work-in-progress/work-in-progress.component';
 import { ThesisProposalsComponent } from '@components/thesis-proposals/thesis-proposals.component';
-//import { ServiceWorkerModule } from '@angular/service-worker';
+
 import { GoogleLoginProvider, GoogleSigninButtonModule, SocialAuthServiceConfig, SocialLoginModule } from '@abacritt/angularx-social-login';
 import { AdminLoginComponent } from './components/admin-login/admin-login.component';
+import { ServiceWorkerModule } from '@angular/service-worker';
+
+import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
+import { environment } from '@environments/environment';
+// import { provideAnalytics,getAnalytics,ScreenTrackingService,UserTrackingService } from '@angular/fire/analytics';
+// import { provideAuth,getAuth } from '@angular/fire/auth';
+// import { provideDatabase,getDatabase } from '@angular/fire/database';
+import { provideFirestore,getFirestore } from '@angular/fire/firestore';
+// import { provideFunctions,getFunctions } from '@angular/fire/functions';
+// import { providePerformance,getPerformance } from '@angular/fire/performance';
+import { provideStorage,getStorage } from '@angular/fire/storage';
+import { provideAnalytics,getAnalytics,ScreenTrackingService,UserTrackingService } from '@angular/fire/analytics';
+import { provideAuth,getAuth } from '@angular/fire/auth';
+import { provideDatabase,getDatabase } from '@angular/fire/database';
+import { provideFunctions,getFunctions } from '@angular/fire/functions';
+import { provideMessaging,getMessaging } from '@angular/fire/messaging';
+import { providePerformance,getPerformance } from '@angular/fire/performance';
+import { provideRemoteConfig,getRemoteConfig } from '@angular/fire/remote-config';
 
 @NgModule({
   declarations: [
@@ -41,7 +59,22 @@ import { AdminLoginComponent } from './components/admin-login/admin-login.compon
       //registrationStrategy: 'registerWhenStable:30000'
     //}),
     SocialLoginModule,
-    GoogleSigninButtonModule
+    GoogleSigninButtonModule,
+    provideFirebaseApp(() => initializeApp(environment.firebase)),
+    // provideAnalytics(() => getAnalytics()),
+    // provideAuth(() => getAuth()),
+    // provideDatabase(() => getDatabase()),
+    provideFirestore(() => getFirestore()),
+    // provideFunctions(() => getFunctions()),
+    // providePerformance(() => getPerformance()),
+    provideStorage(() => getStorage()),
+    provideAnalytics(() => getAnalytics()),
+    provideAuth(() => getAuth()),
+    provideDatabase(() => getDatabase()),
+    provideFunctions(() => getFunctions()),
+    provideMessaging(() => getMessaging()),
+    providePerformance(() => getPerformance()),
+    provideRemoteConfig(() => getRemoteConfig())
   ],
   providers: [{
     provide: 'SocialAuthServiceConfig',

@@ -16,5 +16,31 @@ object {
     background-color: #133066;
 }
 .border-custom {
-    border-color: #133066;
+    border-color: #133066 !important;
+}
+.icon-custom-neg {
+    transition: 0.2s ease-in-out;
+    color: #ffffff;
+    fill: #ffffff;
+}
+.icon-custom-neg:hover {
+    /* 0.2s is the amount of time it take to change colors */
+    transition: 0.2s ease-in-out;
+    color: #0096ff;
+    fill: #0096ff;
+}
+.icon-custom {
+    transition: 0.2s ease-in-out;
+    color: #133066;
+    fill: #133066;
+}
+.icon-custom:hover {
+    /* 0.2s is the amount of time it take to change colors */
+    transition: 0.2s ease-in-out;
+    color: #0096ff;
+    fill: #0096ff;
+}
+.carousel-item-crop {
+    max-height: 200px;
+    object-fit: cover;
 }

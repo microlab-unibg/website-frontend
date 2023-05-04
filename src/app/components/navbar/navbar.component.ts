@@ -12,16 +12,11 @@ export class NavbarComponent implements OnInit, OnDestroy {
   collapsed = true;
   isLogged = false;
 
-
   destroyed$ = new Subject<boolean>();
-
   currentUser: SocialUser | undefined;
-
   showUserMenu = false;
 
-
   constructor(public userService: UserSessionService) {
-
   }
 
   ngOnInit() {
@@ -30,7 +25,6 @@ export class NavbarComponent implements OnInit, OnDestroy {
         this.isLogged = isLogged
       }
     )
-
     this.userService.currentUser$.pipe(takeUntil(this.destroyed$)).subscribe(
       user => this.currentUser = user
     )
@@ -38,11 +32,8 @@ export class NavbarComponent implements OnInit, OnDestroy {
 
   logout() {
     this.showUserMenu = false;
-
     this.userService.signOut()
   }
-
-
 
   ngOnDestroy() {
     this.destroyed$.next(true);

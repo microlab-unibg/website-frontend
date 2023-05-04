@@ -13,11 +13,7 @@ export class AdminLoginComponent {
   isLogged?= false;
 
   destroyed$ = new Subject<boolean>();
-
-
   constructor(private authService: SocialAuthService, private userService: UserSessionService) { }
-
-
 
   ngOnInit() {
 
