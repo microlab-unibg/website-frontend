@@ -10,7 +10,7 @@ import { UnauthorizedComponent } from '@components/unauthorized/unauthorized.com
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
-  { path: 'research-interest', component: ResearchInterestComponent, canActivate: [AuthGuard] },
+  { path: 'research-interest', component: ResearchInterestComponent },
   { path: 'thesis-proposals', component: ThesisProposalsComponent, canActivate: [AuthGuard] },
   { path: 'work-in-progress', component: WorkInProgressComponent },
   { path: 'admin', component: AdminLoginComponent },
@@ -20,7 +20,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes, { 
+  imports: [RouterModule.forRoot(routes, {
     useHash: true, //useHash is mandatory for GitHub pages publishing, otherwise on refresh the user is redirected to 404 page
     scrollPositionRestoration: 'enabled',
     anchorScrolling: 'enabled',
