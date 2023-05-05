@@ -9,11 +9,26 @@ object {
     pointer-events: none;
 }
 .btn-custom {
+    /* 0.2s is the amount of time it take to change colors */
+    transition: 0.2s ease-in-out;
     color: #133066;
 }
 .btn-custom:hover {
+    /* 0.2s is the amount of time it take to change colors */
+    transition: 0.2s ease-in-out;
     color: #ffffff;
     background-color: #133066;
+}
+.btn-custom-navbar {
+    /* 0.2s is the amount of time it take to change colors */
+    transition: 0.2s ease-in-out;
+    color: #0096ff;
+    background-color: #133066;
+}
+.btn-custom-navbar:hover {
+    /* 0.2s is the amount of time it take to change colors */
+    transition: 0.2s ease-in-out;
+    color: #ffffff;
 }
 .border-custom {
     border-color: #133066 !important;
@@ -43,4 +58,14 @@ object {
 .carousel-item-crop {
     max-height: 200px;
     object-fit: cover;
+}
+a {
+    color: #133066;
+    text-decoration: none;
+    font-weight: 500;
+}
+a:hover {
+    color: #0096ff;
+    text-decoration: none;
+    font-weight: 500;
 }

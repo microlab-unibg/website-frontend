@@ -39,7 +39,7 @@
           ></ng-template
         >
       </li>
-      <li class="nav-item mx-2" ngbDropdown>
+      <!--<li class="nav-item mx-2" ngbDropdown>
         <a
           class="nav-link"
           tabindex="0"
@@ -71,7 +71,7 @@
             >Skinmon</a
           >
         </div>
-      </li>
+      </li>-->
       <li NgbDropdownItem class="nav-item">
         <ng-container *ngIf="isLogged; else WIP"
           ><a class="nav-link mx-2" routerLink="/thesis-proposals"
@@ -98,7 +98,7 @@
           (click)="showUserMenu = !showUserMenu"
       /></ng-container>
       <ng-template #showMenu>
-        <button id="btn-logout" type="button" class="btn btn-outline-primary">
+        <button id="btn-logout" type="button" class="btn btn-primary">
           <span (click)="logout()" class="mx-2">Logout</span>
           <img
             [src]="currentUser.photoUrl"

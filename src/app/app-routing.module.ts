@@ -20,7 +20,12 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes, { useHash: true })],  //useHash is mandatory for GitHub pages publishing, otherwise on refresh the user is redirected to 404 page
+  imports: [RouterModule.forRoot(routes, { 
+    useHash: true, //useHash is mandatory for GitHub pages publishing, otherwise on refresh the user is redirected to 404 page
+    scrollPositionRestoration: 'enabled',
+    anchorScrolling: 'enabled',
+    scrollOffset: [0, 25], // cool option, or ideal option when you have a fixed header on top.
+  })],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

@@ -18,9 +18,11 @@ a:hover {
 }
 .navbar-nav > .nav-item > a {
     color: #ffffff;
+    font-weight: normal;
 }
 .navbar-nav > .nav-item > a:hover {
     color: #0096ff;
+    font-weight: normal;
 }
 .navbar-nav > li > .dropdown-menu {
     background-color: #133066;
