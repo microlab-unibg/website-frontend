@@ -1,0 +1,16 @@
+.picsum-img-wrapper {
+    border-radius: 50%;
+}
+
+.people_image {
+    border-radius: 50%;
+}
+
+.picsum-img-wrapper {
+    margin-bottom: 50px;
+}
+
+.ng_template {
+    width: 200px;
+    height: 200px;
+}

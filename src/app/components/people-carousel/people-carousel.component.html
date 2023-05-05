@@ -1,1 +1,6 @@
-
+<ngb-carousel *ngIf="people" #carousel [interval]="2000" [pauseOnHover]="pauseOnHover" [pauseOnFocus]="pauseOnFocus"
+    (slide)="onSlide($event)">
+    <ng-template class="ng_template" ngbSlide *ngFor="let person of people; index as i">
+        <app-person-card [personInfo]="person"></app-person-card>
+    </ng-template>
+</ngb-carousel>
