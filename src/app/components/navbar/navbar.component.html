@@ -82,16 +82,20 @@
     </ul>
     <ul class="navbar-nav">
       <ng-container *ngIf="isLogged && currentUser; else noAvatar">
-        <div
-          class="ms-auto me-2">
-          <ng-container *ngIf="!showUserMenu; else showMenu"
-            ><img
+        <ng-container *ngIf="!showUserMenu; else showMenu">
+          <div style="width: 91px" class="ms-2"></div>
+          <div class="ms-auto me-2">
+            <img
               [src]="currentUser.photoUrl"
               alt="Avatar"
               class="avatar"
               (click)="showUserMenu = !showUserMenu"
-          /></ng-container>
-          <ng-template #showMenu>
+            />
+          </div>
+        </ng-container>
+        <ng-template #showMenu>
+          <div style="width: 11px" class="ms-2"></div>
+          <div class="ms-auto me-2">
             <button id="btn-logout" type="button" class="btn btn-primary">
               <span (click)="logout()" class="mx-2">Logout</span>
               <img
@@ -100,16 +104,11 @@
                 class="avatar"
                 (click)="showUserMenu = !showUserMenu" />
             </button>
-          </ng-template>
-        </div>
+          </div>
+        </ng-template>
       </ng-container>
       <ng-template #noAvatar>
-        <img
-          style="opacity: 0"
-          src="assets/logos/Loghi_Proposte/ulab_logo_Pr_3.1_neg.png"
-          class="d-none d-sm-none d-md-none d-lg-block ms-2"
-          height="40"
-          loading="lazy" />
+        <div style="width: 111px" class="ms-2"></div>
       </ng-template>
     </ul>
   </div>
