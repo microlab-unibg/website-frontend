@@ -12,6 +12,17 @@ h1 small {
 	display: block;
 }
 
+a {
+    color: #133066;
+    text-decoration: none;
+    font-weight: bold;
+}
+a:hover {
+    color: #0096ff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
 .overlap {
 	position: relative;
 	min-width: 100%;

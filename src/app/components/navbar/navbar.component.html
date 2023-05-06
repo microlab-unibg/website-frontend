@@ -1,14 +1,16 @@
 <nav
   NgbDropdown
   class="navbar navbar-expand-lg navbar-dark fixed-top navbar-custom px-3">
-  <a class="navbar-brand" routerLink="/home">
-    <img
-      src="assets/logos/Loghi_Proposte/ulab_logo_Pr_3.1_neg.png"
-      class="me-2"
-      height="40"
-      alt="Microlab logo"
-      loading="lazy" />
-  </a>
+  <div class="me-auto">
+    <a class="navbar-brand" routerLink="/home">
+      <img
+        src="assets/logos/Loghi_Proposte/ulab_logo_Pr_3.1_neg.png"
+        class="me-2"
+        height="40"
+        alt="Microlab logo"
+        loading="lazy" />
+    </a>
+  </div>
   <button
     NgbDropdownToggle
     class="navbar-toggler"
@@ -23,11 +25,11 @@
     <span class="navbar-toggler-icon"></span>
   </button>
   <div
-    class="navbar-collapse justify-content-md-center"
+    class="navbar-collapse"
     id="navbarSupportedContent"
     [class.collapse]="collapsed">
-    <ul class="navbar-nav">
-      <li NgbDropdownItem class="nav-item mx-2 active">
+    <ul class="navbar-nav mx-auto">
+      <li NgbDropdownItem class="nav-item active">
         <a class="nav-link mx-2" routerLink="/research-interest"
           >Research interest</a
         >
@@ -78,36 +80,37 @@
         >
       </li>
     </ul>
-  </div>
-  <ng-container *ngIf="isLogged && currentUser; else noAvatar">
-    <div
-      NgbDropdownItem
-      class="navbar-right d-none d-sm-none d-md-none d-lg-block me-2">
-      <ng-container *ngIf="!showUserMenu; else showMenu"
-        ><img
-          [src]="currentUser.photoUrl"
-          alt="Avatar"
-          class="avatar"
-          (click)="showUserMenu = !showUserMenu"
-      /></ng-container>
-      <ng-template #showMenu>
-        <button id="btn-logout" type="button" class="btn btn-primary">
-          <span (click)="logout()" class="mx-2">Logout</span>
-          <img
-            [src]="currentUser.photoUrl"
-            alt="Avatar"
-            class="avatar"
-            (click)="showUserMenu = !showUserMenu" />
-        </button>
+    <ul class="navbar-nav">
+      <ng-container *ngIf="isLogged && currentUser; else noAvatar">
+        <div
+          class="ms-auto me-2">
+          <ng-container *ngIf="!showUserMenu; else showMenu"
+            ><img
+              [src]="currentUser.photoUrl"
+              alt="Avatar"
+              class="avatar"
+              (click)="showUserMenu = !showUserMenu"
+          /></ng-container>
+          <ng-template #showMenu>
+            <button id="btn-logout" type="button" class="btn btn-primary">
+              <span (click)="logout()" class="mx-2">Logout</span>
+              <img
+                [src]="currentUser.photoUrl"
+                alt="Avatar"
+                class="avatar"
+                (click)="showUserMenu = !showUserMenu" />
+            </button>
+          </ng-template>
+        </div>
+      </ng-container>
+      <ng-template #noAvatar>
+        <img
+          style="opacity: 0"
+          src="assets/logos/Loghi_Proposte/ulab_logo_Pr_3.1_neg.png"
+          class="d-none d-sm-none d-md-none d-lg-block ms-2"
+          height="40"
+          loading="lazy" />
       </ng-template>
-    </div>
-  </ng-container>
-  <ng-template #noAvatar>
-    <img
-      style="opacity: 0"
-      src="assets/logos/Loghi_Proposte/ulab_logo_Pr_3.1_neg.png"
-      class="d-none d-sm-none d-md-none d-lg-block me-2"
-      height="40"
-      loading="lazy" />
-  </ng-template>
+    </ul>
+  </div>
 </nav>
