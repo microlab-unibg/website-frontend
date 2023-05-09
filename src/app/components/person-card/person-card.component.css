@@ -3,3 +3,7 @@
     max-width: 200px;
     width: 30vw;
 }
+
+.clickable:hover {
+    cursor: pointer;
+}

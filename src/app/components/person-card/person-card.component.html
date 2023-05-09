@@ -11,15 +11,14 @@
     </div>
 </div> -->
 
-<div class="text-container">
+<div class="container">
     <div class="row justify-content-center align-items-center">
-        <div class="col-3 align">
+        <div class="col-3 clickable" (click)="onImageClick(personInfo.page_link)">
             <div class="row justify-content-center">
-                <img class="person-image" src="{{personInfo.image_link}}"
-                    (click)="onImageClick(personInfo.page_link)" />
+                <img class="person-image" src="{{personInfo.image_link}}" />
             </div>
         </div>
-        <div class="col-3">
+        <div class="col-3 clickable" (click)="onImageClick(personInfo.page_link)">
             <div class="row mb-2">
                 <span class="fs-4">{{personInfo.fullname}}</span>
             </div>
