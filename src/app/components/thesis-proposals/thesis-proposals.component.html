@@ -22,10 +22,10 @@
     <!-- col n -->
     <div class="col col-12 col-sm-12 col-md-4 text-container px-lg-2 mb-5" *ngFor="let thesis of thesis$ | async">
       <div class="card border-primary border-custom">
-        <img src="assets/logos/Loghi_Proposte/ulab_logo_Pr_3.1_3colors.png" class="card-img-top px-2 pt-2" alt="uLab logo" loading="lazy">
+        <img src="assets/logos/Loghi_Proposte/ulab_logo_Pr_3.1_3colors.png" class="card-img-top px-2 pt-2" alt="uLab logo" loading="lazy" style="margin-bottom: 10px">
         <div class="card-body">
           <h5 class="card-title">{{ thesis.title }}</h5>
-          <p class="card-text">{{ thesis.description }}</p>
+          <p class="card-text" style="height: 50px">{{ thesis.description }}</p>
           <div class="text-end mx-2">
             <a (click)="downloadFromUrl(thesis.pdfRef)"><fa-icon [icon]="faFilePdf" size="3x" class="icon-custom ms-2"></fa-icon></a>
             <ng-container *ngIf="isLogged">
