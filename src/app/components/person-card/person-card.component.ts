@@ -16,4 +16,10 @@ export class PersonCardComponent {
 
   @Input('personInfo') personInfo: Person = {};
 
+  onImageClick(link: string | URL | undefined) {
+    window.open(link, "_blank");
+  }
+
 }
+
+

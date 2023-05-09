@@ -1,55 +1,75 @@
 /* You can add global styles to this file, and also import other style files */
 @import '~bootstrap/dist/css/bootstrap.css';
-html, body { height: 100%; }
-body { padding-top: 25px; margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    padding-top: 25px;
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
 h1 {
     color: #133066;
 }
+
 object {
     pointer-events: none;
 }
+
 .btn-custom {
     /* 0.2s is the amount of time it take to change colors */
     transition: 0.2s ease-in-out;
     color: #133066;
 }
+
 .btn-custom:hover {
     /* 0.2s is the amount of time it take to change colors */
     transition: 0.2s ease-in-out;
     color: #ffffff;
     background-color: #0096ff;
 }
+
 .btn-custom-navbar {
     /* 0.2s is the amount of time it take to change colors */
     transition: 0.2s ease-in-out;
     color: #0096ff;
     background-color: #133066;
 }
+
 .btn-custom-navbar:hover {
     /* 0.2s is the amount of time it take to change colors */
     transition: 0.2s ease-in-out;
     color: #ffffff;
 }
+
 .border-custom {
     border-color: #133066 !important;
 }
+
 .icon-custom-neg {
     transition: 0.2s ease-in-out;
     color: #ffffff;
     fill: #ffffff;
 }
+
 .icon-custom-neg:hover {
     /* 0.2s is the amount of time it take to change colors */
     transition: 0.2s ease-in-out;
     color: #0096ff;
     fill: #0096ff;
 }
+
 .icon-custom {
     transition: 0.2s ease-in-out;
     color: #133066;
     fill: #133066;
     cursor: pointer;
 }
+
 .icon-custom:hover {
     /* 0.2s is the amount of time it take to change colors */
     transition: 0.2s ease-in-out;
@@ -67,13 +87,33 @@ object {
     min-height: 200px;
     object-fit: cover;
 }
+
 a {
     color: #133066;
     text-decoration: none;
     font-weight: 500;
 }
+
 a:hover {
     color: #0096ff;
     text-decoration: none;
     font-weight: 500;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon,
+.carousel-indicators {
+    filter: invert(80%) sepia(16%) saturate(6123%) hue-rotate(198deg) brightness(105%) contrast(95%);
+}
+
+.carousel-indicators {
+    margin-bottom: -30px;
+}
+
+.carousel-control-prev-icon {
+    margin-left: 10%;
+}
+
+.carousel-control-next-icon {
+    margin-right: 10%;
 }
