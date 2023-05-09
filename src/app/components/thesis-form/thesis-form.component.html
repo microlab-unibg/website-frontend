@@ -21,7 +21,6 @@
           <h1 class="fs-3 pb-3">Add new thesis proposal</h1>
         </div>
         <form #thesisForm="ngForm" class="needs-validation" (ngSubmit)="onSubmit()" novalidate>
-          {{ thesis | json}}
           <div class="fs-6">
             <div class="form-floating mb-3">
               <input type="text" class="form-control" id="title" placeholder="Title"

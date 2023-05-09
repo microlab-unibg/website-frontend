@@ -8,7 +8,7 @@ import { faFilePdf, faTrashCan, faPenToSquare } from '@fortawesome/free-regular-
 import { faPlus } from '@fortawesome/free-solid-svg-icons'
 
 import { Thesis } from '@models/thesis';
-import { FirebaseStorage, StorageReference, deleteObject, getBlob, getStorage, ref } from '@angular/fire/storage';
+import { FirebaseStorage, StorageReference, deleteObject, getBlob, getDownloadURL, getStorage, ref } from '@angular/fire/storage';
 import { Router } from '@angular/router';
 
 @Component({
@@ -28,7 +28,25 @@ export class ThesisProposalsComponent implements OnInit, OnDestroy {
 
   constructor(private userService: UserSessionService, private router: Router) {
     const thesisCollection: CollectionReference = collection(this.firestore, 'thesis-proposals');
+    this.thesis = [];
     this.thesis$ = collectionData(thesisCollection, { idField: 'id'}) as Observable<Thesis[]>;
+    this.thesis$.subscribe((data) => {
+      this.thesis = data;
+      for (let i = 0; i < this.thesis.length; i++) {
+        const t = this.thesis[i];
+        if (t.imgRef) {
+          const objectRef: StorageReference = ref(this.storage, t.imgRef);
+          getDownloadURL(objectRef)
+            .then((url) => {
+              if (url) {
+                t.imgUrl = url;
+              }
+            });
+        } else {
+          t.imgUrl = '';
+        }
+      }
+    })
   }
 
   ngOnInit(): void {
@@ -47,20 +65,48 @@ export class ThesisProposalsComponent implements OnInit, OnDestroy {
   // Setup firestore
   firestore: Firestore = inject(Firestore)
   thesis$: Observable<Thesis[]>;
+  thesis: Thesis[];
 
   // Setup firebase storage
   storage: FirebaseStorage = getStorage();
 
   downloadFromUrl(pdfRef: string) {
-    const objectRef: StorageReference = ref(this.storage, pdfRef);
-    getBlob(objectRef)
-      .then((blob) => {
-        const url = URL.createObjectURL(blob);
-        window.open(url);
-      })
-      .catch((error) => {
-        return;
-      });
+    if (pdfRef) {
+      const objectRef: StorageReference = ref(this.storage, pdfRef);
+      getBlob(objectRef)
+        .then((blob) => {
+          const url = URL.createObjectURL(blob);
+          window.open(url);
+        })
+        .catch((error) => {
+          return;
+        });
+    }
+  }
+
+  getUrl(imgRef: string): string | undefined {
+    if (imgRef) {
+      const objectRef: StorageReference = ref(this.storage, imgRef);
+      getDownloadURL(objectRef)
+        .then((url) => {
+          console.log(url);
+          return url;
+        });
+    }
+    return;
+  }
+
+  stringToColour(str: string) {
+    let hash = 0;
+    for (var i = 0; i < str.length; i++) {
+      hash = str.charCodeAt(i) + ((hash << 5) - hash);
+    }
+    let colour = '0';
+    for (let i = 0; i < 3; i++) {
+      const value = (hash >> (i * 8)) & 0xFF;
+      colour += value.toString();
+    }
+    return colour;
   }
 
   editThesis(docId: string) {

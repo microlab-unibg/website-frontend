@@ -68,16 +68,8 @@
         </div>
       </li>-->
       <li NgbDropdownItem class="nav-item">
-        <ng-container *ngIf="isLogged; else WIP"
-          ><a class="nav-link mx-2" routerLink="/thesis-proposals"
-            >Thesis proposals</a
-          ></ng-container
-        >
-        <ng-template #WIP
-          ><a class="nav-link mx-2" routerLink="/work-in-progress"
-            >Thesis proposals</a
-          ></ng-template
-        >
+        <a class="nav-link mx-2" routerLink="/thesis-proposals"
+          >Thesis proposals</a>
       </li>
     </ul>
     <ul class="navbar-nav">
