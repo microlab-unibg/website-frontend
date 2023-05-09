@@ -8,12 +8,12 @@
 
 <div class="container mt-5">
   <div class="row justify-content-start">
-    <h1 class="fs-3 pb-3">Thesis proposal</h1>
+    <h1 class="fs-3 pb-3">Thesis proposals</h1>
   </div>
   <div class="row justify-content-left">
     <!-- add col (only if logged) -->
     <ng-container *ngIf="isLogged">
-      <div class="col col-12 col-sm-12 col-md-4 text-container px-lg-2 mb-5">
+      <div class="col col-12 col-sm-12 col-md-6 col-lg-4 text-container px-lg-2 mb-5">
         <button type="button" class="btn btn-outline-primary btn-custom border-custom w-100 h-100" routerLink="thesis-form">
           <fa-icon [icon]="faPlus" size="3x"></fa-icon>
         </button>
@@ -29,7 +29,7 @@
       </p>
     </ng-container>
     <ng-template #thesisBlock>
-      <div class="col col-12 col-sm-12 col-md-4 text-container px-lg-2 mb-5 d-flex align-self-stretch" *ngFor="let t of thesis">
+      <div class="col col-12 col-sm-12 col-md-6 col-lg-4 text-container px-lg-2 mb-5 d-flex align-self-stretch" *ngFor="let t of thesis">
         <div class="card border-primary border-custom w-100">
           <ng-container *ngIf="t.imgUrl; else noImg">
             <img src="{{ t.imgUrl }}" class="card-img-top carousel-item-crop px-2 pt-2" alt="uLab logo" loading="lazy" style="margin-bottom: 10px">
