@@ -3,6 +3,71 @@
   font-size: 1.25rem;
 }
 
+.card-border-custom {
+  border-width: 2px;
+}
+
 .card-img-top {
   border-radius: 13px;
+}
+
+.border-master {
+  border-color: #613f8d !important;
+}
+
+.border-bachelor {
+  border-color: #a5213f !important;
+}
+
+.bg-master {
+  background-color: #613f8d !important;
+}
+
+.bg-bachelor {
+  background-color: #a5213f !important;
+}
+
+.icon-master {
+  /* 0.2s is the amount of time it take to change colors */
+  transition: 0.2s ease-in-out;
+  color: #613f8d;
+  fill: #613f8d;
+  cursor: pointer;
+}
+
+.icon-master:hover {
+  /* 0.2s is the amount of time it take to change colors */
+  transition: 0.2s ease-in-out;
+  color: #0096ff;
+  fill: #0096ff;
+}
+
+.icon-bachelor {
+  /* 0.2s is the amount of time it take to change colors */
+  transition: 0.2s ease-in-out;
+  color: #a5213f;
+  fill: #a5213f;
+  cursor: pointer;
+}
+
+.icon-bachelor:hover {
+  /* 0.2s is the amount of time it take to change colors */
+  transition: 0.2s ease-in-out;
+  color: #0096ff;
+  fill: #0096ff;
+}
+
+.icon-trash:hover {
+  /* 0.2s is the amount of time it take to change colors */
+  transition: 0.2s ease-in-out;
+  color: red;
+  fill: red;
+}
+
+.font-master {
+  color: #613f8d;
+}
+
+.font-bachelor {
+  color: #a5213f;
 }
