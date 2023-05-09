@@ -13,7 +13,7 @@ const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'research-interest', component: ResearchInterestComponent },
   { path: 'thesis-proposals', children: [
-      { path: '', component: ThesisProposalsComponent, canActivate: [AuthGuard] },
+      { path: '', component: ThesisProposalsComponent },
       { path: 'thesis-form', component: ThesisFormComponent, canActivate: [AuthGuard] }
     ]
   },

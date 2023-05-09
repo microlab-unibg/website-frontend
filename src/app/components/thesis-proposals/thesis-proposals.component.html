@@ -20,28 +20,38 @@
       </div>
     </ng-container>
     <!-- col n -->
-    <div class="col col-12 col-sm-12 col-md-4 text-container px-lg-2 mb-5 d-flex align-self-stretch" *ngFor="let t of thesis">
-      <div class="card border-primary border-custom w-100">
-        <ng-container *ngIf="t.imgUrl; else noImg">
-          <img src="{{ t.imgUrl }}" class="card-img-top carousel-item-crop px-2 pt-2" alt="uLab logo" loading="lazy" style="margin-bottom: 10px">
-        </ng-container>
-        <ng-template #noImg>
-          <img src="assets/carousel/silicon_banner.webp" class="card-img-top carousel-item-crop px-2 pt-2" alt="uLab logo" loading="lazy"
-          [style]="'margin-bottom: 10px; filter: hue-rotate(' + stringToColour(t.id) + 'deg)'">
-        </ng-template>
-        <div class="card-body d-flex flex-column">
-          <h5 class="card-title">{{ t.title }}</h5>
-          <p class="card-text">{{ t.description }}</p>
-          <div class="mt-auto text-end mx-2">
-            <a (click)="downloadFromUrl(t.pdfRef)"><fa-icon [icon]="faFilePdf" size="3x" class="icon-custom ms-2"></fa-icon></a>
-            <ng-container *ngIf="isLogged">
-              <a (click)="editThesis(t.id)"><fa-icon [icon]="faPenToSquare" size="3x" class="icon-custom ms-2"></fa-icon></a>
-              <a (click)="deleteThesis(t.id)"><fa-icon [icon]="faTrashCan" size="3x" class="icon-custom icon-trash ms-2"></fa-icon></a>
-            </ng-container>
+    <ng-container *ngIf="!thesis; else thesisBlock">
+      <p class="lead">
+        We are sorry but there are no thesis available at this time!
+      </p>
+      <p class="lead mb-5">
+        Come back later!
+      </p>
+    </ng-container>
+    <ng-template #thesisBlock>
+      <div class="col col-12 col-sm-12 col-md-4 text-container px-lg-2 mb-5 d-flex align-self-stretch" *ngFor="let t of thesis">
+        <div class="card border-primary border-custom w-100">
+          <ng-container *ngIf="t.imgUrl; else noImg">
+            <img src="{{ t.imgUrl }}" class="card-img-top carousel-item-crop px-2 pt-2" alt="uLab logo" loading="lazy" style="margin-bottom: 10px">
+          </ng-container>
+          <ng-template #noImg>
+            <img src="{{ t.imgUrl }}" class="card-img-top carousel-item-crop px-2 pt-2" alt="uLab logo" loading="lazy"
+            [style]="'margin-bottom: 10px; filter: hue-rotate(' + stringToColour(t.id) + 'deg)'">
+          </ng-template>
+          <div class="card-body d-flex flex-column">
+            <h5 class="card-title">{{ t.title }}</h5>
+            <p class="card-text">{{ t.description }}</p>
+            <div class="mt-auto text-end mx-2">
+              <a (click)="downloadFromUrl(t.pdfRef)"><fa-icon [icon]="faFilePdf" size="3x" class="icon-custom ms-2"></fa-icon></a>
+              <ng-container *ngIf="isLogged">
+                <a (click)="editThesis(t.id)"><fa-icon [icon]="faPenToSquare" size="3x" class="icon-custom ms-2"></fa-icon></a>
+                <a (click)="deleteThesis(t.id)"><fa-icon [icon]="faTrashCan" size="3x" class="icon-custom icon-trash ms-2"></fa-icon></a>
+              </ng-container>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-    <!-- end col n -->
+      <!-- end col n -->
+    </ng-template>
   </div>
 </div>
