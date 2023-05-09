@@ -17,7 +17,7 @@ object {
     /* 0.2s is the amount of time it take to change colors */
     transition: 0.2s ease-in-out;
     color: #ffffff;
-    background-color: #133066;
+    background-color: #0096ff;
 }
 .btn-custom-navbar {
     /* 0.2s is the amount of time it take to change colors */
@@ -48,12 +48,19 @@ object {
     transition: 0.2s ease-in-out;
     color: #133066;
     fill: #133066;
+    cursor: pointer;
 }
 .icon-custom:hover {
     /* 0.2s is the amount of time it take to change colors */
     transition: 0.2s ease-in-out;
     color: #0096ff;
     fill: #0096ff;
+}
+.icon-trash:hover {
+    /* 0.2s is the amount of time it take to change colors */
+    transition: 0.2s ease-in-out;
+    color: red;
+    fill: red;
 }
 .carousel-item-crop {
     max-height: 200px;

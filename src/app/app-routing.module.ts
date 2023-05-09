@@ -7,11 +7,16 @@ import { ThesisProposalsComponent } from '@components/thesis-proposals/thesis-pr
 import { AdminLoginComponent } from '@components/admin-login/admin-login.component';
 import { AuthGuard } from './guard/auth.guard';
 import { UnauthorizedComponent } from '@components/unauthorized/unauthorized.component';
+import { ThesisFormComponent } from '@components/thesis-form/thesis-form.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'research-interest', component: ResearchInterestComponent },
-  { path: 'thesis-proposals', component: ThesisProposalsComponent, canActivate: [AuthGuard] },
+  { path: 'thesis-proposals', children: [
+      { path: '', component: ThesisProposalsComponent, canActivate: [AuthGuard] },
+      { path: 'thesis-form', component: ThesisFormComponent, canActivate: [AuthGuard] }
+    ]
+  },
   { path: 'work-in-progress', component: WorkInProgressComponent },
   { path: 'admin', component: AdminLoginComponent },
   { path: 'unauthorized', component: UnauthorizedComponent },

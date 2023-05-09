@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { CommonModule } from '@angular/common';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -36,6 +38,7 @@ import { providePerformance,getPerformance } from '@angular/fire/performance';
 import { provideRemoteConfig,getRemoteConfig } from '@angular/fire/remote-config';
 import { PeopleCarouselComponent } from './components/people-carousel/people-carousel.component';
 import { PersonCardComponent } from './components/person-card/person-card.component';
+import { ThesisFormComponent } from './components/thesis-form/thesis-form.component';
 
 @NgModule({
   declarations: [
@@ -49,13 +52,17 @@ import { PersonCardComponent } from './components/person-card/person-card.compon
     AdminLoginComponent,
     UnauthorizedComponent,
     PeopleCarouselComponent,
-    PersonCardComponent
+    PersonCardComponent,
+    ThesisFormComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     NgbModule,
     BrowserAnimationsModule,
+    CommonModule,
+    FormsModule,
+    ReactiveFormsModule,
     FontAwesomeModule,
     //ServiceWorkerModule.register('ngsw-worker.js', {
       //enabled: !isDevMode(),
