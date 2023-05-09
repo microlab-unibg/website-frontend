@@ -4,7 +4,7 @@ import { Subject, takeUntil } from 'rxjs';
 import { CollectionReference, DocumentReference, DocumentSnapshot, Firestore, collection, collectionData, deleteDoc, doc, getDoc } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
 
-import { faFilePdf, faTrashCan, faPenToSquare } from '@fortawesome/free-regular-svg-icons';
+import { faFilePdf, faTrashCan, faPenToSquare, faEnvelope } from '@fortawesome/free-regular-svg-icons';
 import { faPlus } from '@fortawesome/free-solid-svg-icons'
 
 import { Thesis } from '@models/thesis';
@@ -22,6 +22,7 @@ export class ThesisProposalsComponent implements OnInit, OnDestroy {
   faPenToSquare = faPenToSquare;
   faTrashCan = faTrashCan;
   faPlus = faPlus;
+  faEnvelope = faEnvelope;
 
   destroyed$ = new Subject<boolean>();
   isLogged = false;

@@ -76,12 +76,7 @@ object {
     color: #0096ff;
     fill: #0096ff;
 }
-.icon-trash:hover {
-    /* 0.2s is the amount of time it take to change colors */
-    transition: 0.2s ease-in-out;
-    color: red;
-    fill: red;
-}
+
 .carousel-item-crop {
     max-height: 200px;
     min-height: 200px;
@@ -116,4 +111,36 @@ a:hover {
 
 .carousel-control-next-icon {
     margin-right: 10%;
+}
+
+.tooltip-delete .tooltip-inner {
+    background-color: red;
+}
+.tooltip-delete.bs-tooltip-end .tooltip-arrow::before {
+    border-right-color: red;
+}
+.tooltip-delete.bs-tooltip-start .tooltip-arrow::before {
+    border-left-color: red;
+}
+.tooltip-delete-tooltip-top .tooltip-arrow::before {
+    border-top-color: red;
+}
+.tooltip-delete.bs-tooltip-bottom .tooltip-arrow::before {
+    border-bottom-color: red;
+}
+
+.tooltip-other .tooltip-inner {
+    background-color: #0096ff;
+}
+.tooltip-other.bs-tooltip-end .tooltip-arrow::before {
+    border-right-color: #0096ff;
+}
+.tooltip-other.bs-tooltip-start .tooltip-arrow::before {
+    border-left-color: #0096ff;
+}
+.tooltip-other-tooltip-top .tooltip-arrow::before {
+    border-top-color: #0096ff;
+}
+.tooltip-other.bs-tooltip-bottom .tooltip-arrow::before {
+    border-bottom-color: #0096ff;
 }
