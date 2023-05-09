@@ -5,8 +5,22 @@
 .carousel-item-white {
     padding: 10px;
     position: absolute;
-    height: 100%;   /* -> image_height - padding */
-    width: 100%;    /* -> image_width - padding */
-    z-index: 1;      /* -> put overlay over image */
+    height: 100%;
+    /* -> image_height - padding */
+    width: 100%;
+    /* -> image_width - padding */
+    z-index: 1;
+    /* -> put overlay over image */
     background-color: rgba(255, 255, 255, 0.4);
+}
+
+.people-container {
+    margin-top: 30px;
+    margin-bottom: 60px;
+    width: 80%;
+    background-color: aquamarine;
+}
+
+.people-carousel {
+    margin-top: 20px;
 }

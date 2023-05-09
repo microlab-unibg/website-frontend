@@ -1,3 +1,22 @@
 .person-image {
     border-radius: 50%;
 }
+
+.image-col {
+    padding-left: 10px;
+    background-color: chartreuse;
+}
+
+.person-name {
+    margin-top: 60px;
+    font-size: 25px;
+}
+
+.person-role {
+    margin-top: 20px;
+    font-size: 18px;
+}
+
+.des-col {
+    background-color: burlywood;
+}

@@ -63,12 +63,11 @@
 
   <!-- People carousel -->
   <ng-container *ngIf="isLogged">
-    <div class="mt-3"></div>
-    <h1 class="text-center border-bottom border-primary border-custom fs-3 pb-3">
-      People
-    </h1>
-    <div class="row justify-content-center">
-      <app-people-carousel></app-people-carousel>
+    <div class="row d-flex justify-content-center people-container">
+      <h1 class=" text-center border-bottom border-primary border-custom fs-3 pb-3">
+        Who we are
+      </h1>
+      <app-people-carousel class="people-carousel"></app-people-carousel>
     </div>
     <div class="mb-3"></div>
   </ng-container>
