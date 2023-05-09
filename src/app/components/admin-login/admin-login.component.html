@@ -17,7 +17,7 @@
           ></ng-container>
 
           <ng-template #loggedBlock>
-            <button id="btn-logged" type="button" class="btn btn-outline-primary">
+            <button id="btn-logged" type="button" class="btn btn-outline-primary" disabled>
               <span class="mx-2">Logged in as {{user.name}}</span>
               <img
                 [src]="user.photoUrl"
@@ -26,8 +26,7 @@
                  />
             </button>
               <h4 class="mt-3">
-                You can now edit thesis section:
-                <a routerLink="/thesis-proposals">Thesis proposals</a>
+                You can now edit <a routerLink="/thesis-proposals">thesis proposals</a> section.
               </h4>
             </ng-template
           >
