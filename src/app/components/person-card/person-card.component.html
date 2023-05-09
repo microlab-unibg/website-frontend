@@ -1,4 +1,4 @@
-<div class="container">
+<!-- <div class="card">
     <div class="row">
         <div class="col-12 col-md-7 image-col text-center px-lg-40">
             <a href="{{personInfo.page_link}}" class="people-link"></a>
@@ -7,6 +7,25 @@
         <div class="col d-none d-md-block des-col">
             <p class="person-name">{{personInfo.fullname}}</p>
             <p class="person-role">{{personInfo.role}}</p> <br>
+        </div>
+    </div>
+</div> -->
+
+<div class="text-container">
+    <div class="row justify-content-center align-items-center">
+        <div class="col-3 align">
+            <div class="row justify-content-center">
+                <img class="person-image" src="{{personInfo.image_link}}"
+                    (click)="onImageClick(personInfo.page_link)" />
+            </div>
+        </div>
+        <div class="col-3">
+            <div class="row mb-2">
+                <span class="fs-4">{{personInfo.fullname}}</span>
+            </div>
+            <div class="row">
+                <span class="fs-6">{{personInfo.role}}</span>
+            </div>
         </div>
     </div>
 </div>
