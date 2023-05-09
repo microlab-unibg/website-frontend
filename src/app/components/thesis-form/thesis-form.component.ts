@@ -40,14 +40,16 @@ export class ThesisFormComponent implements OnInit, OnDestroy {
     const sub = this.route
       .queryParams
       .subscribe((data) => {
-        this.thesis.id = data.id;
-        const docObj = JSON.parse(data.docObj);
-        this.thesis.title = docObj.title;
-        this.thesis.description = docObj.description;
-        this.thesis.imgRef = docObj.imgRef;
-        this.thesis.pdfRef = docObj.pdfRef;
-        this.thesis.type = docObj.type;
-        this.manualValidForm = true;
+        if ('id' in data) {
+          this.thesis.id = data.id;
+          const docObj = JSON.parse(data.docObj);
+          this.thesis.title = docObj.title;
+          this.thesis.description = docObj.description;
+          this.thesis.imgRef = docObj.imgRef;
+          this.thesis.pdfRef = docObj.pdfRef;
+          this.thesis.type = docObj.type;
+          this.manualValidForm = true;
+        }
       });
   }
 
@@ -88,7 +90,7 @@ export class ThesisFormComponent implements OnInit, OnDestroy {
 
     // convert class to plain JS object
     const thesisToUpload = this.thesis.toPlainObj();
-    if (!('id' in this.thesis)) {
+    if (!('id' in this.thesis) || this.thesis.id == "") {
       addDoc(this.thesisCollection, thesisToUpload)
         .then((documentReference: DocumentReference) => {
           this.router.navigate(['/thesis-proposal']);

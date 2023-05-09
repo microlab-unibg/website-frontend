@@ -64,6 +64,7 @@ object {
 }
 .carousel-item-crop {
     max-height: 200px;
+    min-height: 200px;
     object-fit: cover;
 }
 a {

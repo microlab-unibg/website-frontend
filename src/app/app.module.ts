@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { CommonModule } from '@angular/common';
+import { AsyncPipe, CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -63,6 +63,7 @@ import { ThesisFormComponent } from './components/thesis-form/thesis-form.compon
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
+    AsyncPipe,
     FontAwesomeModule,
     //ServiceWorkerModule.register('ngsw-worker.js', {
       //enabled: !isDevMode(),

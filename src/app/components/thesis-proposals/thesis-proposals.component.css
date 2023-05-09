@@ -2,3 +2,7 @@
   color: #133066;
   font-size: 1.25rem;
 }
+
+.card-img-top {
+  border-radius: 13px;
+}
