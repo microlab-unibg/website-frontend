@@ -45,18 +45,34 @@
             <div class="mt-auto">
               <div class="row">
                 <div class="col-6 text-start align-self-end">
-                  <a href='mailto:{{ t.email }}?subject=Richiesta tesi "{{ t.title }}"'><span class="fs-6 mb-2" [ngClass]="{'icon-master': t.type == 'master', 'icon-bachelor': t.type == 'bachelor'}" tabindex="0" placement="bottom" ngbTooltip="Send an email to {{ t.author }}" tooltipClass="tooltip-other">
-                    <fa-icon [icon]="faEnvelope" class="me-1"></fa-icon>{{ t.author }}
-                  </span></a>
-                  <br/>
+                  <div class="row">
+                    <a href='mailto:{{ t.email }}?subject=Richiesta tesi "{{ t.title }}"'>
+                      <span class="fs-6 mb-2" [ngClass]="{'icon-master': t.type == 'master', 'icon-bachelor': t.type == 'bachelor'}" tabindex="0" placement="bottom" ngbTooltip="Send an email to {{ t.author }}" tooltipClass="tooltip-other">
+                      <fa-icon [icon]="faEnvelope" class="me-1"></fa-icon>{{ t.author }}
+                    </span></a>
+                  </div>
                   <small class="mb-1" [ngClass]="{'font-master': t.type == 'master', 'font-bachelor': t.type == 'bachelor'}">Last update: {{ t.date }}</small>
                 </div>
                 <div class="col-6 text-end">
-                  <a (click)="downloadFromUrl(t.pdfRef)"><fa-icon [icon]="faFilePdf" size="3x" class="ms-2" [ngClass]="{'icon-master': t.type == 'master', 'icon-bachelor': t.type == 'bachelor'}" tabindex="0" placement="bottom" ngbTooltip="Download PDF" tooltipClass="tooltip-other"></fa-icon></a>
-                  <ng-container *ngIf="isLogged">
-                    <a (click)="editThesis(t.id)"><fa-icon [icon]="faPenToSquare" size="3x" class="ms-2" [ngClass]="{'icon-master': t.type == 'master', 'icon-bachelor': t.type == 'bachelor'}" tabindex="0" placement="bottom" ngbTooltip="Edit" tooltipClass="tooltip-other"></fa-icon></a>
-                    <a (click)="deleteThesis(t.id)"><fa-icon [icon]="faTrashCan" size="3x" class="icon-trash ms-2" [ngClass]="{'icon-master': t.type == 'master', 'icon-bachelor': t.type == 'bachelor'}" tabindex="0" placement="bottom" ngbTooltip="Delete" tooltipClass="tooltip-delete"></fa-icon></a>
-                  </ng-container>
+                  <div class="row justify-content-end me-2">
+                    <div class="col-3 me-1">
+                      <a (click)="downloadFromUrl(t.pdfRef)">
+                        <fa-icon [icon]="faFilePdf" size="3x" class="ms-2" [ngClass]="{'icon-master': t.type == 'master', 'icon-bachelor': t.type == 'bachelor'}" tabindex="0" placement="bottom" ngbTooltip="Download PDF" tooltipClass="tooltip-other"></fa-icon>
+                      </a>
+                    </div>
+                    <ng-container *ngIf="isLogged">
+                      <div class="col-3 me-1">
+                        <a (click)="editThesis(t.id)">
+                          <fa-icon [icon]="faPenToSquare" size="3x" class="ms-2" [ngClass]="{'icon-master': t.type == 'master', 'icon-bachelor': t.type == 'bachelor'}" tabindex="0" placement="bottom" ngbTooltip="Edit" tooltipClass="tooltip-other"></fa-icon>
+                        </a>
+                      </div>
+                      <div class="col-3 me-1">
+                        <a (click)="deleteThesis(t.id)">
+                          <fa-icon [icon]="faTrashCan" size="3x" class="icon-trash ms-2" [ngClass]="{'icon-master': t.type == 'master', 'icon-bachelor': t.type == 'bachelor'}" tabindex="0" placement="bottom" ngbTooltip="Delete" tooltipClass="tooltip-delete"></fa-icon>
+                        </a>
+                      </div>
+                    </ng-container>
+                  </div>
                 </div>
               </div>
             </div>
