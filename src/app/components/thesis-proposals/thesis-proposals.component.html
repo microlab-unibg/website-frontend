@@ -77,10 +77,25 @@
                         </a>
                       </div>
                       <div class="col-3 me-1">
-                        <a (click)="deleteThesis(t.id)">
+                        <!-- It pops up the modal -->
+                        <a (click)="openModal(modal)">
                           <fa-icon [icon]="faTrashCan" size="3x" class="icon-trash ms-2" [ngClass]="{'icon-master': t.type == 'master', 'icon-bachelor': t.type == 'bachelor'}" tabindex="0" placement="bottom" ngbTooltip="Delete" tooltipClass="tooltip-delete"></fa-icon>
                         </a>
                       </div>
+                      <!-- Modal for deletion of n-th element -->
+                      <ng-template #modal let-modal>
+                        <div class="modal-header">
+                          <h4 class="modal-title" id="modal">Danger zone!</h4>
+                          <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss()"></button>
+                        </div>
+                        <div class="modal-body">
+                          Are you really sure you want to cancel the thesis "{{ t.title }}"?
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-primary" (click)="modal.close()">No</button>
+                          <button type="button" class="btn btn-danger" (click)="modal.close(t.id)">Yes</button>
+                        </div>
+                      </ng-template>
                     </ng-container>
                   </div>
                 </div>

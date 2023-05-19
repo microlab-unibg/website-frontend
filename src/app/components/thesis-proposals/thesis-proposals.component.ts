@@ -11,6 +11,8 @@ import { Thesis } from '@models/thesis';
 import { FirebaseStorage, StorageReference, deleteObject, getBlob, getDownloadURL, getStorage, ref } from '@angular/fire/storage';
 import { Router } from '@angular/router';
 
+import { NgbModal, NgbModalOptions } from '@ng-bootstrap/ng-bootstrap';
+
 @Component({
   selector: 'app-thesis-proposals',
   templateUrl: './thesis-proposals.component.html',
@@ -36,7 +38,13 @@ export class ThesisProposalsComponent implements OnInit, OnDestroy {
   // Setup firebase storage
   storage: FirebaseStorage = getStorage();
 
-  constructor(private userService: UserSessionService, private router: Router) {
+  // Modal options
+  ngbModalOptions: NgbModalOptions = {
+      backdrop : 'static',
+      keyboard : false
+  };
+
+  constructor(private userService: UserSessionService, private router: Router, private modalService: NgbModal) {
     const thesisCollection: CollectionReference = collection(this.firestore, 'thesis-proposals');
     this.thesis = [];
     this.filteredThesis = [];
@@ -69,7 +77,7 @@ export class ThesisProposalsComponent implements OnInit, OnDestroy {
         }
       }
       this.filteredThesis = this.thesis;
-    })
+    });
   }
 
   ngOnInit(): void {
@@ -186,5 +194,16 @@ export class ThesisProposalsComponent implements OnInit, OnDestroy {
       this.filteredThesis = this.thesis;
     }
   }
+
+  openModal(modal: any) {
+		this.modalService.open(modal, this.ngbModalOptions).result.then(
+			(result) => {
+        if (result) {
+          this.deleteThesis(result);
+        }
+      },
+			(reason) => { }
+		);
+	}
 }
 
