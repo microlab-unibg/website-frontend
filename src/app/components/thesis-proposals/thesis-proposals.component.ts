@@ -27,11 +27,32 @@ export class ThesisProposalsComponent implements OnInit, OnDestroy {
   destroyed$ = new Subject<boolean>();
   isLogged = false;
 
+  // Setup firestore
+  firestore: Firestore = inject(Firestore)
+  thesis$: Observable<Thesis[]>;
+  thesis: Thesis[];
+  filteredThesis: Thesis[];
+
+  // Setup firebase storage
+  storage: FirebaseStorage = getStorage();
+
   constructor(private userService: UserSessionService, private router: Router) {
     const thesisCollection: CollectionReference = collection(this.firestore, 'thesis-proposals');
     this.thesis = [];
+    this.filteredThesis = [];
     this.thesis$ = collectionData(thesisCollection, { idField: 'id'}) as Observable<Thesis[]>;
     this.thesis$.subscribe((data) => {
+      data.sort((t1,t2) => {
+        const d1 = this.parseDate(t1.date);
+        const d2 = this.parseDate(t2.date);
+        if (d1 > d2) {
+          return 1;
+        } else if (d1 < d2) {
+          return -1;
+        } else {
+          return 0;
+        }
+      })
       this.thesis = data;
       for (let i = 0; i < this.thesis.length; i++) {
         const t = this.thesis[i];
@@ -47,6 +68,7 @@ export class ThesisProposalsComponent implements OnInit, OnDestroy {
           t.imgUrl = '';
         }
       }
+      this.filteredThesis = this.thesis;
     })
   }
 
@@ -63,13 +85,10 @@ export class ThesisProposalsComponent implements OnInit, OnDestroy {
     this.destroyed$.unsubscribe();
   }
 
-  // Setup firestore
-  firestore: Firestore = inject(Firestore)
-  thesis$: Observable<Thesis[]>;
-  thesis: Thesis[];
-
-  // Setup firebase storage
-  storage: FirebaseStorage = getStorage();
+  parseDate(dateString: string): Date {
+    const [day, month, year] = dateString.split('/');
+    return new Date(+year, +month, +day);
+  }
 
   downloadFromUrl(pdfRef: string) {
     if (pdfRef) {
@@ -152,6 +171,20 @@ export class ThesisProposalsComponent implements OnInit, OnDestroy {
             console.log("Document delete unsuccessful.")
           });
       });
+  }
+
+  filterThesis(type: string) {
+    if (type === "bachelor") {
+      this.filteredThesis = this.thesis.filter((t) => {
+        return t.type === "bachelor";
+      })
+    } else if (type === "master") {
+      this.filteredThesis = this.thesis.filter((t) => {
+        return t.type === "master";
+      })
+    } else {
+      this.filteredThesis = this.thesis;
+    }
   }
 }
 

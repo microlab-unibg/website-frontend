@@ -8,7 +8,17 @@
 
 <div class="container mt-5">
   <div class="row justify-content-start">
-    <h1 class="fs-3 pb-3">Thesis proposals</h1>
+    <h1 class="fs-3 pb-1">Thesis proposals</h1>
+    <div class="dropdown pb-5">
+      <button class="btn btn-outline-primary btn-custom" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+        <i class="bi bi-filter"></i> Filter
+      </button>
+      <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+        <li><a class="dropdown-item" (click)="filterThesis('')">All</a></li>
+        <li><a class="dropdown-item" (click)="filterThesis('bachelor')">Bachelor</a></li>
+        <li><a class="dropdown-item" (click)="filterThesis('master')">Master</a></li>
+      </ul>
+    </div>
   </div>
   <div class="row justify-content-left">
     <!-- add col (only if logged) -->
@@ -20,7 +30,7 @@
       </div>
     </ng-container>
     <!-- col n -->
-    <ng-container *ngIf="!thesis; else thesisBlock">
+    <ng-container *ngIf="filteredThesis.length == 0; else thesisBlock">
       <p class="lead">
         We are sorry but there are no thesis available at this time!
       </p>
@@ -29,7 +39,7 @@
       </p>
     </ng-container>
     <ng-template #thesisBlock>
-      <div class="col col-12 col-sm-12 col-md-6 col-lg-4 text-container px-lg-2 mb-5 d-flex align-self-stretch" *ngFor="let t of thesis">
+      <div class="col col-12 col-sm-12 col-md-6 col-lg-4 text-container px-lg-2 mb-5 d-flex align-self-stretch" *ngFor="let t of filteredThesis">
         <div class="card border-primary card-border-custom w-100" [ngClass]="{'border-master': t.type == 'master', 'border-bachelor': t.type == 'bachelor'}">
           <span class="badge bg-success ms-1 mt-1" style="width: 15%; font-weight: 500;" [ngClass]="{'bg-master': t.type == 'master', 'bg-bachelor': t.type == 'bachelor'}">{{ t.type | titlecase }}</span>
           <ng-container *ngIf="t.imgUrl; else noImg">
