@@ -48,6 +48,9 @@ export class ThesisFormComponent implements OnInit, OnDestroy {
           this.thesis.imgRef = docObj.imgRef;
           this.thesis.pdfRef = docObj.pdfRef;
           this.thesis.type = docObj.type;
+          this.thesis.author = docObj.author;
+          this.thesis.date = docObj.date;
+          this.thesis.email = docObj.email;
           this.manualValidForm = true;
         }
       });
@@ -79,6 +82,10 @@ export class ThesisFormComponent implements OnInit, OnDestroy {
     return storageRef.toString();
   }
 
+  padDate (n: number) {
+    return n < 10 ? '0' + n : n;
+  }
+
   onSubmit() {
     // upload img and PDF
     if (this.imgBlob) {
@@ -90,24 +97,38 @@ export class ThesisFormComponent implements OnInit, OnDestroy {
 
     // convert class to plain JS object
     const thesisToUpload = this.thesis.toPlainObj();
+    // get date info
+    var dateobj = new Date();
+    var dateString = this.padDate(dateobj.getDate()) + "/"
+               + this.padDate(dateobj.getMonth() + 1) + "/" 
+               + dateobj.getFullYear();
+    thesisToUpload.date = dateString;
     if (!('id' in this.thesis) || this.thesis.id == "") {
+      // get info from auth
+      const user = this.userService.getCurrentUser();
+      thesisToUpload.author = user.name;
+      thesisToUpload.email = user.email;
+
+      console.log(thesisToUpload);
+
       addDoc(this.thesisCollection, thesisToUpload)
         .then((documentReference: DocumentReference) => {
           this.router.navigate(['/thesis-proposal']);
         });
     } else {
       const docRef: DocumentReference = doc(this.firestore, 'thesis-proposals/' + this.thesis.id);
-      console.log(this.thesis.pdfRef);
+      console.log(dateString);
       updateDoc(docRef, {
         title: this.thesis.title,
         description: this.thesis.description,
         imgRef: this.thesis.imgRef,
         pdfRef: this.thesis.pdfRef,
-        type: this.thesis.type
+        type: this.thesis.type,
+        date: dateString
       })
       .then(() => {
         this.router.navigate(['/thesis-proposal']);
-      });;
+      });
     }
   }
 
