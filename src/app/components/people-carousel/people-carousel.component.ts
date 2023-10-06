@@ -95,7 +95,7 @@ export class PeopleCarouselComponent {
       {
         fullname: "Luca Ghislotti",
         role: "Ph.D. Student",
-        image_link: "https://didattica-rubrica.unibg.it/sites/default/files/styles/foto_personale/public/foto/26-10-2022/immagine_luca.jpg?itok=cto1xkFT",
+        image_link: "https://didattica-rubrica.unibg.it/sites/default/files/styles/foto_personale/public/foto/26-10-2022/immagine_luca.jpg?itok=wJSpkYJD",
         page_link: 'https://didattica-rubrica.unibg.it/ugov/person/135728'
       },
       {
