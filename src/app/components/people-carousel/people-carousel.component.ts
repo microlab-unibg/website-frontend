@@ -82,7 +82,7 @@ export class PeopleCarouselComponent {
       },
       {
         fullname: "Paolo Lazzaroni",
-        role: "Ph.D. Student",
+        role: "Research Fellow",
         image_link: "https://didattica-rubrica.unibg.it/sites/default/files/styles/foto_personale/public/foto/17-11-2020/photo_face_0.jpg?itok=Ub6ffGMR",
         page_link: 'https://didattica-rubrica.unibg.it/ugov/person/52719'
       },
