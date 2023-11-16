@@ -104,6 +104,12 @@ export class PeopleCarouselComponent {
         image_link: "https://media.licdn.com/dms/image/D4E03AQEGDZdGY_YK-A/profile-displayphoto-shrink_800_800/0/1629919271919?e=2147483647&v=beta&t=tSad18xPWPOFZet-git9Ts83_yGb38xkmGBvqrujg_U",
         page_link: 'https://didattica-rubrica.unibg.it/ugov/person/127647'
       },
+      {
+        fullname: "Matteo Verzeroli",
+        role: "Ph.D. Student",
+        image_link: "https://media.licdn.com/dms/image/D4D03AQEHn_QNGoTd7g/profile-displayphoto-shrink_800_800/0/1697054583090?e=1705536000&v=beta&t=Kf0y_eQXYvCHAZzLm3xhFzrsAnqLsMikuPfxRZy1jUg",
+        page_link: 'https://didattica-rubrica.unibg.it/ugov/person/88527'
+      },
     ]
   }
 }
