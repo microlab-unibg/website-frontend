@@ -107,7 +107,7 @@ export class PeopleCarouselComponent {
       {
         fullname: "Matteo Verzeroli",
         role: "Ph.D. Student",
-        image_link: "https://media.licdn.com/dms/image/D4D03AQEHn_QNGoTd7g/profile-displayphoto-shrink_800_800/0/1697054583090?e=1705536000&v=beta&t=Kf0y_eQXYvCHAZzLm3xhFzrsAnqLsMikuPfxRZy1jUg",
+        image_link: "https://didattica-rubrica.unibg.it/sites/default/files/styles/foto_personale/public/foto/25-11-2023/img_1129_crop.png?itok=Lo5e6iDX",
         page_link: 'https://didattica-rubrica.unibg.it/ugov/person/88527'
       },
     ]
