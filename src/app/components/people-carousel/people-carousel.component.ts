@@ -53,61 +53,61 @@ export class PeopleCarouselComponent {
       {
         fullname: "Valerio Re",
         role: "Full Professor",
-        image_link: "https://didattica-rubrica.unibg.it/sites/default/files/styles/foto_personale/public/foto/18-11-2020/valeriore.jpg?itok=QA8gZjWv",
+        image_link: "https://aisberg.unibg.it/rm/public/picture/img/it.cilea.ga.model.Person/141d8aa1-c8c0-43ad-8788-88ab2401ac5a.fragment",
         page_link: 'https://didattica-rubrica.unibg.it/ugov/person/2126'
       },
       {
         fullname: "Massimo Manghisoni",
         role: "Full Professor",
-        image_link: "https://didattica-rubrica.unibg.it/sites/default/files/styles/foto_personale/public/foto/18-11-2020/massimomanghisoni.jpg?itok=cY6M3PJn",
+        image_link: "https://aisberg.unibg.it/rm/public/picture/img/it.cilea.ga.model.Person/27040384-f306-4dd6-93fd-594588393cb7.fragment",
         page_link: 'https://didattica-rubrica.unibg.it/ugov/person/3863'
       },
       {
         fullname: "Gianluca Traversi",
         role: "Associate Professor",
-        image_link: "https://didattica-rubrica.unibg.it/sites/default/files/styles/foto_personale/public/foto/17-11-2020/gianlucatraversi_0.jpg?itok=LEpJx9I8",
+        image_link: "https://aisberg.unibg.it/rm/public/picture/img/it.cilea.ga.model.Person/282701ea-a844-41bd-bb3b-b589d3ca8546.fragment",
         page_link: 'https://didattica-rubrica.unibg.it/ugov/person/2025'
       },
       {
         fullname: "Luigi Gaioni",
         role: "Associate Professor",
-        image_link: "https://didattica-rubrica.unibg.it/sites/default/files/styles/foto_personale/public/foto/27-01-2022/gaioni_2022_0.png?itok=xwGf3W-p",
+        image_link: "https://aisberg.unibg.it/rm/public/picture/img/it.cilea.ga.model.Person/167a02fb-b4c7-4cef-bdc9-385b4aa96661.fragment",
         page_link: 'https://didattica-rubrica.unibg.it/ugov/person/1912'
       },
       {
         fullname: "Elisa Riceputi",
         role: "Research Fellow",
-        image_link: "https://media.licdn.com/dms/image/C5603AQG7MriSe0NcvQ/profile-displayphoto-shrink_800_800/0/1517027392938?e=2147483647&v=beta&t=HKbO3u5lWMJL1u-W95hDYh2gGz-V1ZB_1IU4ZI7n12k",
+        image_link: "https://aisberg.unibg.it/rm/public/picture/img/it.cilea.ga.model.Person/10d2a921-3499-4958-9bf1-589f7c465bbe.fragment",
         page_link: 'https://didattica-rubrica.unibg.it/ugov/person/23631'
       },
       {
         fullname: "Paolo Lazzaroni",
         role: "Research Fellow",
-        image_link: "https://didattica-rubrica.unibg.it/sites/default/files/styles/foto_personale/public/foto/17-11-2020/photo_face_0.jpg?itok=Ub6ffGMR",
+        image_link: "https://media.licdn.com/dms/image/C4D03AQH9qv3Fs192Pw/profile-displayphoto-shrink_800_800/0/1604408264030?e=1707350400&v=beta&t=ggA9hs7nDWVpiZr4lQDIUlp1ZcVMkXTl2U94FJBGNyA",
         page_link: 'https://didattica-rubrica.unibg.it/ugov/person/52719'
       },
       {
         fullname: "Andrea Galliani",
         role: "Ph.D. Student",
-        image_link: "https://didattica-rubrica.unibg.it/sites/default/files/styles/foto_personale/public/foto/27-10-2022/1653337271785.jpg?itok=JvdMnetv",
+        image_link: "https://media.licdn.com/dms/image/D4D03AQH4n5cfi6Kd7Q/profile-displayphoto-shrink_800_800/0/1691703265952?e=1707350400&v=beta&t=B0YL4ySy-0T20hUDSNYVHifrafW1kChjIJ2ehJKEnEw",
         page_link: 'https://didattica-rubrica.unibg.it/ugov/person/109144'
       },
       {
         fullname: "Luca Ghislotti",
         role: "Ph.D. Student",
-        image_link: "https://didattica-rubrica.unibg.it/sites/default/files/styles/foto_personale/public/foto/26-10-2022/immagine_luca.jpg?itok=wJSpkYJD",
+        image_link: "https://media.licdn.com/dms/image/C4E03AQEuHBMUnpWx_w/profile-displayphoto-shrink_800_800/0/1653131806221?e=1707350400&v=beta&t=VegliAwcKwpLYtPc1EBM8YP5kFR77wK4bD74mjN9ySo",
         page_link: 'https://didattica-rubrica.unibg.it/ugov/person/135728'
       },
       {
         fullname: "Stefano Sanvito",
         role: "Ph.D. Student",
-        image_link: "https://media.licdn.com/dms/image/D4E03AQEGDZdGY_YK-A/profile-displayphoto-shrink_800_800/0/1629919271919?e=2147483647&v=beta&t=tSad18xPWPOFZet-git9Ts83_yGb38xkmGBvqrujg_U",
+        image_link: "https://media.licdn.com/dms/image/D4E03AQEGDZdGY_YK-A/profile-displayphoto-shrink_800_800/0/1629919272318?e=1707350400&v=beta&t=13HSGfLqP6RMleoNWS8wshmPn1iHo8TyZ_ibzEGK3tk",
         page_link: 'https://didattica-rubrica.unibg.it/ugov/person/127647'
       },
       {
         fullname: "Matteo Verzeroli",
         role: "Ph.D. Student",
-        image_link: "https://didattica-rubrica.unibg.it/sites/default/files/styles/foto_personale/public/foto/25-11-2023/img_1129_crop.png?itok=Lo5e6iDX",
+        image_link: "https://media.licdn.com/dms/image/D4E03AQHIZTDP4HfIEw/profile-displayphoto-shrink_800_800/0/1701470774853?e=1707350400&v=beta&t=KnpcrsS01SvgOyMOtLvXcMwALF9Zg9EiGtrznGpMeBg",
         page_link: 'https://didattica-rubrica.unibg.it/ugov/person/88527'
       },
     ]
