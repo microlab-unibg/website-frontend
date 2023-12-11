@@ -83,8 +83,8 @@ export class PeopleCarouselComponent {
       {
         fullname: "Paolo Lazzaroni",
         role: "Research Fellow",
-        image_link: "https://media.licdn.com/dms/image/C4D03AQH9qv3Fs192Pw/profile-displayphoto-shrink_800_800/0/1604408264030?e=1707350400&v=beta&t=ggA9hs7nDWVpiZr4lQDIUlp1ZcVMkXTl2U94FJBGNyA",
-        page_link: 'https://didattica-rubrica.unibg.it/ugov/person/52719'
+        image_link: "https://pollostrazon.github.io/assets/img/paolo.jpg?10bfe6da33d5d816f5f86be703ef195c",
+        page_link: 'https://pollostrazon.github.io/'
       },
       {
         fullname: "Andrea Galliani",
