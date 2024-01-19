@@ -13,14 +13,17 @@
 
 <div class="container">
     <div class="row justify-content-center align-items-center">
-        <div class="col-3 clickable" (click)="onImageClick(personInfo.page_link)">
+        <div class="col-6 col-md-4 col-sm-6 clickable" (click)="onImageClick(personInfo.page_link)">
             <div class="row justify-content-center">
-                <div class="image-cropper">
-                <img class="person-image" src="{{personInfo.image_link}}" />
+                <div class="image-cropper d-none d-md-block">
+                    <img class="person-image" src="{{personInfo.image_link}}" />
+                </div>
+                <div class="image-cropper-sm d-xl-none d-lg-none d-md-none">
+                    <img class="person-image-sm" src="{{personInfo.image_link}}" />
                 </div>
             </div>
         </div>
-        <div class="col-3 clickable" (click)="onImageClick(personInfo.page_link)">
+        <div class="col-4 col-md-5 col-sm-4 clickable" (click)="onImageClick(personInfo.page_link)">
             <div class="row mb-2">
                 <span class="fs-4">{{personInfo.fullname}}</span>
             </div>

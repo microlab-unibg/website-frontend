@@ -4,11 +4,27 @@
     width: 30vw;
 }
 
+.person-image-sm {
+    min-width: 150px;
+    max-height: 400px;
+    max-width: 150px;
+    width: 20vw;
+}
+
 .image-cropper {
     padding: 0px;
     border-radius: 50%;
     max-height: 200px;
     max-width: 200px;
+    position: relative;
+    overflow: hidden;
+}
+
+.image-cropper-sm {
+    padding: 0px;
+    border-radius: 50%;
+    max-height: 150px;
+    max-width: 150px;
     position: relative;
     overflow: hidden;
 }
