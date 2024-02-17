@@ -89,25 +89,25 @@ export class PeopleCarouselComponent {
       {
         fullname: "Andrea Galliani",
         role: "Ph.D. Student",
-        image_link: "https://media.licdn.com/dms/image/D4D03AQH4n5cfi6Kd7Q/profile-displayphoto-shrink_800_800/0/1691703265952?e=1707350400&v=beta&t=B0YL4ySy-0T20hUDSNYVHifrafW1kChjIJ2ehJKEnEw",
+        image_link: "https://agalliani.github.io/assets/propic.webp",
         page_link: 'https://didattica-rubrica.unibg.it/ugov/person/109144'
       },
       {
         fullname: "Luca Ghislotti",
         role: "Ph.D. Student",
-        image_link: "https://media.licdn.com/dms/image/C4E03AQEuHBMUnpWx_w/profile-displayphoto-shrink_800_800/0/1653131806221?e=1707350400&v=beta&t=VegliAwcKwpLYtPc1EBM8YP5kFR77wK4bD74mjN9ySo",
+        image_link: "https://lucaghislotti.com/authors/admin/avatar_hua622f6c8054e17d1eb87ca70675fae47_633934_270x270_fill_q75_lanczos_center.jpg",
         page_link: 'https://didattica-rubrica.unibg.it/ugov/person/135728'
       },
       {
         fullname: "Stefano Sanvito",
         role: "Ph.D. Student",
-        image_link: "https://media.licdn.com/dms/image/D4E03AQEGDZdGY_YK-A/profile-displayphoto-shrink_800_800/0/1629919272318?e=1707350400&v=beta&t=13HSGfLqP6RMleoNWS8wshmPn1iHo8TyZ_ibzEGK3tk",
+        image_link: "https://media.licdn.com/dms/image/D4E03AQEGDZdGY_YK-A/profile-displayphoto-shrink_800_800/0/1629919272318?e=2147483647&v=beta&t=QNFSBSXuHZyXhdK-r_nd9dy6frtGUhWwltGtueEPrww",
         page_link: 'https://didattica-rubrica.unibg.it/ugov/person/127647'
       },
       {
         fullname: "Matteo Verzeroli",
         role: "Ph.D. Student",
-        image_link: "https://media.licdn.com/dms/image/D4E03AQHIZTDP4HfIEw/profile-displayphoto-shrink_800_800/0/1701470774853?e=1707350400&v=beta&t=KnpcrsS01SvgOyMOtLvXcMwALF9Zg9EiGtrznGpMeBg",
+        image_link: "https://media.licdn.com/dms/image/D4E03AQHIZTDP4HfIEw/profile-displayphoto-shrink_800_800/0/1701470774853?e=1713398400&v=beta&t=zixxNGB-GV0Jr_kEVI7lSjdLhDD3kBw-sFsxIF4XHx0",
         page_link: 'https://didattica-rubrica.unibg.it/ugov/person/88527'
       },
     ]
