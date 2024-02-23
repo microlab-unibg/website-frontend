@@ -9,6 +9,14 @@
 <div class="container mt-5">
   <div class="row justify-content-start">
     <h1 class="fs-3 pb-1">Thesis proposals</h1>
+    <div class="container fs-6">
+      <p>The listed theses are not suiting you?</p>
+      <div class="mb-5">
+        <a href='mailto:microlab@unibg.it?subject=Richiesta tesi'>
+          <button type="button" class="btn btn-outline-primary btn-custom">Contact us!</button>
+        </a>
+      </div>
+    </div>
     <div class="dropdown pb-5">
       <button class="btn btn-outline-primary btn-custom" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
         <i class="bi bi-filter"></i> Filter
@@ -47,11 +55,11 @@
           'border-bachelor': t.type == 'bachelor'
           }">
           <div>
-            <span class="badge bg-success ms-1 mt-1" style="width: 15%; font-weight: 500;" [ngClass]="{
+            <span class="badge bg-success ms-1 mt-1" style="font-weight: 500;" [ngClass]="{
               'bg-master': t.type == 'master',
               'bg-bachelor': t.type == 'bachelor'
               }">{{ t.type | titlecase }}</span>
-            <span class="badge bg-success ms-1 mt-1" style="width: 15%; font-weight: 500;" [ngClass]="{
+            <span class="badge bg-success ms-1 mt-1" style="font-weight: 500;" [ngClass]="{
               'bg-available': t.status == 'available',
               'bg-ongoing': t.status == 'ongoing',
               'bg-done': t.status == 'done',
