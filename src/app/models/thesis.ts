@@ -3,6 +3,7 @@ export class Thesis {
   public title: string;
   public description: string;
   public type: string;
+  public status: string;
   public author: string;
   public email: string;
   public date: string;
@@ -10,11 +11,12 @@ export class Thesis {
   public imgUrl: string;
   public pdfRef: string;
 
-  constructor(id?: string, title?: string, description?: string, type?: string, author?: string, email?: string, date?: string, imgRef?: string, imgUrl?: string, pdfRef?: string) {
+  constructor(id?: string, title?: string, description?: string, type?: string, status?: string, author?: string, email?: string, date?: string, imgRef?: string, imgUrl?: string, pdfRef?: string) {
     this.id = id ?? '';
     this.title = title ?? '';
     this.description = description ?? '';
     this.type = type ?? '';
+    this.status = status ?? '';
     this.author = author ?? '';
     this.email = email ?? '';
     this.date = date ?? '';
@@ -23,8 +25,8 @@ export class Thesis {
     this.pdfRef = pdfRef ?? '';
   }
 
-  toPlainObj(): { title?: string, description?: string, type?: string, author?: string, email?: string, date?: string, imgRef?: string, pdfRef?: string } {
-    const thesisObj: { id?: string, title?: string, description?: string, type?: string, author?: string, email?: string, date?: string, imgRef?: string, imgUrl?: string, pdfRef?: string } = Object.assign({}, this);
+  toPlainObj(): { title?: string, description?: string, type?: string, status?: string, author?: string, email?: string, date?: string, imgRef?: string, pdfRef?: string } {
+    const thesisObj: { id?: string, title?: string, description?: string, type?: string, status?: string, author?: string, email?: string, date?: string, imgRef?: string, imgUrl?: string, pdfRef?: string } = Object.assign({}, this);
     delete thesisObj.id;
     delete thesisObj.imgUrl;
     return thesisObj;

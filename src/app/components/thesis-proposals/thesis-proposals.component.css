@@ -19,12 +19,28 @@
   border-color: #a5213f !important;
 }
 
+.border-ongoing {
+  border-color: #cd8900 !important;
+}
+
+.border-done {
+  border-color: #695c5b !important;
+}
+
 .bg-master {
   background-color: #613f8d !important;
 }
 
 .bg-bachelor {
   background-color: #a5213f !important;
+}
+
+.bg-ongoing {
+  background-color: #cd8900 !important;
+}
+
+.bg-done {
+  background-color: #695c5b !important;
 }
 
 .icon-master {
@@ -57,6 +73,36 @@
   fill: #0096ff;
 }
 
+.icon-ongoing {
+  /* 0.2s is the amount of time it take to change colors */
+  transition: 0.2s ease-in-out;
+  color: #cd8900;
+  fill: #cd8900;
+  cursor: pointer;
+}
+
+.icon-ongoing:hover {
+  /* 0.2s is the amount of time it take to change colors */
+  transition: 0.2s ease-in-out;
+  color: #0096ff;
+  fill: #0096ff;
+}
+
+.icon-done {
+  /* 0.2s is the amount of time it take to change colors */
+  transition: 0.2s ease-in-out;
+  color: #695c5b;
+  fill: #695c5b;
+  cursor: pointer;
+}
+
+.icon-done:hover {
+  /* 0.2s is the amount of time it take to change colors */
+  transition: 0.2s ease-in-out;
+  color: #0096ff;
+  fill: #0096ff;
+}
+
 .icon-trash:hover {
   /* 0.2s is the amount of time it take to change colors */
   transition: 0.2s ease-in-out;
@@ -70,4 +116,16 @@
 
 .font-bachelor {
   color: #a5213f;
+}
+
+.font-ongoing {
+  color: #cd8900;
+}
+
+.font-done {
+  color: #695c5b;
+}
+
+.img-done {
+  filter: grayscale(85%);
 }

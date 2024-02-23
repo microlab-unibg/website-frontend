@@ -34,6 +34,7 @@ export class ThesisProposalsComponent implements OnInit, OnDestroy {
   thesis$: Observable<Thesis[]>;
   thesis: Thesis[];
   filteredThesis: Thesis[];
+  doneThesis: Thesis[];
 
   // Setup firebase storage
   storage: FirebaseStorage = getStorage();
@@ -48,19 +49,32 @@ export class ThesisProposalsComponent implements OnInit, OnDestroy {
     const thesisCollection: CollectionReference = collection(this.firestore, 'thesis-proposals');
     this.thesis = [];
     this.filteredThesis = [];
+    this.doneThesis = [];
     this.thesis$ = collectionData(thesisCollection, { idField: 'id'}) as Observable<Thesis[]>;
     this.thesis$.subscribe((data) => {
+      data.sort(function(t1, t2){
+        var d1 = t1.date.split('/').reverse().join(),
+            d2 = t2.date.split('/').reverse().join();
+        return d1 > d2 ? -1 : (d1 < d2 ? 1 : 0);
+      })
       data.sort((t1,t2) => {
-        const d1 = this.parseDate(t1.date);
-        const d2 = this.parseDate(t2.date);
-        if (d1 > d2) {
-          return 1;
-        } else if (d1 < d2) {
+        const s1 = t1.status;
+        const s2 = t2.status;
+        if (!s1 || s1 === 'available') {
           return -1;
+        } else if (!s2 || s2 === 'available') {
+          return 1;
         } else {
-          return 0;
+          if (s1 === 'ongoing') {
+            return -1;
+          } else if (s2 === 'ongoing') {
+            return 1;
+          } else {
+            return 0;
+          }
         }
       })
+      data.map((t) => t.status = 'status' in t ? t.status : 'available')
       this.thesis = data;
       for (let i = 0; i < this.thesis.length; i++) {
         const t = this.thesis[i];
@@ -77,6 +91,7 @@ export class ThesisProposalsComponent implements OnInit, OnDestroy {
         }
       }
       this.filteredThesis = this.thesis;
+      console.log(this.filteredThesis);
     });
   }
 

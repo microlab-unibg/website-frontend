@@ -18,7 +18,17 @@ export class UserSessionService implements OnDestroy {
   public logged$: Observable<boolean>;
 
   private forbiddenPaths = ['/thesis-proposals', '/research-interest']
-  private authorized = ['luigi.gaioni@unibg.it', 'gianluca.traversi@unibg.it', 'massimo.manghisoni@unibg.it', 'valerio.re@unibg.it', 'elisa.riceputi@unibg.it', 'andrea.galliani@unibg.it', 'paolo.lazzaroni@unibg.it', 'luca.ghislotti@unibg.it', 'stefano.sanvito@unibg.it']
+  private authorized = [
+    'luigi.gaioni@unibg.it',
+    'gianluca.traversi@unibg.it',
+    'massimo.manghisoni@unibg.it',
+    'valerio.re@unibg.it',
+    'elisa.riceputi@unibg.it',
+    'andrea.galliani@unibg.it',
+    'paolo.lazzaroni@unibg.it',
+    'luca.ghislotti@unibg.it',
+    'stefano.sanvito@unibg.it',
+    'matteo.verzeroli@unibg.it']
 
   constructor(public router: Router) {
     let isLogged = false;

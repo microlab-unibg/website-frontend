@@ -48,10 +48,14 @@ export class ThesisFormComponent implements OnInit, OnDestroy {
           this.thesis.imgRef = docObj.imgRef;
           this.thesis.pdfRef = docObj.pdfRef;
           this.thesis.type = docObj.type;
+          this.thesis.status = docObj.status;
           this.thesis.author = docObj.author;
           this.thesis.date = docObj.date;
           this.thesis.email = docObj.email;
           this.manualValidForm = true;
+        } else {
+          this.thesis.author = this.user.name;
+          this.thesis.email = this.user.email;
         }
       });
   }
@@ -68,7 +72,10 @@ export class ThesisFormComponent implements OnInit, OnDestroy {
   thesisCollection: CollectionReference;
 
   // for template
+  // get info from auth
+  user = this.userService.getCurrentUser();
   thesis = new Thesis();
+
   PDFBlob: any = '';
   imgBlob: any = '';
   // for validation
@@ -104,13 +111,6 @@ export class ThesisFormComponent implements OnInit, OnDestroy {
                + dateobj.getFullYear();
     thesisToUpload.date = dateString;
     if (!('id' in this.thesis) || this.thesis.id == "") {
-      // get info from auth
-      const user = this.userService.getCurrentUser();
-      thesisToUpload.author = user.name;
-      thesisToUpload.email = user.email;
-
-      console.log(thesisToUpload);
-
       addDoc(this.thesisCollection, thesisToUpload)
         .then((documentReference: DocumentReference) => {
           this.router.navigate(['/thesis-proposal']);
@@ -124,6 +124,7 @@ export class ThesisFormComponent implements OnInit, OnDestroy {
         imgRef: this.thesis.imgRef,
         pdfRef: this.thesis.pdfRef,
         type: this.thesis.type,
+        status: this.thesis.status,
         date: dateString
       })
       .then(() => {
