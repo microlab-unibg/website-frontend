@@ -119,6 +119,8 @@ export class ThesisFormComponent implements OnInit, OnDestroy {
       const docRef: DocumentReference = doc(this.firestore, 'thesis-proposals/' + this.thesis.id);
       console.log(dateString);
       updateDoc(docRef, {
+        author: this.thesis.author,
+        email: this.thesis.email,
         title: this.thesis.title,
         description: this.thesis.description,
         imgRef: this.thesis.imgRef,
