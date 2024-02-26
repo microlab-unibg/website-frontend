@@ -129,3 +129,13 @@
 .img-done {
   filter: grayscale(85%);
 }
+
+.card-collapse {
+  height: 4rem;
+  overflow: hidden;
+}
+
+.show {
+  overflow: visible;
+  height: auto;
+}

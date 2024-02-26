@@ -45,6 +45,10 @@ export class ThesisProposalsComponent implements OnInit, OnDestroy {
       keyboard : false
   };
 
+  // for show more/less
+  needsShow: boolean[] = [];
+  show: boolean[] = [];
+
   constructor(private userService: UserSessionService, private router: Router, private modalService: NgbModal) {
     const thesisCollection: CollectionReference = collection(this.firestore, 'thesis-proposals');
     this.thesis = [];
@@ -75,6 +79,11 @@ export class ThesisProposalsComponent implements OnInit, OnDestroy {
         }
       })
       data.map((t) => t.status = 'status' in t ? t.status : 'available')
+      // for read more/less
+      data.forEach((t, idx) => {
+        this.needsShow[idx] = t.description.length < 160 ? false : true;
+        this.show[idx] = false;
+      });
       this.thesis = data;
       for (let i = 0; i < this.thesis.length; i++) {
         const t = this.thesis[i];
@@ -91,7 +100,6 @@ export class ThesisProposalsComponent implements OnInit, OnDestroy {
         }
       }
       this.filteredThesis = this.thesis;
-      console.log(this.filteredThesis);
     });
   }
 
