@@ -81,7 +81,7 @@ export class ThesisProposalsComponent implements OnInit, OnDestroy {
       data.map((t) => t.status = 'status' in t ? t.status : 'available')
       // for read more/less
       data.forEach((t, idx) => {
-        this.needsShow[idx] = t.description.length < 160 ? false : true;
+        this.needsShow[idx] = t.description.length < 140 ? false : true;
         this.show[idx] = false;
       });
       this.thesis = data;
