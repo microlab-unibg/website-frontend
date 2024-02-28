@@ -7,24 +7,21 @@
 </div>
 
 <div class="container mt-5">
-  <div class="row justify-content-start">
-    <h1 class="fs-3 pb-1">Thesis proposals</h1>
-    <div class="container fs-6">
-      <p>The listed theses are not suiting you?</p>
-      <div class="mb-5">
-        <a href='mailto:microlab@unibg.it?subject=Richiesta tesi'>
-          <button type="button" class="btn btn-outline-primary btn-custom">Contact us!</button>
-        </a>
-      </div>
+  <div class="row justify-content-start mb-4">
+    <div class="col col-12 col-sm-12 col-md-10 col-lg-10 col-xl-10 justify-content-start">
+      <span class="fs-5">The listed theses are not suiting you?</span>
+      <a class="ms-2" href='mailto:microlab@unibg.it?subject=Richiesta tesi'>
+        <button type="button" class="btn btn-outline-primary btn-custom align-self-center">Click to contact us!</button>
+      </a>
     </div>
-    <div class="dropdown pb-5">
-      <button class="btn btn-outline-primary btn-custom" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-        <i class="bi bi-filter"></i> Filter
+    <div class="d-flex col col-12 col-sm-12 col-md-2 col-lg-2 col-xl-2 justify-content-end">
+      <button class="btn" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+        Filter: {{ filterSelection }} <i class="bi bi-filter"></i>
       </button>
       <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-        <li><a class="dropdown-item" (click)="filterThesis('')">All</a></li>
-        <li><a class="dropdown-item" (click)="filterThesis('bachelor')">Bachelor</a></li>
-        <li><a class="dropdown-item" (click)="filterThesis('master')">Master</a></li>
+        <li><a class="dropdown-item" (click)="filterThesis('All')">All</a></li>
+        <li><a class="dropdown-item" (click)="filterThesis('Bachelor')">Bachelor</a></li>
+        <li><a class="dropdown-item" (click)="filterThesis('Master')">Master</a></li>
       </ul>
     </div>
   </div>

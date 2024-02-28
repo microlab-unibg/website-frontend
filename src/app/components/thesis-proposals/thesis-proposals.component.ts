@@ -49,6 +49,9 @@ export class ThesisProposalsComponent implements OnInit, OnDestroy {
   needsShow: boolean[] = [];
   show: boolean[] = [];
 
+  // for filter
+  filterSelection: string = 'All';
+
   constructor(private userService: UserSessionService, private router: Router, private modalService: NgbModal) {
     const thesisCollection: CollectionReference = collection(this.firestore, 'thesis-proposals');
     this.thesis = [];
@@ -205,6 +208,8 @@ export class ThesisProposalsComponent implements OnInit, OnDestroy {
   }
 
   filterThesis(type: string) {
+    this.filterSelection = type;
+    type = type.toLowerCase();
     if (type === "bachelor") {
       this.filteredThesis = this.thesis.filter((t) => {
         return t.type === "bachelor";
