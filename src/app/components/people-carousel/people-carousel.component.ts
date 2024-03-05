@@ -90,7 +90,7 @@ export class PeopleCarouselComponent {
         fullname: "Andrea Galliani",
         role: "Ph.D. Student",
         image_link: "https://agalliani.github.io/assets/propic.webp",
-        page_link: 'https://didattica-rubrica.unibg.it/ugov/person/109144'
+        page_link: 'https://agalliani.github.io/'
       },
       {
         fullname: "Luca Ghislotti",
