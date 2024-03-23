@@ -95,8 +95,8 @@ export class PeopleCarouselComponent {
       {
         fullname: "Luca Ghislotti",
         role: "Ph.D. Student",
-        image_link: "https://lucaghislotti.com/authors/admin/avatar_hua622f6c8054e17d1eb87ca70675fae47_633934_270x270_fill_q75_lanczos_center.jpg",
-        page_link: 'https://didattica-rubrica.unibg.it/ugov/person/135728'
+        image_link: "https://lucaghislotti.com/assets/img/luca_pic-480.webp",
+        page_link: 'https://lucaghislotti.com/'
       },
       {
         fullname: "Stefano Sanvito",
