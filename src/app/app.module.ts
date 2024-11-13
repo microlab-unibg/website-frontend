@@ -42,7 +42,6 @@ import { ThesisFormComponent } from './components/thesis-form/thesis-form.compon
 import { ProjectsComponent } from './components/projects/projects.component';
 
 import { GapsOnAirComponent } from './components/gaps-on-air/gaps-on-air.component';
-import { FacebookModule } from 'ngx-facebook';
 
 @NgModule({
   declarations: [
