@@ -34,7 +34,7 @@
           >Research interest</a
         >
       </li>
-      <!--<li class="nav-item mx-2" ngbDropdown>
+      <li class="nav-item mx-2" ngbDropdown>
         <a
           class="nav-link"
           tabindex="0"
@@ -49,27 +49,33 @@
           class="dropdown-menu">
           <a
             ngbDropdownItem
-            routerLink="/work-in-progress"
-            (click)="$event.preventDefault()"
+            href="https://cms.cern/"
             >CMS</a
           >
           <a
             ngbDropdownItem
-            routerLink="/work-in-progress"
-            (click)="$event.preventDefault()"
+            href="https://gaps1.astro.ucla.edu/gaps/"
             >GAPS</a
           >
           <a
             ngbDropdownItem
-            routerLink="/work-in-progress"
-            (click)="$event.preventDefault()"
-            >Skinmon</a
+            href="https://www.belle2.org/"
+            >BELLE2</a
+          >
+          <a
+            ngbDropdownItem
+            href="https://www.centronazionalemost.it/"
+            >MOST</a
           >
         </div>
-      </li>-->
+      </li>
       <li NgbDropdownItem class="nav-item">
         <a class="nav-link mx-2" routerLink="/thesis-proposals"
           >Thesis proposals</a>
+      </li>
+      <li NgbDropdownItem class="nav-item">
+        <a class="nav-link nav-link-important mx-2" routerLink="/gaps-on-air"
+          >GAPS (on-air!)</a>
       </li>
     </ul>
     <ul class="navbar-nav">

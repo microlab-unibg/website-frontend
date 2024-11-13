@@ -39,6 +39,10 @@ import { provideRemoteConfig,getRemoteConfig } from '@angular/fire/remote-config
 import { PeopleCarouselComponent } from './components/people-carousel/people-carousel.component';
 import { PersonCardComponent } from './components/person-card/person-card.component';
 import { ThesisFormComponent } from './components/thesis-form/thesis-form.component';
+import { ProjectsComponent } from './components/projects/projects.component';
+
+import { GapsOnAirComponent } from './components/gaps-on-air/gaps-on-air.component';
+import { FacebookModule } from 'ngx-facebook';
 
 @NgModule({
   declarations: [
@@ -53,7 +57,9 @@ import { ThesisFormComponent } from './components/thesis-form/thesis-form.compon
     UnauthorizedComponent,
     PeopleCarouselComponent,
     PersonCardComponent,
-    ThesisFormComponent
+    ThesisFormComponent,
+    ProjectsComponent,
+    GapsOnAirComponent
   ],
   imports: [
     BrowserModule,
@@ -88,7 +94,7 @@ import { ThesisFormComponent } from './components/thesis-form/thesis-form.compon
     provideFunctions(() => getFunctions()),
     provideMessaging(() => getMessaging()),
     providePerformance(() => getPerformance()),
-    provideRemoteConfig(() => getRemoteConfig())
+    provideRemoteConfig(() => getRemoteConfig()),
   ],
   providers: [{
     provide: 'SocialAuthServiceConfig',

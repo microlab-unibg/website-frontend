@@ -26,6 +26,19 @@ a:hover {
     color: #0096ff;
     font-weight: normal;
 }
+@keyframes oscillation{
+  from   {color: #10e3ff;}
+  to     {color: #ffffff;}
+}
+.navbar-nav > .nav-item > a.nav-link-important {
+    color: #10e3ff;
+    font-weight: 500;
+    animation: oscillation 1.1s 0s infinite alternate;
+}
+.navbar-nav > .nav-item > a.nav-link-important:hover {
+    color: #0096ff;
+    font-weight: 500;
+}
 .navbar-nav > li > .dropdown-menu {
     background-color: #133066;
 }
