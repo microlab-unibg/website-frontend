@@ -7,7 +7,7 @@ body {
 }
 
 body {
-    padding-top: 25px;
+    padding-top: 0px;
     margin: 0;
     font-family: Roboto, "Helvetica Neue", sans-serif;
 }
@@ -80,6 +80,12 @@ object {
 .carousel-item-crop {
     max-height: 200px;
     min-height: 200px;
+    object-fit: cover;
+}
+
+.carousel-item-crop-home {
+    max-height: 300px;
+    min-height: 300px;
     object-fit: cover;
 }
 

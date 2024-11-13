@@ -1,6 +1,8 @@
 /* Modify the background color */
 .navbar-custom {
     background-color: #133066;
+    font-size: small;
+    padding: 2px 2px 2px 2px;
 }
 
 /* Modify brand and text color */

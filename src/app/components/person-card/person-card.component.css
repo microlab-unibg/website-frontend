@@ -1,21 +1,19 @@
 .person-image {
-    max-height: 400px;
-    max-width: 200px;
-    width: 30vw;
+    max-height: 300px;
+    max-width: 150px;
 }
 
 .person-image-sm {
-    min-width: 150px;
-    max-height: 400px;
-    max-width: 150px;
-    width: 20vw;
+    min-width: 100px;
+    max-height: 200px;
+    max-width: 100px;
 }
 
 .image-cropper {
     padding: 0px;
     border-radius: 50%;
-    max-height: 200px;
-    max-width: 200px;
+    max-height: 150px;
+    max-width: 150px;
     position: relative;
     overflow: hidden;
 }
@@ -23,8 +21,8 @@
 .image-cropper-sm {
     padding: 0px;
     border-radius: 50%;
-    max-height: 150px;
-    max-width: 150px;
+    max-height: 100px;
+    max-width: 100px;
     position: relative;
     overflow: hidden;
 }
