@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { GapsOnAirComponent } from './gaps-on-air.component';
+import { GapsOnIceComponent } from './gaps-on-ice.component';
 
-describe('GapsOnAirComponent', () => {
-  let component: GapsOnAirComponent;
-  let fixture: ComponentFixture<GapsOnAirComponent>;
+describe('GapsOnIceComponent', () => {
+  let component: GapsOnIceComponent;
+  let fixture: ComponentFixture<GapsOnIceComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ GapsOnAirComponent ]
+      declarations: [ GapsOnIceComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(GapsOnAirComponent);
+    fixture = TestBed.createComponent(GapsOnIceComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

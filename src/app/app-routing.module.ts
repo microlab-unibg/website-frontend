@@ -8,7 +8,7 @@ import { AdminLoginComponent } from '@components/admin-login/admin-login.compone
 import { AuthGuard } from './guard/auth.guard';
 import { UnauthorizedComponent } from '@components/unauthorized/unauthorized.component';
 import { ThesisFormComponent } from '@components/thesis-form/thesis-form.component';
-import { GapsOnAirComponent } from './components/gaps-on-air/gaps-on-air.component';
+import { GapsOnIceComponent } from './components/gaps-on-ice/gaps-on-ice.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -18,7 +18,7 @@ const routes: Routes = [
       { path: 'thesis-form', component: ThesisFormComponent, canActivate: [AuthGuard] }
     ]
   },
-  { path: 'gaps-on-air', component: GapsOnAirComponent },
+  { path: 'gaps-on-ice', component: GapsOnIceComponent },
   { path: 'work-in-progress', component: WorkInProgressComponent },
   { path: 'admin', component: AdminLoginComponent },
   { path: 'unauthorized', component: UnauthorizedComponent },

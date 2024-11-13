@@ -41,7 +41,7 @@ import { PersonCardComponent } from './components/person-card/person-card.compon
 import { ThesisFormComponent } from './components/thesis-form/thesis-form.component';
 import { ProjectsComponent } from './components/projects/projects.component';
 
-import { GapsOnAirComponent } from './components/gaps-on-air/gaps-on-air.component';
+import { GapsOnIceComponent } from './components/gaps-on-ice/gaps-on-ice.component';
 
 @NgModule({
   declarations: [
@@ -58,7 +58,7 @@ import { GapsOnAirComponent } from './components/gaps-on-air/gaps-on-air.compone
     PersonCardComponent,
     ThesisFormComponent,
     ProjectsComponent,
-    GapsOnAirComponent
+    GapsOnIceComponent
   ],
   imports: [
     BrowserModule,
