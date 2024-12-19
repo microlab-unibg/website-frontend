@@ -95,7 +95,7 @@ export class PeopleCarouselComponent {
       {
         fullname: "Luca Ghislotti",
         role: "Ph.D. Student",
-        image_link: "https://lucaghislotti.com/assets/img/luca_pic-480.webp",
+        image_link: "https://lucaghislotti.com/assets/img/luca_pic.jpg?7cbaf38f87421a64466fa40d133eccc4",
         page_link: 'https://lucaghislotti.com/'
       },
       {
