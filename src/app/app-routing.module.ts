@@ -18,7 +18,7 @@ const routes: Routes = [
       { path: 'thesis-form', component: ThesisFormComponent, canActivate: [AuthGuard] }
     ]
   },
-  { path: 'gaps-on-ice', component: GapsOnIceComponent },
+  //{ path: 'gaps-on-ice', component: GapsOnIceComponent },
   { path: 'work-in-progress', component: WorkInProgressComponent },
   { path: 'admin', component: AdminLoginComponent },
   { path: 'unauthorized', component: UnauthorizedComponent },
