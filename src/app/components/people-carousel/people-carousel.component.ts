@@ -89,7 +89,7 @@ export class PeopleCarouselComponent {
       {
         fullname: "Andrea Galliani",
         role: "Ph.D. Student",
-        image_link: "https://agalliani.github.io/assets/propic.webp",
+        image_link: "https://agalliani.github.io/propic.webp",
         page_link: 'https://agalliani.github.io/'
       },
       {
@@ -97,12 +97,6 @@ export class PeopleCarouselComponent {
         role: "Ph.D. Student",
         image_link: "https://lucaghislotti.com/assets/img/luca_pic.jpg?7cbaf38f87421a64466fa40d133eccc4",
         page_link: 'https://lucaghislotti.com/'
-      },
-      {
-        fullname: "Stefano Sanvito",
-        role: "Ph.D. Student",
-        image_link: "https://media.licdn.com/dms/image/D4E03AQEGDZdGY_YK-A/profile-displayphoto-shrink_800_800/0/1629919272318?e=2147483647&v=beta&t=QNFSBSXuHZyXhdK-r_nd9dy6frtGUhWwltGtueEPrww",
-        page_link: 'https://didattica-rubrica.unibg.it/ugov/person/127647'
       },
       {
         fullname: "Matteo Verzeroli",
