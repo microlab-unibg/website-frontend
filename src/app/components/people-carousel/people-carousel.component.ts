@@ -81,6 +81,12 @@ export class PeopleCarouselComponent {
         page_link: 'https://didattica-rubrica.unibg.it/ugov/person/23631'
       },
       {
+        fullname: "Dhiego Fernandes Carvalho",
+        role: "Research Fellow",
+        image_link: "https://www.sorocaba.unesp.br/Home/Graduacao/EngenhariadeControleeAutomacao/dhiego.jpg",
+        page_link: 'https://www.sorocaba.unesp.br/#!/graduacao/engenharia-de-controle-e-automacao/docentes/dhiego/'
+      },
+      {
         fullname: "Paolo Lazzaroni",
         role: "Research Fellow",
         image_link: "https://pollostrazon.github.io/assets/img/paolo.jpg?10bfe6da33d5d816f5f86be703ef195c",
