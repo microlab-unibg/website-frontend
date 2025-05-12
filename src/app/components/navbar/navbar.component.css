@@ -1,7 +1,6 @@
 /* Modify the background color */
 .navbar-custom {
     background-color: #133066;
-    font-size: small;
     padding: 2px 2px 2px 2px;
 }
 
@@ -67,4 +66,6 @@ a:hover {
   border-radius: 35px;
 }
 
-
+.logo {
+  height: 35px;
+}

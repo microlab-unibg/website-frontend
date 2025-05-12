@@ -42,6 +42,7 @@ import { ThesisFormComponent } from './components/thesis-form/thesis-form.compon
 import { ProjectsComponent } from './components/projects/projects.component';
 
 import { GapsOnIceComponent } from './components/gaps-on-ice/gaps-on-ice.component';
+import { GiroEComponent } from './components/giro-e/giro-e.component';
 
 @NgModule({
   declarations: [
@@ -58,7 +59,8 @@ import { GapsOnIceComponent } from './components/gaps-on-ice/gaps-on-ice.compone
     PersonCardComponent,
     ThesisFormComponent,
     ProjectsComponent,
-    GapsOnIceComponent
+    GapsOnIceComponent,
+    GiroEComponent
   ],
   imports: [
     BrowserModule,
