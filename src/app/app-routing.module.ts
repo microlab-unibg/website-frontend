@@ -8,7 +8,8 @@ import { AdminLoginComponent } from '@components/admin-login/admin-login.compone
 import { AuthGuard } from './guard/auth.guard';
 import { UnauthorizedComponent } from '@components/unauthorized/unauthorized.component';
 import { ThesisFormComponent } from '@components/thesis-form/thesis-form.component';
-import { GapsOnIceComponent } from './components/gaps-on-ice/gaps-on-ice.component';
+import { ResourcesComponent } from '@components/resources/resources.component';
+import { GapsOnIceComponent } from '@components/gaps-on-ice/gaps-on-ice.component';
 import { GiroEComponent } from '@components/giro-e/giro-e.component';
 
 const routes: Routes = [
@@ -19,6 +20,7 @@ const routes: Routes = [
       { path: 'thesis-form', component: ThesisFormComponent, canActivate: [AuthGuard] }
     ]
   },
+  { path: 'resources', component: ResourcesComponent },
   //{ path: 'gaps-on-ice', component: GapsOnIceComponent },
   //{ path: 'giro-e', component: GiroEComponent },
   { path: 'work-in-progress', component: WorkInProgressComponent },
