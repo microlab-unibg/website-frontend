@@ -20,7 +20,7 @@ const routes: Routes = [
     ]
   },
   //{ path: 'gaps-on-ice', component: GapsOnIceComponent },
-  { path: 'giro-e', component: GiroEComponent },
+  //{ path: 'giro-e', component: GiroEComponent },
   { path: 'work-in-progress', component: WorkInProgressComponent },
   { path: 'admin', component: AdminLoginComponent },
   { path: 'unauthorized', component: UnauthorizedComponent },
