@@ -212,11 +212,11 @@ export class ThesisProposalsComponent implements OnInit, OnDestroy {
     type = type.toLowerCase();
     if (type === "bachelor") {
       this.filteredThesis = this.thesis.filter((t) => {
-        return t.type === "bachelor";
+        return t.bachelor;
       })
     } else if (type === "master") {
       this.filteredThesis = this.thesis.filter((t) => {
-        return t.type === "master";
+        return t.bachelor;
       })
     } else {
       this.filteredThesis = this.thesis;

@@ -45,17 +45,20 @@
     </ng-container>
     <ng-template #thesisBlock>
       <div class="col col-12 col-sm-12 col-md-6 col-lg-6 col-xl-4 text-container px-lg-2 mb-5 d-flex align-self-stretch" *ngFor="let t of filteredThesis; let idx = index">
-        <div class="card border-primary card-border-custom w-100" [ngClass]="{
+        <div class="card card-border-custom w-100" [ngClass]="{
           'border-ongoing': t.status == 'ongoing',
           'border-done': t.status == 'done',
-          'border-master': t.type == 'master',
-          'border-bachelor': t.type == 'bachelor'
+          'border-master': t.master == true && t.bachelor == false,
+          'border-bachelor': t.bachelor == true && t.master == false,
+          'border-bachelormaster': t.bachelor == true && t.master == true
           }">
           <div>
-            <span class="badge bg-success ms-1 mt-1" style="font-weight: 500;" [ngClass]="{
-              'bg-master': t.type == 'master',
-              'bg-bachelor': t.type == 'bachelor'
-              }">{{ t.type | titlecase }}</span>
+            <span [hidden]="!t.bachelor" class="badge bg-success ms-1 mt-1" style="font-weight: 500;" [ngClass]="{
+              'bg-bachelor': t.bachelor == true
+              }">Bachelor</span>
+            <span [hidden]="!t.master" class="badge bg-success ms-1 mt-1" style="font-weight: 500;" [ngClass]="{
+              'bg-master': t.master == true
+              }">Master</span>
             <span class="badge bg-success ms-1 mt-1" style="font-weight: 500;" [ngClass]="{
               'bg-available': t.status == 'available',
               'bg-ongoing': t.status == 'ongoing',
@@ -85,8 +88,9 @@
                       <span class="fs-7 mb-2" [ngClass]="{
                         'icon-ongoing': t.status == 'ongoing',
                         'icon-done': t.status == 'done',
-                        'icon-master': t.type == 'master',
-                        'icon-bachelor': t.type == 'bachelor'
+                        'icon-master': t.master == true && t.bachelor == false,
+                        'icon-bachelor': t.bachelor == true && t.master == false,
+                        'icon-bachelormaster': t.bachelor == true && t.master == true
                         }" tabindex="0" placement="bottom" ngbTooltip="Send an email to {{ t.author | titlecase }}" tooltipClass="tooltip-other">
                       <fa-icon [icon]="faEnvelope" class="me-1"></fa-icon>{{ t.author | titlecase }}
                     </span></a>
@@ -94,8 +98,8 @@
                   <span style="font-size: 8pt" class="mb-1" [ngClass]="{
                     'font-ongoing': t.status == 'ongoing',
                     'font-done': t.status == 'done',
-                    'font-master': t.type == 'master',
-                    'font-bachelor': t.type == 'bachelor'
+                    'font-master': t.master == true && t.bachelor == false,
+                    'font-bachelor': t.bachelor == true && t.master == false
                     }">Last update: {{ t.date }}</span>
                 </div>
                 <div class="col-6 text-end">
@@ -105,8 +109,9 @@
                         <fa-icon [icon]="faFilePdf" size="2x" class="ms-2" [ngClass]="{
                           'icon-ongoing': t.status == 'ongoing',
                           'icon-done': t.status == 'done',
-                          'icon-master': t.type == 'master',
-                          'icon-bachelor': t.type == 'bachelor'
+                          'icon-master': t.master == true && t.bachelor == false,
+                          'icon-bachelor': t.bachelor == true && t.master == false,
+                          'icon-bachelormaster': t.bachelor == true && t.master == true
                           }" tabindex="0" placement="bottom" ngbTooltip="Download PDF" tooltipClass="tooltip-other"></fa-icon>
                       </a>
                     </div>
@@ -116,8 +121,9 @@
                           <fa-icon [icon]="faPenToSquare" size="2x" class="ms-2" [ngClass]="{
                             'icon-ongoing': t.status == 'ongoing',
                             'icon-done': t.status == 'done',
-                            'icon-master': t.type == 'master',
-                            'icon-bachelor': t.type == 'bachelor'
+                            'icon-master': t.master == true && t.bachelor == false,
+                            'icon-bachelor': t.bachelor == true && t.master == false,
+                            'icon-bachelormaster': t.bachelor == true && t.master == true
                             }" tabindex="0" placement="bottom" ngbTooltip="Edit" tooltipClass="tooltip-other"></fa-icon>
                         </a>
                       </div>
@@ -127,8 +133,9 @@
                           <fa-icon [icon]="faTrashCan" size="2x" class="icon-trash ms-2" [ngClass]="{
                             'icon-ongoing': t.status == 'ongoing',
                             'icon-done': t.status == 'done',
-                            'icon-master': t.type == 'master',
-                            'icon-bachelor': t.type == 'bachelor'
+                            'icon-master': t.master == true && t.bachelor == false,
+                            'icon-bachelor': t.bachelor == true && t.master == false,
+                            'icon-bachelormaster': t.bachelor == true && t.master == true
                             }" tabindex="0" placement="bottom" ngbTooltip="Delete" tooltipClass="tooltip-delete"></fa-icon>
                         </a>
                       </div>

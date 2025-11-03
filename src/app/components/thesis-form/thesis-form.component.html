@@ -80,27 +80,27 @@
             <div class="mb-3">
               <label class="form-label" for="radioType">Type of thesis:</label>
               <div class="form-check">
-                <input class="form-check-input" type="radio" name="radioType" id="bachelor" value="bachelor" checked
-                required [(ngModel)]="thesis.type" name="type" #type="ngModel"
-                [ngClass]="{'': type.untouched,
-                          'is-invalid': type.invalid && (type.dirty || type.touched),
-                          'is-valid': type.valid}">
+                <input class="form-check-input" type="checkbox" name="checkBachelor" id="bachelor" value="bachelor" checked
+                required [(ngModel)]="thesis.master" name="master" #master="ngModel"
+                [ngClass]="{'': master.untouched,
+                          'is-invalid': (master.invalid && (master.dirty || master.touched)) && (bachelor.invalid && (bachelor.dirty || bachelor.touched)),
+                          'is-valid': master.valid}">
                 <label class="form-check-label" for="bachelor">
                   Bachelor thesis
                 </label>
               </div>
               <div class="form-check">
-                <input class="form-check-input" type="radio" name="radioType" id="master" value="master"
-                required [(ngModel)]="thesis.type" name="type" #type="ngModel"
-                [(ngModel)]="thesis.type"
-                [ngClass]="{'': type.untouched,
-                          'is-invalid': type.invalid && (type.dirty || type.touched),
-                          'is-valid': type.valid}">
+                <input class="form-check-input" type="checkbox" name="checkMaster" id="master" value="master"
+                required [(ngModel)]="thesis.bachelor" name="bachelor" #bachelor="ngModel"
+                [(ngModel)]="thesis.bachelor"
+                [ngClass]="{'': bachelor.untouched,
+                          'is-invalid': (master.invalid && (master.dirty || master.touched)) && (bachelor.invalid && (bachelor.dirty || bachelor.touched)),
+                          'is-valid': bachelor.valid}">
                 <label class="form-check-label" for="master">
                   Master thesis
                 </label>
               </div>
-              <div [hidden]="type.valid || type.pristine" class="invalid-tooltip">
+              <div [hidden]="bachelor.valid || bachelor.pristine || master.valid || master.pristine" class="invalid-tooltip">
                 Type is required.
               </div>
             </div>

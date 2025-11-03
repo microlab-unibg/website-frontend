@@ -19,6 +19,16 @@
   border-color: #a5213f !important;
 }
 
+.border-bachelormaster {
+  background: 
+    linear-gradient(#FFF 0 0) padding-box,
+    linear-gradient(to right, #a5213f, #613f8d) border-box !important;
+  padding: 10px;
+  border-width: 2px;
+  border-style: solid;
+  border-radius: 13px;
+}
+
 .border-ongoing {
   border-color: #cd8900 !important;
 }
@@ -67,6 +77,20 @@
 }
 
 .icon-bachelor:hover {
+  /* 0.2s is the amount of time it take to change colors */
+  transition: 0.2s ease-in-out;
+  color: #0096ff;
+  fill: #0096ff;
+}
+
+.icon-bachelormaster {
+  /* 0.2s is the amount of time it take to change colors */
+  transition: 0.2s ease-in-out;
+  color: #133066;
+  fill: #133066;
+}
+
+.icon-bachelormaster:hover {
   /* 0.2s is the amount of time it take to change colors */
   transition: 0.2s ease-in-out;
   color: #0096ff;

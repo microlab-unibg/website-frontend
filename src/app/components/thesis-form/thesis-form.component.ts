@@ -47,7 +47,8 @@ export class ThesisFormComponent implements OnInit, OnDestroy {
           this.thesis.description = docObj.description;
           this.thesis.imgRef = docObj.imgRef;
           this.thesis.pdfRef = docObj.pdfRef;
-          this.thesis.type = docObj.type;
+          this.thesis.master = docObj.master;
+          this.thesis.bachelor = docObj.bachelor;
           this.thesis.status = docObj.status;
           this.thesis.author = docObj.author;
           this.thesis.date = docObj.date;
@@ -125,7 +126,8 @@ export class ThesisFormComponent implements OnInit, OnDestroy {
         description: this.thesis.description,
         imgRef: this.thesis.imgRef,
         pdfRef: this.thesis.pdfRef,
-        type: this.thesis.type,
+        master: this.thesis.master,
+        bachelor: this.thesis.bachelor,
         status: this.thesis.status,
         date: dateString
       })

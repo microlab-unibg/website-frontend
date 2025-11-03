@@ -2,7 +2,8 @@ export class Thesis {
   public id: string;
   public title: string;
   public description: string;
-  public type: string;
+  public bachelor: boolean;
+  public master: boolean;
   public status: string;
   public author: string;
   public email: string;
@@ -11,11 +12,12 @@ export class Thesis {
   public imgUrl: string;
   public pdfRef: string;
 
-  constructor(id?: string, title?: string, description?: string, type?: string, status?: string, author?: string, email?: string, date?: string, imgRef?: string, imgUrl?: string, pdfRef?: string) {
+  constructor(id?: string, title?: string, description?: string, bachelor?: boolean, master?: boolean, status?: string, author?: string, email?: string, date?: string, imgRef?: string, imgUrl?: string, pdfRef?: string) {
     this.id = id ?? '';
     this.title = title ?? '';
     this.description = description ?? '';
-    this.type = type ?? '';
+    this.bachelor = bachelor ?? false;
+    this.master = master ?? false;
     this.status = status ?? '';
     this.author = author ?? '';
     this.email = email ?? '';
