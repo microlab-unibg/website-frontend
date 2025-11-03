@@ -11,6 +11,10 @@
   border-radius: 13px;
 }
 
+.border-custom-cards {
+  border-radius: 13px;
+}
+
 .border-master {
   border-color: #613f8d !important;
 }
