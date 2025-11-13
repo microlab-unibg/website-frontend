@@ -21,7 +21,7 @@ const routes: Routes = [
     ]
   },
   { path: 'resources', component: ResourcesComponent },
-  //{ path: 'gaps-on-ice', component: GapsOnIceComponent },
+  { path: 'gaps-on-ice', component: GapsOnIceComponent },
   //{ path: 'giro-e', component: GiroEComponent },
   { path: 'work-in-progress', component: WorkInProgressComponent },
   { path: 'admin', component: AdminLoginComponent },
