@@ -216,7 +216,7 @@ export class ThesisProposalsComponent implements OnInit, OnDestroy {
       })
     } else if (type === "master") {
       this.filteredThesis = this.thesis.filter((t) => {
-        return t.bachelor;
+        return t.master;
       })
     } else {
       this.filteredThesis = this.thesis;
