@@ -107,7 +107,7 @@ export class PeopleCarouselComponent {
       {
         fullname: "Matteo Verzeroli",
         role: "Ph.D. Student",
-        image_link: "https://microlab-unibg.it/assets/img/verze_linkedin_profile_pic.jpg",
+        image_link: "https://microlab.unibg.it/assets/img/verze_linkedin_profile_pic.jpg",
         page_link: 'https://didattica-rubrica.unibg.it/ugov/person/88527'
       },
     ]
