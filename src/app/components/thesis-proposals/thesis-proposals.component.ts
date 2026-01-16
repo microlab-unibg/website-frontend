@@ -62,7 +62,7 @@ export class ThesisProposalsComponent implements OnInit, OnDestroy {
       data.sort(function(t1, t2){
         var d1 = t1.date.split('/').reverse().join(),
             d2 = t2.date.split('/').reverse().join();
-        return d1 > d2 ? -1 : (d1 < d2 ? 1 : 0);
+        return d1 > d2 ? 1 : (d1 < d2 ? -1 : 0);
       })
       data.sort((t1,t2) => {
         const s1 = t1.status;
