@@ -92,15 +92,15 @@ export class PeopleCarouselComponent {
         image_link: "https://pollostrazon.github.io/assets/img/paolo.jpg?10bfe6da33d5d816f5f86be703ef195c",
         page_link: 'https://pollostrazon.github.io/'
       },
-      {
-        fullname: "Andrea Galliani",
-        role: "Ph.D. Student",
-        image_link: "https://agalliani.github.io/propic.webp",
-        page_link: 'https://agalliani.github.io/'
-      },
+      // {
+      //   fullname: "Andrea Galliani",
+      //   role: "Ph.D. Student",
+      //   image_link: "https://agalliani.github.io/propic.webp",
+      //   page_link: 'https://agalliani.github.io/'
+      // },
       {
         fullname: "Luca Ghislotti",
-        role: "Ph.D. Student",
+        role: "Research Fellow",
         image_link: "https://lucaghislotti.com/assets/img/luca_pic.jpg?7cbaf38f87421a64466fa40d133eccc4",
         page_link: 'https://lucaghislotti.com/'
       },
