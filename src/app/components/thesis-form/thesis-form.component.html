@@ -78,37 +78,28 @@
               </div>
             </div>
             <div class="mb-3">
-              <label class="form-label">Type of thesis:</label>
-              
+              <label class="form-label" for="radioType">Type of thesis:</label>
               <div class="form-check">
-                <input class="form-check-input" type="checkbox" id="bachelor" 
-                      [(ngModel)]="thesis.bachelor" name="bachelor" #bachelor="ngModel"
-                      [ngClass]="{
-                        'is-invalid': (bachelor.touched || master.touched) && !thesis.bachelor && !thesis.master,
-                        'is-valid': thesis.bachelor || thesis.master
-                      }">
+                <input class="form-check-input" type="checkbox" name="checkBachelor" id="bachelor" value="bachelor" checked
+                required [(ngModel)]="thesis.master" name="master" #master="ngModel"
+                [ngClass]="{'': master.untouched,
+                          'is-invalid': (master.invalid && (master.dirty || master.touched)) && (bachelor.invalid && (bachelor.dirty || bachelor.touched)),
+                          'is-valid': master.valid}">
                 <label class="form-check-label" for="bachelor">
                   Bachelor thesis
                 </label>
               </div>
-
               <div class="form-check">
-                <input class="form-check-input" type="checkbox" id="master" 
-                      [(ngModel)]="thesis.master" name="master" #master="ngModel"
-                      [ngClass]="{
-                        'is-invalid': (bachelor.touched || master.touched) && !thesis.bachelor && !thesis.master,
-                        'is-valid': thesis.bachelor || thesis.master
-                      }">
+                <input class="form-check-input" type="checkbox" name="checkMaster" id="master" value="master"
+                required [(ngModel)]="thesis.bachelor" name="bachelor" #bachelor="ngModel"
+                [(ngModel)]="thesis.bachelor"
+                [ngClass]="{'': bachelor.untouched,
+                          'is-invalid': (master.invalid && (master.dirty || master.touched)) && (bachelor.invalid && (bachelor.dirty || bachelor.touched)),
+                          'is-valid': bachelor.valid}">
                 <label class="form-check-label" for="master">
                   Master thesis
                 </label>
               </div>
-
-              <div [hidden]="thesis.bachelor || thesis.master || (bachelor.untouched && master.untouched)" 
-                  class="text-danger small mt-1">
-                Please select at least one thesis type.
-              </div>
-            </div>
               <div [hidden]="bachelor.valid || bachelor.pristine || master.valid || master.pristine" class="invalid-tooltip">
                 Type is required.
               </div>
@@ -170,9 +161,7 @@
             </div>
             <div class="col-12 mb-3">
               <button class="btn btn-primary" type="submit"
-                [disabled]="!thesisForm.form.valid || (!thesis.bachelor && !thesis.master)">
-                Submit form
-              </button>
+              [disabled]="!manualValidForm && !thesisForm.form.valid">Submit form</button>
             </div>
           </div>
         </form>
