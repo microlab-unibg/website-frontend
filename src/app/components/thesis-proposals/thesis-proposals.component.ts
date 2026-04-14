@@ -88,21 +88,29 @@ export class ThesisProposalsComponent implements OnInit, OnDestroy {
         this.show[idx] = false;
       });
       this.thesis = data;
-      for (let i = 0; i < this.thesis.length; i++) {
-        const t = this.thesis[i];
+      
+      // Load all image URLs in parallel and wait for all to complete
+      const imageUrlPromises = this.thesis.map((t) => {
         if (t.imgRef) {
           const objectRef: StorageReference = ref(this.storage, t.imgRef);
-          getDownloadURL(objectRef)
+          return getDownloadURL(objectRef)
             .then((url) => {
-              if (url) {
-                t.imgUrl = url;
-              }
+              t.imgUrl = url;
+            })
+            .catch((error) => {
+              console.warn(`Failed to load image for thesis ${t.id}:`, error);
+              t.imgUrl = '';
             });
         } else {
           t.imgUrl = '';
+          return Promise.resolve();
         }
-      }
-      this.filteredThesis = this.thesis;
+      });
+      
+      // Wait for ALL image URLs to load before updating filteredThesis
+      Promise.all(imageUrlPromises).then(() => {
+        this.filteredThesis = this.thesis;
+      });
     });
   }
 
@@ -234,4 +242,3 @@ export class ThesisProposalsComponent implements OnInit, OnDestroy {
 		);
 	}
 }
-
