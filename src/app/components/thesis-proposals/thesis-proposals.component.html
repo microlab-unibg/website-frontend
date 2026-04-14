@@ -65,13 +65,13 @@
               'bg-done': t.status == 'done',
               }">{{ t.status | titlecase }}</span>
           </div>
-          <ng-container *ngIf="t.imgUrl; else noImg">
+          <!-- <ng-container *ngIf="t.imgUrl; else noImg">
             <img src="{{ t.imgUrl }}" class="card-img-top carousel-item-crop px-2 pt-2" [ngClass]="{'img-done': t.status == 'done'}" alt="uLab logo" style="margin-bottom: 10px">
           </ng-container>
           <ng-template #noImg>
             <img src="{{ t.imgUrl }}" class="card-img-top carousel-item-crop px-2 pt-2" [ngClass]="{'img-done': t.status == 'done'}" alt="uLab logo"
             [style]="'margin-bottom: 10px; filter: hue-rotate(' + stringToColour(t.id) + 'deg)'">
-          </ng-template>
+          </ng-template> -->
           <div class="card-body d-flex flex-column">
             <h5 class="card-title">{{ t.title }}</h5>
             <p class="card-text card-collapse mb-0" [class.show]="show[idx]">

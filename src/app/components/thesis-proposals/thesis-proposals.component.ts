@@ -101,7 +101,7 @@ export class ThesisProposalsComponent implements OnInit, OnDestroy {
                 // Wrap in NgZone.run to ensure Angular detects the change
                 this.ngZone.run(() => {
                   t.imgUrl = url;
-                  this.cdr.markForCheck();
+                  this.cdr.detectChanges();
                 });
                 console.log(`✓ Image loaded for thesis ${t.id}`);
               }
