@@ -86,30 +86,26 @@ export class ThesisProposalsComponent implements OnInit, OnDestroy {
       data.forEach((t, idx) => {
         this.needsShow[idx] = t.description.length < 140 ? false : true;
         this.show[idx] = false;
+        t.imgUrl = ''; // Initialize empty to prevent undefined errors
       });
       this.thesis = data;
+      this.filteredThesis = this.thesis;
       
-      // Load all image URLs in parallel and wait for all to complete
-      const imageUrlPromises = this.thesis.map((t) => {
+      // Load image URLs asynchronously in the background (don't block rendering)
+      this.thesis.forEach((t) => {
         if (t.imgRef) {
           const objectRef: StorageReference = ref(this.storage, t.imgRef);
-          return getDownloadURL(objectRef)
+          getDownloadURL(objectRef)
             .then((url) => {
-              t.imgUrl = url;
+              if (url) {
+                t.imgUrl = url;
+              }
             })
             .catch((error) => {
               console.warn(`Failed to load image for thesis ${t.id}:`, error);
               t.imgUrl = '';
             });
-        } else {
-          t.imgUrl = '';
-          return Promise.resolve();
         }
-      });
-      
-      // Wait for ALL image URLs to load before updating filteredThesis
-      Promise.all(imageUrlPromises).then(() => {
-        this.filteredThesis = this.thesis;
       });
     });
   }
