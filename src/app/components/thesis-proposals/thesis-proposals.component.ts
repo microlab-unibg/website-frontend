@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit, inject } from '@angular/core';
+import { Component, OnDestroy, OnInit, inject, ChangeDetectorRef, NgZone } from '@angular/core';
 import { UserSessionService } from '@services/user-session.service';
 import { Subject, takeUntil } from 'rxjs';
 import { CollectionReference, DocumentReference, DocumentSnapshot, Firestore, collection, collectionData, deleteDoc, doc, getDoc } from '@angular/fire/firestore';
@@ -52,7 +52,7 @@ export class ThesisProposalsComponent implements OnInit, OnDestroy {
   // for filter
   filterSelection: string = 'All';
 
-  constructor(private userService: UserSessionService, private router: Router, private modalService: NgbModal) {
+  constructor(private userService: UserSessionService, private router: Router, private modalService: NgbModal, private cdr: ChangeDetectorRef, private ngZone: NgZone) {
     const thesisCollection: CollectionReference = collection(this.firestore, 'thesis-proposals');
     this.thesis = [];
     this.filteredThesis = [];
@@ -92,17 +92,22 @@ export class ThesisProposalsComponent implements OnInit, OnDestroy {
       this.filteredThesis = this.thesis;
       
       // Load image URLs asynchronously in the background (don't block rendering)
-      this.thesis.forEach((t) => {
+      this.thesis.forEach((t, idx) => {
         if (t.imgRef) {
           const objectRef: StorageReference = ref(this.storage, t.imgRef);
           getDownloadURL(objectRef)
             .then((url) => {
               if (url) {
-                t.imgUrl = url;
+                // Wrap in NgZone.run to ensure Angular detects the change
+                this.ngZone.run(() => {
+                  t.imgUrl = url;
+                  this.cdr.markForCheck();
+                });
+                console.log(`✓ Image loaded for thesis ${t.id}`);
               }
             })
             .catch((error) => {
-              console.warn(`Failed to load image for thesis ${t.id}:`, error);
+              console.warn(`✗ Failed to load image for thesis ${t.id}:`, error);
               t.imgUrl = '';
             });
         }

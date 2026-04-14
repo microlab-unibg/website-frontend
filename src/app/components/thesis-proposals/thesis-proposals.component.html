@@ -66,10 +66,10 @@
               }">{{ t.status | titlecase }}</span>
           </div>
           <ng-container *ngIf="t.imgUrl; else noImg">
-            <img src="{{ t.imgUrl }}" class="card-img-top carousel-item-crop px-2 pt-2" [ngClass]="{'img-done': t.status == 'done'}" alt="uLab logo" loading="lazy" style="margin-bottom: 10px">
+            <img src="{{ t.imgUrl }}" class="card-img-top carousel-item-crop px-2 pt-2" [ngClass]="{'img-done': t.status == 'done'}" alt="uLab logo" style="margin-bottom: 10px">
           </ng-container>
           <ng-template #noImg>
-            <img src="{{ t.imgUrl }}" class="card-img-top carousel-item-crop px-2 pt-2" [ngClass]="{'img-done': t.status == 'done'}" alt="uLab logo" loading="lazy"
+            <img src="{{ t.imgUrl }}" class="card-img-top carousel-item-crop px-2 pt-2" [ngClass]="{'img-done': t.status == 'done'}" alt="uLab logo"
             [style]="'margin-bottom: 10px; filter: hue-rotate(' + stringToColour(t.id) + 'deg)'">
           </ng-template>
           <div class="card-body d-flex flex-column">
