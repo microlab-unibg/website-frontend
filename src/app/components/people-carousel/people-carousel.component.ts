@@ -80,12 +80,12 @@ export class PeopleCarouselComponent {
         image_link: "https://aisberg.unibg.it/rm/public/picture/img/it.cilea.ga.model.Person/10d2a921-3499-4958-9bf1-589f7c465bbe.fragment",
         page_link: 'https://didattica-rubrica.unibg.it/ugov/person/23631'
       },
-      {
-        fullname: "Dhiego Fernandes Carvalho",
-        role: "Research Fellow",
-        image_link: "https://www.sorocaba.unesp.br/Home/Graduacao/EngenhariadeControleeAutomacao/dhiego.jpg",
-        page_link: 'https://www.sorocaba.unesp.br/#!/graduacao/engenharia-de-controle-e-automacao/docentes/dhiego/'
-      },
+      // {
+      //   fullname: "Dhiego Fernandes Carvalho",
+      //   role: "Research Fellow",
+      //   image_link: "https://www.sorocaba.unesp.br/Home/Graduacao/EngenhariadeControleeAutomacao/dhiego.jpg",
+      //   page_link: 'https://www.sorocaba.unesp.br/#!/graduacao/engenharia-de-controle-e-automacao/docentes/dhiego/'
+      // },
       {
         fullname: "Paolo Lazzaroni",
         role: "Research Fellow",
