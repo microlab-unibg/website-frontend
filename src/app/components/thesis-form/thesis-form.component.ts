@@ -1,9 +1,7 @@
-import { Component, OnDestroy, OnInit, inject } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { UserSessionService } from '@services/user-session.service';
+import { SupabaseService } from '@services/supabase.service';
 import { Subject, takeUntil } from 'rxjs';
-import { Firestore, collection, collectionData, addDoc, CollectionReference, DocumentReference, doc, updateDoc } from '@angular/fire/firestore';
-import { Storage, StorageReference, ref, uploadBytesResumable } from '@angular/fire/storage';
-import { Observable } from 'rxjs';
 
 import { faFilePdf, faTrashCan, faPenToSquare } from '@fortawesome/free-regular-svg-icons';
 import { faPlus } from '@fortawesome/free-solid-svg-icons'
@@ -26,10 +24,13 @@ export class ThesisFormComponent implements OnInit, OnDestroy {
   destroyed$ = new Subject<boolean>();
   isLogged = false
 
-  constructor(private userService: UserSessionService, private router: Router, private route: ActivatedRoute) {
-    this.thesisCollection = collection(this.firestore, 'thesis-proposals')
-    this.thesis$ = collectionData(this.thesisCollection) as Observable<Thesis[]>;
-  }
+  constructor(
+    private userService: UserSessionService,
+    private supabase: SupabaseService,
+    private router: Router,
+    private route: ActivatedRoute
+  ) {}
+
   ngOnInit(): void {
     this.userService.loggedSubject.pipe(takeUntil(this.destroyed$)).subscribe(
       isLogged => {
@@ -37,8 +38,9 @@ export class ThesisFormComponent implements OnInit, OnDestroy {
       }
     )
 
-    const sub = this.route
+    this.route
       .queryParams
+      .pipe(takeUntil(this.destroyed$))
       .subscribe((data) => {
         if ('id' in data) {
           this.thesis.id = data.id;
@@ -63,77 +65,48 @@ export class ThesisFormComponent implements OnInit, OnDestroy {
 
   ngOnDestroy() {
     this.destroyed$.next(true);
-    this.destroyed$.unsubscribe();
+    this.destroyed$.complete();
   }
-
-  // Setup firestore
-  firestore: Firestore = inject(Firestore);
-  private readonly storage: Storage = inject(Storage);
-  thesis$: Observable<Thesis[]>;
-  thesisCollection: CollectionReference;
 
   // for template
   // get info from auth
   user = this.userService.getCurrentUser();
   thesis = new Thesis();
 
-  PDFBlob: any = '';
-  imgBlob: any = '';
+  PDFBlob: File | '' = '';
+  imgBlob: File | '' = '';
   // for validation
   validPDFFile = false;
   validImgFile = true;
   manualValidForm = false;
 
-  uploadFile(file: any, parentDir: string): string {
-    const storageRef: StorageReference = ref(this.storage, parentDir + file.name);
-    uploadBytesResumable(storageRef, file);
-    return storageRef.toString();
-  }
-
   padDate (n: number) {
     return n < 10 ? '0' + n : n;
   }
 
-  onSubmit() {
-    // upload img and PDF
-    if (this.imgBlob) {
-      this.thesis.imgRef = this.uploadFile(this.imgBlob, 'img/');
-    }
-    if (this.PDFBlob) {
-      this.thesis.pdfRef = this.uploadFile(this.PDFBlob, 'pdf/');
-    }
+  async onSubmit() {
+    try {
+      if (this.imgBlob) {
+        this.thesis.imgRef = await this.supabase.uploadFile(this.imgBlob, 'img/');
+      }
+      if (this.PDFBlob) {
+        this.thesis.pdfRef = await this.supabase.uploadFile(this.PDFBlob, 'pdf/');
+      }
 
-    // convert class to plain JS object
-    const thesisToUpload = this.thesis.toPlainObj();
-    // get date info
-    var dateobj = new Date();
-    var dateString = this.padDate(dateobj.getDate()) + "/"
-               + this.padDate(dateobj.getMonth() + 1) + "/" 
-               + dateobj.getFullYear();
-    thesisToUpload.date = dateString;
-    if (!('id' in this.thesis) || this.thesis.id == "") {
-      addDoc(this.thesisCollection, thesisToUpload)
-        .then((documentReference: DocumentReference) => {
-          this.router.navigate(['/thesis-proposal']);
-        });
-    } else {
-      const docRef: DocumentReference = doc(this.firestore, 'thesis-proposals/' + this.thesis.id);
-      console.log(dateString);
-      updateDoc(docRef, {
-        author: this.thesis.author,
-        email: this.thesis.email,
-        title: this.thesis.title,
-        description: this.thesis.description,
-        imgRef: this.thesis.imgRef,
-        pdfRef: this.thesis.pdfRef,
-        master: this.thesis.master,
-        bachelor: this.thesis.bachelor,
-        status: this.thesis.status,
-        date: dateString
-      })
-      .then(() => {
-        this.router.navigate(['/thesis-proposal']);
-      });
+      var dateobj = new Date();
+      var dateString = this.padDate(dateobj.getDate()) + "/"
+                 + this.padDate(dateobj.getMonth() + 1) + "/"
+                 + dateobj.getFullYear();
+      this.thesis.date = dateString;
+
+      if (!this.thesis.id) {
+        await this.supabase.insertThesis(this.thesis);
+      } else {
+        await this.supabase.updateThesis(this.thesis.id, this.thesis);
+      }
+      this.router.navigate(['/thesis-proposals']);
+    } catch (error) {
+      console.error('Failed to save thesis proposal', error);
     }
   }
 

@@ -41,10 +41,9 @@ testem.log
 .DS_Store
 Thumbs.db
 
-# Firebase
-.firebase
-*-debug.log
-.runtimeconfig.json
+# Secrets / migration credentials
+*-firebase-adminsdk*.json
+service-account*.json
 
 
 

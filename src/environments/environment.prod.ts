@@ -1,8 +1,8 @@
 import { oauth2 } from './oauth2.environment'
-import { firebase } from './firebase.environment';
+import { supabase } from './supabase.environment';
 
 export const environment = {
-  ...firebase,
+  ...supabase,
   ...oauth2,
   production: true,
   name: 'microlab-unibg',

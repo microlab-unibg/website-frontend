@@ -4,13 +4,13 @@
 
 import  packageInfo  from '../../package.json';
 import { oauth2 } from './oauth2.environment'
-import { firebase } from './firebase.environment';
+import { supabase } from './supabase.environment';
 
 
 export const environment = {
   name: packageInfo.name,
   version: packageInfo.version,
-  ...firebase,
+  ...supabase,
   ...oauth2,
   production: false,
 };

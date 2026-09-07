@@ -1,14 +1,12 @@
-import { Component, OnDestroy, OnInit, inject, ChangeDetectorRef, NgZone } from '@angular/core';
+import { Component, OnDestroy, OnInit, ChangeDetectorRef, NgZone } from '@angular/core';
 import { UserSessionService } from '@services/user-session.service';
+import { SupabaseService } from '@services/supabase.service';
 import { Subject, takeUntil } from 'rxjs';
-import { CollectionReference, DocumentReference, DocumentSnapshot, Firestore, collection, collectionData, deleteDoc, doc, getDoc } from '@angular/fire/firestore';
-import { Observable } from 'rxjs';
 
 import { faFilePdf, faTrashCan, faPenToSquare, faEnvelope } from '@fortawesome/free-regular-svg-icons';
 import { faPlus } from '@fortawesome/free-solid-svg-icons'
 
 import { Thesis } from '@models/thesis';
-import { FirebaseStorage, StorageReference, deleteObject, getBlob, getDownloadURL, getStorage, ref } from '@angular/fire/storage';
 import { Router } from '@angular/router';
 
 import { NgbModal, NgbModalOptions } from '@ng-bootstrap/ng-bootstrap';
@@ -29,15 +27,9 @@ export class ThesisProposalsComponent implements OnInit, OnDestroy {
   destroyed$ = new Subject<boolean>();
   isLogged = false;
 
-  // Setup firestore
-  firestore: Firestore = inject(Firestore)
-  thesis$: Observable<Thesis[]>;
   thesis: Thesis[];
   filteredThesis: Thesis[];
   doneThesis: Thesis[];
-
-  // Setup firebase storage
-  storage: FirebaseStorage = getStorage();
 
   // Modal options
   ngbModalOptions: NgbModalOptions = {
@@ -52,13 +44,18 @@ export class ThesisProposalsComponent implements OnInit, OnDestroy {
   // for filter
   filterSelection: string = 'All';
 
-  constructor(private userService: UserSessionService, private router: Router, private modalService: NgbModal, private cdr: ChangeDetectorRef, private ngZone: NgZone) {
-    const thesisCollection: CollectionReference = collection(this.firestore, 'thesis-proposals');
+  constructor(
+    private userService: UserSessionService,
+    private supabase: SupabaseService,
+    private router: Router,
+    private modalService: NgbModal,
+    private cdr: ChangeDetectorRef,
+    private ngZone: NgZone
+  ) {
     this.thesis = [];
     this.filteredThesis = [];
     this.doneThesis = [];
-    this.thesis$ = collectionData(thesisCollection, { idField: 'id'}) as Observable<Thesis[]>;
-    this.thesis$.subscribe((data) => {
+    this.supabase.watchTheses().pipe(takeUntil(this.destroyed$)).subscribe((data) => {
       data.sort(function(t1, t2){
         var d1 = t1.date.split('/').reverse().join(),
             d2 = t2.date.split('/').reverse().join();
@@ -81,37 +78,16 @@ export class ThesisProposalsComponent implements OnInit, OnDestroy {
           }
         }
       })
-      data.map((t) => t.status = 'status' in t ? t.status : 'available')
+      data.map((t) => t.status = 'status' in t && t.status ? t.status : 'available')
       // for read more/less
       data.forEach((t, idx) => {
         this.needsShow[idx] = t.description.length < 140 ? false : true;
         this.show[idx] = false;
-        t.imgUrl = ''; // Initialize empty to prevent undefined errors
+        t.imgUrl = t.imgRef ? this.supabase.getPublicUrl(t.imgRef) : '';
       });
       this.thesis = data;
       this.filteredThesis = this.thesis;
-      
-      // Load image URLs asynchronously in the background (don't block rendering)
-      this.thesis.forEach((t, idx) => {
-        if (t.imgRef) {
-          const objectRef: StorageReference = ref(this.storage, t.imgRef);
-          getDownloadURL(objectRef)
-            .then((url) => {
-              if (url) {
-                // Wrap in NgZone.run to ensure Angular detects the change
-                this.ngZone.run(() => {
-                  t.imgUrl = url;
-                  this.cdr.detectChanges();
-                });
-                console.log(`✓ Image loaded for thesis ${t.id}`);
-              }
-            })
-            .catch((error) => {
-              console.warn(`✗ Failed to load image for thesis ${t.id}:`, error);
-              t.imgUrl = '';
-            });
-        }
-      });
+      this.ngZone.run(() => this.cdr.detectChanges());
     });
   }
 
@@ -125,7 +101,7 @@ export class ThesisProposalsComponent implements OnInit, OnDestroy {
 
   ngOnDestroy() {
     this.destroyed$.next(true);
-    this.destroyed$.unsubscribe();
+    this.destroyed$.complete();
   }
 
   parseDate(dateString: string): Date {
@@ -135,28 +111,15 @@ export class ThesisProposalsComponent implements OnInit, OnDestroy {
 
   downloadFromUrl(pdfRef: string) {
     if (pdfRef) {
-      const objectRef: StorageReference = ref(this.storage, pdfRef);
-      getBlob(objectRef)
+      this.supabase.downloadBlob(pdfRef)
         .then((blob) => {
           const url = URL.createObjectURL(blob);
           window.open(url);
         })
-        .catch((error) => {
+        .catch(() => {
           return;
         });
     }
-  }
-
-  getUrl(imgRef: string): string | undefined {
-    if (imgRef) {
-      const objectRef: StorageReference = ref(this.storage, imgRef);
-      getDownloadURL(objectRef)
-        .then((url) => {
-          console.log(url);
-          return url;
-        });
-    }
-    return;
   }
 
   stringToColour(str: string) {
@@ -173,46 +136,56 @@ export class ThesisProposalsComponent implements OnInit, OnDestroy {
   }
 
   editThesis(docId: string) {
-    const docRef: DocumentReference = doc(this.firestore, 'thesis-proposals/' + docId);
-    getDoc(docRef)
-      .then((docSnap) =>{
-        // get data
-        const docObj = docSnap.data();
-        this.router.navigate(['thesis-proposals/thesis-form'], { queryParams: { id: docId, docObj: JSON.stringify(docObj) } });
+    this.supabase.getThesis(docId)
+      .then((docObj) => {
+        if (!docObj) {
+          return;
+        }
+        this.router.navigate(['thesis-proposals/thesis-form'], {
+          queryParams: {
+            id: docId,
+            docObj: JSON.stringify({
+              title: docObj.title,
+              description: docObj.description,
+              imgRef: docObj.imgRef,
+              pdfRef: docObj.pdfRef,
+              master: docObj.master,
+              bachelor: docObj.bachelor,
+              status: docObj.status,
+              author: docObj.author,
+              date: docObj.date,
+              email: docObj.email
+            })
+          }
+        });
       });
   }
 
   deleteThesis(docId: string) {
-    const docRef: DocumentReference = doc(this.firestore, 'thesis-proposals/' + docId);
-    getDoc(docRef)
-      .then((docSnap) =>{
-        // pdf delete
-        const docObj = docSnap.data();
-        if (docObj?.pdfRef) {
-          const pdfRef: StorageReference = ref(this.storage, docObj.pdfRef);
-          deleteObject(pdfRef)
-            .then(() => { })
-            .catch((error) => {
-              console.log("PDF delete unsuccessful.")
-            });
+    this.supabase.getThesis(docId)
+      .then(async (docObj) => {
+        if (!docObj) {
+          return;
         }
-        
-        // img delete
-        if (docObj?.imgRef) {
-          const imgRef: StorageReference = ref(this.storage, docObj?.imgRef);
-          deleteObject(imgRef)
-            .then(() => { })
-            .catch((error) => {
-              console.log("Img delete unsuccessful.")
-            });
+        if (docObj.pdfRef) {
+          try {
+            await this.supabase.deleteFile(docObj.pdfRef);
+          } catch {
+            console.log("PDF delete unsuccessful.")
+          }
         }
-
-        // delete document
-        deleteDoc(docRef)
-          .then(() => {})
-          .catch((error) => {
-            console.log("Document delete unsuccessful.")
-          });
+        if (docObj.imgRef) {
+          try {
+            await this.supabase.deleteFile(docObj.imgRef);
+          } catch {
+            console.log("Img delete unsuccessful.")
+          }
+        }
+        try {
+          await this.supabase.deleteThesis(docId);
+        } catch {
+          console.log("Document delete unsuccessful.")
+        }
       });
   }
 
