@@ -64,7 +64,7 @@ export class PeopleCarouselComponent {
       },
       {
         fullname: "Gianluca Traversi",
-        role: "Associate Professor",
+        role: "Full Professor",
         image_link: "https://aisberg.unibg.it/rm/public/picture/img/it.cilea.ga.model.Person/58da8ec3-d49a-42dc-87e9-2d63477b442e.fragment",
         page_link: 'https://didattica-rubrica.unibg.it/ugov/person/2025'
       },
