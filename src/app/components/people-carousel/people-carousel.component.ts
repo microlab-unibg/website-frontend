@@ -64,7 +64,7 @@ export class PeopleCarouselComponent {
       },
       {
         fullname: "Gianluca Traversi",
-        role: "Associate Professor",
+        role: "Full Professor",
         image_link: "https://aisberg.unibg.it/rm/public/picture/img/it.cilea.ga.model.Person/58da8ec3-d49a-42dc-87e9-2d63477b442e.fragment",
         page_link: 'https://didattica-rubrica.unibg.it/ugov/person/2025'
       },
@@ -88,15 +88,33 @@ export class PeopleCarouselComponent {
       },
       {
         fullname: "Luca Ghislotti",
-        role: "Research Fellow",
+        role: "Post-Doc Fellow",
         image_link: "https://lucaghislotti.com/assets/img/luca_pic.jpg?7cbaf38f87421a64466fa40d133eccc4",
         page_link: 'https://lucaghislotti.com/'
       },
       {
+        fullname: "Giacomo Secci",
+        role: "Post-Doc Fellow",
+        image_link: "assets/img/giacomo.jpeg",
+        page_link: 'https://www.researchgate.net/profile/Giacomo-Secci'
+      },
+      {
         fullname: "Matteo Verzeroli",
         role: "Ph.D. Student",
-        image_link: "https://microlab.unibg.it/assets/img/verze_linkedin_profile_pic.jpg",
+        image_link: "assets/img/verze_linkedin_profile_pic.jpg",
         page_link: 'https://didattica-rubrica.unibg.it/ugov/person/88527'
+      },
+      {
+        fullname: "Nicola Sana",
+        role: "Ph.D. Student",
+        image_link: "/assets/img/nicola.jpg",
+        page_link: '#'
+      },
+      {
+        fullname: "Giulia Signori",
+        role: "Ph.D. Student",
+        image_link: "/assets/img/giulia.jpg",
+        page_link: '#'
       },
     ]
   }
